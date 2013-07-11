@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTabtipotarifarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTabtipotarifarioLabel_idTtar}"/>
+                    <h:outputText value="#{tabtipotarifarioController.selected.idTtar}" title="#{bundle.ViewTabtipotarifarioTitle_idTtar}"/>
+                    <h:outputText value="#{bundle.ViewTabtipotarifarioLabel_nombreTtar}"/>
+                    <h:outputText value="#{tabtipotarifarioController.selected.nombreTtar}" title="#{bundle.ViewTabtipotarifarioTitle_nombreTtar}"/>
+                    <h:outputText value="#{bundle.ViewTabtipotarifarioLabel_idTest}"/>
+                    <h:outputText value="#{tabtipotarifarioController.selected.idTest}" title="#{bundle.ViewTabtipotarifarioTitle_idTest}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tabtipotarifarioController.destroyAndView}" value="#{bundle.ViewTabtipotarifarioDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTabtipotarifarioEditLink}"/>
+                <br />
+                <h:commandLink action="#{tabtipotarifarioController.prepareCreate}" value="#{bundle.ViewTabtipotarifarioCreateLink}" />
+                <br />
+                <h:commandLink action="#{tabtipotarifarioController.prepareList}" value="#{bundle.ViewTabtipotarifarioShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTabtipotarifarioIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

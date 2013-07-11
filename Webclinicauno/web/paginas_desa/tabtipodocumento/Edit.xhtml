@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTabtipodocumentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTabtipodocumentoLabel_idTdoc}" for="idTdoc" />
+                    <h:inputText id="idTdoc" value="#{tabtipodocumentoController.selected.idTdoc}" title="#{bundle.EditTabtipodocumentoTitle_idTdoc}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.EditTabtipodocumentoLabel_nombreTdoc}" for="nombreTdoc" />
+                    <h:inputText id="nombreTdoc" value="#{tabtipodocumentoController.selected.nombreTdoc}" title="#{bundle.EditTabtipodocumentoTitle_nombreTdoc}" />
+                </h:panelGrid>
+                <h:commandLink action="#{tabtipodocumentoController.update}" value="#{bundle.EditTabtipodocumentoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTabtipodocumentoViewLink}"/>
+                <br />
+                <h:commandLink action="#{tabtipodocumentoController.prepareList}" value="#{bundle.EditTabtipodocumentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTabtipodocumentoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

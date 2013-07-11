@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTabmonedaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTabmonedaEmpty}" rendered="#{tabmonedaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tabmonedaController.items.rowCount > 0}">
+                    <h:outputText value="#{tabmonedaController.pagination.pageFirstItem + 1}..#{tabmonedaController.pagination.pageLastItem + 1}/#{tabmonedaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tabmonedaController.previous}" value="#{bundle.Previous} #{tabmonedaController.pagination.pageSize}" rendered="#{tabmonedaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tabmonedaController.next}" value="#{bundle.Next} #{tabmonedaController.pagination.pageSize}" rendered="#{tabmonedaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tabmonedaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabmonedaTitle_idMone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabmonedaTitle_nombreMone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreMone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabmonedaTitle_nomenglaMone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomenglaMone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabmonedaTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tabmonedaController.prepareView}" value="#{bundle.ListTabmonedaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabmonedaController.prepareEdit}" value="#{bundle.ListTabmonedaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabmonedaController.destroy}" value="#{bundle.ListTabmonedaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tabmonedaController.prepareCreate}" value="#{bundle.ListTabmonedaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTabmonedaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

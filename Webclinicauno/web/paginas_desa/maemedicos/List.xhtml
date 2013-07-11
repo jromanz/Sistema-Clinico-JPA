@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMaemedicosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMaemedicosEmpty}" rendered="#{maemedicosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{maemedicosController.items.rowCount > 0}">
+                    <h:outputText value="#{maemedicosController.pagination.pageFirstItem + 1}..#{maemedicosController.pagination.pageLastItem + 1}/#{maemedicosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{maemedicosController.previous}" value="#{bundle.Previous} #{maemedicosController.pagination.pageSize}" rendered="#{maemedicosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{maemedicosController.next}" value="#{bundle.Next} #{maemedicosController.pagination.pageSize}" rendered="#{maemedicosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{maemedicosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_idMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_nombreMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_apepaternoMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apepaternoMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_apematernoMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apematernoMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_direccionMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_numerodocMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numerodocMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_numerorucMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numerorucMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_numerocolegMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numerocolegMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_numeroespecMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroespecMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_numerotelMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numerotelMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_correoelecMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.correoelecMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_fechanacMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechanacMmed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_fechaingMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaingMmed}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_numeroconsMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroconsMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_idCmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_idFpag}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idFpag}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_idEspm}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEspm}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_idTdoc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTdoc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaemedicosTitle_idUbig}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idUbig}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{maemedicosController.prepareView}" value="#{bundle.ListMaemedicosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maemedicosController.prepareEdit}" value="#{bundle.ListMaemedicosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maemedicosController.destroy}" value="#{bundle.ListMaemedicosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{maemedicosController.prepareCreate}" value="#{bundle.ListMaemedicosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMaemedicosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

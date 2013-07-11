@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTabformpagoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTabformpagoLabel_idFpag}"/>
+                    <h:outputText value="#{tabformpagoController.selected.idFpag}" title="#{bundle.ViewTabformpagoTitle_idFpag}"/>
+                    <h:outputText value="#{bundle.ViewTabformpagoLabel_nombreFpag}"/>
+                    <h:outputText value="#{tabformpagoController.selected.nombreFpag}" title="#{bundle.ViewTabformpagoTitle_nombreFpag}"/>
+                    <h:outputText value="#{bundle.ViewTabformpagoLabel_numerodiasFpag}"/>
+                    <h:outputText value="#{tabformpagoController.selected.numerodiasFpag}" title="#{bundle.ViewTabformpagoTitle_numerodiasFpag}"/>
+                    <h:outputText value="#{bundle.ViewTabformpagoLabel_idTest}"/>
+                    <h:outputText value="#{tabformpagoController.selected.idTest}" title="#{bundle.ViewTabformpagoTitle_idTest}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tabformpagoController.destroyAndView}" value="#{bundle.ViewTabformpagoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTabformpagoEditLink}"/>
+                <br />
+                <h:commandLink action="#{tabformpagoController.prepareCreate}" value="#{bundle.ViewTabformpagoCreateLink}" />
+                <br />
+                <h:commandLink action="#{tabformpagoController.prepareList}" value="#{bundle.ViewTabformpagoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTabformpagoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

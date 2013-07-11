@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTabprecioemedTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTabprecioemedEmpty}" rendered="#{tabprecioemedController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tabprecioemedController.items.rowCount > 0}">
+                    <h:outputText value="#{tabprecioemedController.pagination.pageFirstItem + 1}..#{tabprecioemedController.pagination.pageLastItem + 1}/#{tabprecioemedController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tabprecioemedController.previous}" value="#{bundle.Previous} #{tabprecioemedController.pagination.pageSize}" rendered="#{tabprecioemedController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tabprecioemedController.next}" value="#{bundle.Next} #{tabprecioemedController.pagination.pageSize}" rendered="#{tabprecioemedController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tabprecioemedController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabprecioemedTitle_idPreme}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPreme}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabprecioemedTitle_precioPreme}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.precioPreme}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabprecioemedTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabprecioemedTitle_idEspm}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEspm}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabprecioemedTitle_idMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabprecioemedTitle_idMtaf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMtaf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tabprecioemedController.prepareView}" value="#{bundle.ListTabprecioemedViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabprecioemedController.prepareEdit}" value="#{bundle.ListTabprecioemedEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabprecioemedController.destroy}" value="#{bundle.ListTabprecioemedDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tabprecioemedController.prepareCreate}" value="#{bundle.ListTabprecioemedCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTabprecioemedIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMaepermisoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_idPerm}" for="idPerm" />
+                    <h:inputText id="idPerm" value="#{maepermisoController.selected.idPerm}" title="#{bundle.CreateMaepermisoTitle_idPerm}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_opc01}" for="opc01" />
+                    <h:inputText id="opc01" value="#{maepermisoController.selected.opc01}" title="#{bundle.CreateMaepermisoTitle_opc01}" />
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_opc02}" for="opc02" />
+                    <h:inputText id="opc02" value="#{maepermisoController.selected.opc02}" title="#{bundle.CreateMaepermisoTitle_opc02}" />
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_opc03}" for="opc03" />
+                    <h:inputText id="opc03" value="#{maepermisoController.selected.opc03}" title="#{bundle.CreateMaepermisoTitle_opc03}" />
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_opc04}" for="opc04" />
+                    <h:inputText id="opc04" value="#{maepermisoController.selected.opc04}" title="#{bundle.CreateMaepermisoTitle_opc04}" />
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_opc05}" for="opc05" />
+                    <h:inputText id="opc05" value="#{maepermisoController.selected.opc05}" title="#{bundle.CreateMaepermisoTitle_opc05}" />
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_opc06}" for="opc06" />
+                    <h:inputText id="opc06" value="#{maepermisoController.selected.opc06}" title="#{bundle.CreateMaepermisoTitle_opc06}" />
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_opc07}" for="opc07" />
+                    <h:inputText id="opc07" value="#{maepermisoController.selected.opc07}" title="#{bundle.CreateMaepermisoTitle_opc07}" />
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_opc08}" for="opc08" />
+                    <h:inputText id="opc08" value="#{maepermisoController.selected.opc08}" title="#{bundle.CreateMaepermisoTitle_opc08}" />
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_opc09}" for="opc09" />
+                    <h:inputText id="opc09" value="#{maepermisoController.selected.opc09}" title="#{bundle.CreateMaepermisoTitle_opc09}" />
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_opc10}" for="opc10" />
+                    <h:inputText id="opc10" value="#{maepermisoController.selected.opc10}" title="#{bundle.CreateMaepermisoTitle_opc10}" />
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_idTest}" for="idTest" />
+                    <h:selectOneMenu id="idTest" value="#{maepermisoController.selected.idTest}" title="#{bundle.CreateMaepermisoTitle_idTest}" required="true" requiredMessage="#{bundle.CreateMaepermisoRequiredMessage_idTest}">
+                        <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_idRole}" for="idRole" />
+                    <h:selectOneMenu id="idRole" value="#{maepermisoController.selected.idRole}" title="#{bundle.CreateMaepermisoTitle_idRole}" required="true" requiredMessage="#{bundle.CreateMaepermisoRequiredMessage_idRole}">
+                        <f:selectItems value="#{maerolesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateMaepermisoLabel_idProg}" for="idProg" />
+                    <h:selectOneMenu id="idProg" value="#{maepermisoController.selected.idProg}" title="#{bundle.CreateMaepermisoTitle_idProg}" required="true" requiredMessage="#{bundle.CreateMaepermisoRequiredMessage_idProg}">
+                        <f:selectItems value="#{maeprogramaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maepermisoController.create}" value="#{bundle.CreateMaepermisoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{maepermisoController.prepareList}" value="#{bundle.CreateMaepermisoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMaepermisoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

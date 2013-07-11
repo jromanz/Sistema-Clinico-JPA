@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMaeprogramaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMaeprogramaLabel_idProg}" for="idProg" />
+                    <h:inputText id="idProg" value="#{maeprogramaController.selected.idProg}" title="#{bundle.EditMaeprogramaTitle_idProg}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.EditMaeprogramaLabel_nombreProg}" for="nombreProg" />
+                    <h:inputText id="nombreProg" value="#{maeprogramaController.selected.nombreProg}" title="#{bundle.EditMaeprogramaTitle_nombreProg}" />
+                    <h:outputLabel value="#{bundle.EditMaeprogramaLabel_flgventanaProg}" for="flgventanaProg" />
+                    <h:inputText id="flgventanaProg" value="#{maeprogramaController.selected.flgventanaProg}" title="#{bundle.EditMaeprogramaTitle_flgventanaProg}" />
+                    <h:outputLabel value="#{bundle.EditMaeprogramaLabel_objetoProg}" for="objetoProg" />
+                    <h:inputText id="objetoProg" value="#{maeprogramaController.selected.objetoProg}" title="#{bundle.EditMaeprogramaTitle_objetoProg}" />
+                    <h:outputLabel value="#{bundle.EditMaeprogramaLabel_iconoProg}" for="iconoProg" />
+                    <h:inputText id="iconoProg" value="#{maeprogramaController.selected.iconoProg}" title="#{bundle.EditMaeprogramaTitle_iconoProg}" />
+                    <h:outputLabel value="#{bundle.EditMaeprogramaLabel_idTest}" for="idTest" />
+                    <h:selectOneMenu id="idTest" value="#{maeprogramaController.selected.idTest}" title="#{bundle.EditMaeprogramaTitle_idTest}" required="true" requiredMessage="#{bundle.EditMaeprogramaRequiredMessage_idTest}">
+                        <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditMaeprogramaLabel_idModu}" for="idModu" />
+                    <h:selectOneMenu id="idModu" value="#{maeprogramaController.selected.idModu}" title="#{bundle.EditMaeprogramaTitle_idModu}" required="true" requiredMessage="#{bundle.EditMaeprogramaRequiredMessage_idModu}">
+                        <f:selectItems value="#{maemoduloController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditMaeprogramaLabel_idPadre}" for="idPadre" />
+                    <h:selectOneMenu id="idPadre" value="#{maeprogramaController.selected.idPadre}" title="#{bundle.EditMaeprogramaTitle_idPadre}" required="true" requiredMessage="#{bundle.EditMaeprogramaRequiredMessage_idPadre}">
+                        <f:selectItems value="#{maeprogramaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{maeprogramaController.update}" value="#{bundle.EditMaeprogramaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditMaeprogramaViewLink}"/>
+                <br />
+                <h:commandLink action="#{maeprogramaController.prepareList}" value="#{bundle.EditMaeprogramaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditMaeprogramaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

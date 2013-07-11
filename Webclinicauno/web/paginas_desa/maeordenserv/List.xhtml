@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMaeordenservTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMaeordenservEmpty}" rendered="#{maeordenservController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{maeordenservController.items.rowCount > 0}">
+                    <h:outputText value="#{maeordenservController.pagination.pageFirstItem + 1}..#{maeordenservController.pagination.pageLastItem + 1}/#{maeordenservController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{maeordenservController.previous}" value="#{bundle.Previous} #{maeordenservController.pagination.pageSize}" rendered="#{maeordenservController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{maeordenservController.next}" value="#{bundle.Next} #{maeordenservController.pagination.pageSize}" rendered="#{maeordenservController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{maeordenservController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_idOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_fechaOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaOrds}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_coaseguroOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.coaseguroOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_totalOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.totalOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_descuentoOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descuentoOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_baseOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.baseOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_flgcargaconsumoOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flgcargaconsumoOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_flgcargahonorarioOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flgcargahonorarioOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_codigoOrda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoOrda}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_idServ}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idServ}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenservTitle_idOrda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idOrda}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{maeordenservController.prepareView}" value="#{bundle.ListMaeordenservViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maeordenservController.prepareEdit}" value="#{bundle.ListMaeordenservEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maeordenservController.destroy}" value="#{bundle.ListMaeordenservDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{maeordenservController.prepareCreate}" value="#{bundle.ListMaeordenservCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMaeordenservIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMaeordenatenTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMaeordenatenEmpty}" rendered="#{maeordenatenController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{maeordenatenController.items.rowCount > 0}">
+                    <h:outputText value="#{maeordenatenController.pagination.pageFirstItem + 1}..#{maeordenatenController.pagination.pageLastItem + 1}/#{maeordenatenController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{maeordenatenController.previous}" value="#{bundle.Previous} #{maeordenatenController.pagination.pageSize}" rendered="#{maeordenatenController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{maeordenatenController.next}" value="#{bundle.Next} #{maeordenatenController.pagination.pageSize}" rendered="#{maeordenatenController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{maeordenatenController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenatenTitle_idOrda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idOrda}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenatenTitle_fechaOrda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaOrda}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenatenTitle_consultaOrda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.consultaOrda}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenatenTitle_deducibleOrda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deducibleOrda}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenatenTitle_flgcargaconsumoOrda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flgcargaconsumoOrda}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenatenTitle_flgcargahonorarioOrda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flgcargahonorarioOrda}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenatenTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenatenTitle_idMmed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMmed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeordenatenTitle_idRegi}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRegi}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{maeordenatenController.prepareView}" value="#{bundle.ListMaeordenatenViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maeordenatenController.prepareEdit}" value="#{bundle.ListMaeordenatenEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maeordenatenController.destroy}" value="#{bundle.ListMaeordenatenDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{maeordenatenController.prepareCreate}" value="#{bundle.ListMaeordenatenCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMaeordenatenIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

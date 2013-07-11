@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMaeordenservTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_idOrds}"/>
+                    <h:outputText value="#{maeordenservController.selected.idOrds}" title="#{bundle.ViewMaeordenservTitle_idOrds}"/>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_fechaOrds}"/>
+                    <h:outputText value="#{maeordenservController.selected.fechaOrds}" title="#{bundle.ViewMaeordenservTitle_fechaOrds}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_coaseguroOrds}"/>
+                    <h:outputText value="#{maeordenservController.selected.coaseguroOrds}" title="#{bundle.ViewMaeordenservTitle_coaseguroOrds}"/>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_totalOrds}"/>
+                    <h:outputText value="#{maeordenservController.selected.totalOrds}" title="#{bundle.ViewMaeordenservTitle_totalOrds}"/>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_descuentoOrds}"/>
+                    <h:outputText value="#{maeordenservController.selected.descuentoOrds}" title="#{bundle.ViewMaeordenservTitle_descuentoOrds}"/>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_baseOrds}"/>
+                    <h:outputText value="#{maeordenservController.selected.baseOrds}" title="#{bundle.ViewMaeordenservTitle_baseOrds}"/>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_flgcargaconsumoOrds}"/>
+                    <h:outputText value="#{maeordenservController.selected.flgcargaconsumoOrds}" title="#{bundle.ViewMaeordenservTitle_flgcargaconsumoOrds}"/>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_flgcargahonorarioOrds}"/>
+                    <h:outputText value="#{maeordenservController.selected.flgcargahonorarioOrds}" title="#{bundle.ViewMaeordenservTitle_flgcargahonorarioOrds}"/>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_codigoOrda}"/>
+                    <h:outputText value="#{maeordenservController.selected.codigoOrda}" title="#{bundle.ViewMaeordenservTitle_codigoOrda}"/>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_idTest}"/>
+                    <h:outputText value="#{maeordenservController.selected.idTest}" title="#{bundle.ViewMaeordenservTitle_idTest}"/>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_idServ}"/>
+                    <h:outputText value="#{maeordenservController.selected.idServ}" title="#{bundle.ViewMaeordenservTitle_idServ}"/>
+                    <h:outputText value="#{bundle.ViewMaeordenservLabel_idOrda}"/>
+                    <h:outputText value="#{maeordenservController.selected.idOrda}" title="#{bundle.ViewMaeordenservTitle_idOrda}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maeordenservController.destroyAndView}" value="#{bundle.ViewMaeordenservDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMaeordenservEditLink}"/>
+                <br />
+                <h:commandLink action="#{maeordenservController.prepareCreate}" value="#{bundle.ViewMaeordenservCreateLink}" />
+                <br />
+                <h:commandLink action="#{maeordenservController.prepareList}" value="#{bundle.ViewMaeordenservShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMaeordenservIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTabcamasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTabcamasEmpty}" rendered="#{tabcamasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tabcamasController.items.rowCount > 0}">
+                    <h:outputText value="#{tabcamasController.pagination.pageFirstItem + 1}..#{tabcamasController.pagination.pageLastItem + 1}/#{tabcamasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tabcamasController.previous}" value="#{bundle.Previous} #{tabcamasController.pagination.pageSize}" rendered="#{tabcamasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tabcamasController.next}" value="#{bundle.Next} #{tabcamasController.pagination.pageSize}" rendered="#{tabcamasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tabcamasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcamasTitle_idCama}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCama}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcamasTitle_nombreCama}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreCama}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcamasTitle_idEstc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEstc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tabcamasController.prepareView}" value="#{bundle.ListTabcamasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabcamasController.prepareEdit}" value="#{bundle.ListTabcamasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabcamasController.destroy}" value="#{bundle.ListTabcamasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tabcamasController.prepareCreate}" value="#{bundle.ListTabcamasCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTabcamasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

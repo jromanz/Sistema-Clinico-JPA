@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMaecompaniaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMaecompaniaEmpty}" rendered="#{maecompaniaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{maecompaniaController.items.rowCount > 0}">
+                    <h:outputText value="#{maecompaniaController.pagination.pageFirstItem + 1}..#{maecompaniaController.pagination.pageLastItem + 1}/#{maecompaniaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{maecompaniaController.previous}" value="#{bundle.Previous} #{maecompaniaController.pagination.pageSize}" rendered="#{maecompaniaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{maecompaniaController.next}" value="#{bundle.Next} #{maecompaniaController.pagination.pageSize}" rendered="#{maecompaniaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{maecompaniaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecompaniaTitle_idMcia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMcia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecompaniaTitle_codigoMcia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoMcia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecompaniaTitle_nombreMcia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreMcia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecompaniaTitle_direccionMcia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionMcia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecompaniaTitle_numerotelMcia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numerotelMcia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecompaniaTitle_correoelecMcia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.correoelecMcia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecompaniaTitle_nombrecontMcia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombrecontMcia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecompaniaTitle_fechaingMcia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaingMcia}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecompaniaTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecompaniaTitle_idUbig}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idUbig}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{maecompaniaController.prepareView}" value="#{bundle.ListMaecompaniaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maecompaniaController.prepareEdit}" value="#{bundle.ListMaecompaniaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maecompaniaController.destroy}" value="#{bundle.ListMaecompaniaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{maecompaniaController.prepareCreate}" value="#{bundle.ListMaecompaniaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMaecompaniaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

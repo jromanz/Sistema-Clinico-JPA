@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMaetarifarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMaetarifarioEmpty}" rendered="#{maetarifarioController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{maetarifarioController.items.rowCount > 0}">
+                    <h:outputText value="#{maetarifarioController.pagination.pageFirstItem + 1}..#{maetarifarioController.pagination.pageLastItem + 1}/#{maetarifarioController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{maetarifarioController.previous}" value="#{bundle.Previous} #{maetarifarioController.pagination.pageSize}" rendered="#{maetarifarioController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{maetarifarioController.next}" value="#{bundle.Next} #{maetarifarioController.pagination.pageSize}" rendered="#{maetarifarioController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{maetarifarioController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_idMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_codsegusnMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codsegusnMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_codsegusMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codsegusMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_flgtituloMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flgtituloMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_nombreMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_unidadMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.unidadMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_ayudantiaMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ayudantiaMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_instrumentistaMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.instrumentistaMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_diashospitalMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diashospitalMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_sexoMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sexoMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_edadminMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.edadminMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_edadmaxMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.edadmaxMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_idEspm}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEspm}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_idServ}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idServ}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_idTtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaetarifarioTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{maetarifarioController.prepareView}" value="#{bundle.ListMaetarifarioViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maetarifarioController.prepareEdit}" value="#{bundle.ListMaetarifarioEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maetarifarioController.destroy}" value="#{bundle.ListMaetarifarioDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{maetarifarioController.prepareCreate}" value="#{bundle.ListMaetarifarioCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMaetarifarioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

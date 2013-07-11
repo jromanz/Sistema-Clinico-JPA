@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTabcoberturaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTabcoberturaEmpty}" rendered="#{tabcoberturaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tabcoberturaController.items.rowCount > 0}">
+                    <h:outputText value="#{tabcoberturaController.pagination.pageFirstItem + 1}..#{tabcoberturaController.pagination.pageLastItem + 1}/#{tabcoberturaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tabcoberturaController.previous}" value="#{bundle.Previous} #{tabcoberturaController.pagination.pageSize}" rendered="#{tabcoberturaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tabcoberturaController.next}" value="#{bundle.Next} #{tabcoberturaController.pagination.pageSize}" rendered="#{tabcoberturaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tabcoberturaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_idCobe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCobe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_consultaCobe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.consultaCobe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_deducibleCobe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deducibleCobe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_coaseguroCobe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.coaseguroCobe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_coasegfarmCobe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.coasegfarmCobe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_dscfarmCobe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dscfarmCobe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_diasvigenciaCobe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diasvigenciaCobe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_flgvigconsultaCobe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flgvigconsultaCobe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_idTate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTate}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_idMone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_idconsulMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idconsulMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabcoberturaTitle_idPlan}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPlan}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tabcoberturaController.prepareView}" value="#{bundle.ListTabcoberturaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabcoberturaController.prepareEdit}" value="#{bundle.ListTabcoberturaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabcoberturaController.destroy}" value="#{bundle.ListTabcoberturaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tabcoberturaController.prepareCreate}" value="#{bundle.ListTabcoberturaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTabcoberturaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

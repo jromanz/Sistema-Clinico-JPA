@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMaeempresaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMaeempresaLabel_idMemp}" for="idMemp" />
+                    <h:inputText id="idMemp" value="#{maeempresaController.selected.idMemp}" title="#{bundle.CreateMaeempresaTitle_idMemp}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.CreateMaeempresaLabel_rucMemp}" for="rucMemp" />
+                    <h:inputText id="rucMemp" value="#{maeempresaController.selected.rucMemp}" title="#{bundle.CreateMaeempresaTitle_rucMemp}" />
+                    <h:outputLabel value="#{bundle.CreateMaeempresaLabel_razonsocMemp}" for="razonsocMemp" />
+                    <h:inputText id="razonsocMemp" value="#{maeempresaController.selected.razonsocMemp}" title="#{bundle.CreateMaeempresaTitle_razonsocMemp}" />
+                    <h:outputLabel value="#{bundle.CreateMaeempresaLabel_direccionMemp}" for="direccionMemp" />
+                    <h:inputText id="direccionMemp" value="#{maeempresaController.selected.direccionMemp}" title="#{bundle.CreateMaeempresaTitle_direccionMemp}" />
+                    <h:outputLabel value="#{bundle.CreateMaeempresaLabel_baseMemp}" for="baseMemp" />
+                    <h:inputText id="baseMemp" value="#{maeempresaController.selected.baseMemp}" title="#{bundle.CreateMaeempresaTitle_baseMemp}" />
+                    <h:outputLabel value="#{bundle.CreateMaeempresaLabel_idTest}" for="idTest" />
+                    <h:selectOneMenu id="idTest" value="#{maeempresaController.selected.idTest}" title="#{bundle.CreateMaeempresaTitle_idTest}" required="true" requiredMessage="#{bundle.CreateMaeempresaRequiredMessage_idTest}">
+                        <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maeempresaController.create}" value="#{bundle.CreateMaeempresaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{maeempresaController.prepareList}" value="#{bundle.CreateMaeempresaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMaeempresaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

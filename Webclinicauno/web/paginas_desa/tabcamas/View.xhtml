@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTabcamasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTabcamasLabel_idCama}"/>
+                    <h:outputText value="#{tabcamasController.selected.idCama}" title="#{bundle.ViewTabcamasTitle_idCama}"/>
+                    <h:outputText value="#{bundle.ViewTabcamasLabel_nombreCama}"/>
+                    <h:outputText value="#{tabcamasController.selected.nombreCama}" title="#{bundle.ViewTabcamasTitle_nombreCama}"/>
+                    <h:outputText value="#{bundle.ViewTabcamasLabel_idEstc}"/>
+                    <h:outputText value="#{tabcamasController.selected.idEstc}" title="#{bundle.ViewTabcamasTitle_idEstc}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tabcamasController.destroyAndView}" value="#{bundle.ViewTabcamasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTabcamasEditLink}"/>
+                <br />
+                <h:commandLink action="#{tabcamasController.prepareCreate}" value="#{bundle.ViewTabcamasCreateLink}" />
+                <br />
+                <h:commandLink action="#{tabcamasController.prepareList}" value="#{bundle.ViewTabcamasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTabcamasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

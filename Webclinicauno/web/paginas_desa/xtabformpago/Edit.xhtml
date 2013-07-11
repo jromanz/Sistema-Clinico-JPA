@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTabformpagoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTabformpagoLabel_idFpag}" for="idFpag" />
+                    <h:inputText id="idFpag" value="#{tabformpagoController.selected.idFpag}" title="#{bundle.EditTabformpagoTitle_idFpag}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.EditTabformpagoLabel_nombreFpag}" for="nombreFpag" />
+                    <h:inputText id="nombreFpag" value="#{tabformpagoController.selected.nombreFpag}" title="#{bundle.EditTabformpagoTitle_nombreFpag}" />
+                    <h:outputLabel value="#{bundle.EditTabformpagoLabel_numerodiasFpag}" for="numerodiasFpag" />
+                    <h:inputText id="numerodiasFpag" value="#{tabformpagoController.selected.numerodiasFpag}" title="#{bundle.EditTabformpagoTitle_numerodiasFpag}" />
+                    <h:outputLabel value="#{bundle.EditTabformpagoLabel_idTest}" for="idTest" />
+                    <h:selectOneMenu id="idTest" value="#{tabformpagoController.selected.idTest}" title="#{bundle.EditTabformpagoTitle_idTest}" required="true" requiredMessage="#{bundle.EditTabformpagoRequiredMessage_idTest}">
+                        <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{tabformpagoController.update}" value="#{bundle.EditTabformpagoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTabformpagoViewLink}"/>
+                <br />
+                <h:commandLink action="#{tabformpagoController.prepareList}" value="#{bundle.EditTabformpagoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTabformpagoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

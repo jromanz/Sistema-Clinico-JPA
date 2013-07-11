@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMaeexclusionesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMaeexclusionesLabel_idExcl}" for="idExcl" />
+                    <h:inputText id="idExcl" value="#{maeexclusionesController.selected.idExcl}" title="#{bundle.CreateMaeexclusionesTitle_idExcl}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.CreateMaeexclusionesLabel_nombreExcl}" for="nombreExcl" />
+                    <h:inputText id="nombreExcl" value="#{maeexclusionesController.selected.nombreExcl}" title="#{bundle.CreateMaeexclusionesTitle_nombreExcl}" />
+                    <h:outputLabel value="#{bundle.CreateMaeexclusionesLabel_idEspm}" for="idEspm" />
+                    <h:selectOneMenu id="idEspm" value="#{maeexclusionesController.selected.idEspm}" title="#{bundle.CreateMaeexclusionesTitle_idEspm}" required="true" requiredMessage="#{bundle.CreateMaeexclusionesRequiredMessage_idEspm}">
+                        <f:selectItems value="#{tabespmedicaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateMaeexclusionesLabel_idPoli}" for="idPoli" />
+                    <h:selectOneMenu id="idPoli" value="#{maeexclusionesController.selected.idPoli}" title="#{bundle.CreateMaeexclusionesTitle_idPoli}" required="true" requiredMessage="#{bundle.CreateMaeexclusionesRequiredMessage_idPoli}">
+                        <f:selectItems value="#{maepolizaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maeexclusionesController.create}" value="#{bundle.CreateMaeexclusionesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{maeexclusionesController.prepareList}" value="#{bundle.CreateMaeexclusionesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMaeexclusionesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

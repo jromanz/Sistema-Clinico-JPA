@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMaepersonalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_idPers}" for="idPers" />
+                    <h:inputText id="idPers" value="#{maepersonalController.selected.idPers}" title="#{bundle.EditMaepersonalTitle_idPers}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_codigoPers}" for="codigoPers" />
+                    <h:inputText id="codigoPers" value="#{maepersonalController.selected.codigoPers}" title="#{bundle.EditMaepersonalTitle_codigoPers}" />
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_nombrePers}" for="nombrePers" />
+                    <h:inputText id="nombrePers" value="#{maepersonalController.selected.nombrePers}" title="#{bundle.EditMaepersonalTitle_nombrePers}" />
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_apepaternoPers}" for="apepaternoPers" />
+                    <h:inputText id="apepaternoPers" value="#{maepersonalController.selected.apepaternoPers}" title="#{bundle.EditMaepersonalTitle_apepaternoPers}" />
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_apematernoPers}" for="apematernoPers" />
+                    <h:inputText id="apematernoPers" value="#{maepersonalController.selected.apematernoPers}" title="#{bundle.EditMaepersonalTitle_apematernoPers}" />
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_correoPers}" for="correoPers" />
+                    <h:inputText id="correoPers" value="#{maepersonalController.selected.correoPers}" title="#{bundle.EditMaepersonalTitle_correoPers}" />
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_direccionPers}" for="direccionPers" />
+                    <h:inputText id="direccionPers" value="#{maepersonalController.selected.direccionPers}" title="#{bundle.EditMaepersonalTitle_direccionPers}" />
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_numerodocPers}" for="numerodocPers" />
+                    <h:inputText id="numerodocPers" value="#{maepersonalController.selected.numerodocPers}" title="#{bundle.EditMaepersonalTitle_numerodocPers}" />
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_idMemp}" for="idMemp" />
+                    <h:selectOneMenu id="idMemp" value="#{maepersonalController.selected.idMemp}" title="#{bundle.EditMaepersonalTitle_idMemp}" required="true" requiredMessage="#{bundle.EditMaepersonalRequiredMessage_idMemp}">
+                        <f:selectItems value="#{maeempresaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_idTdoc}" for="idTdoc" />
+                    <h:selectOneMenu id="idTdoc" value="#{maepersonalController.selected.idTdoc}" title="#{bundle.EditMaepersonalTitle_idTdoc}" required="true" requiredMessage="#{bundle.EditMaepersonalRequiredMessage_idTdoc}">
+                        <f:selectItems value="#{tabtipodocumentoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_idUbig}" for="idUbig" />
+                    <h:selectOneMenu id="idUbig" value="#{maepersonalController.selected.idUbig}" title="#{bundle.EditMaepersonalTitle_idUbig}" required="true" requiredMessage="#{bundle.EditMaepersonalRequiredMessage_idUbig}">
+                        <f:selectItems value="#{tabubigeoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditMaepersonalLabel_idEstc}" for="idEstc" />
+                    <h:selectOneMenu id="idEstc" value="#{maepersonalController.selected.idEstc}" title="#{bundle.EditMaepersonalTitle_idEstc}" required="true" requiredMessage="#{bundle.EditMaepersonalRequiredMessage_idEstc}">
+                        <f:selectItems value="#{tabestacivilController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{maepersonalController.update}" value="#{bundle.EditMaepersonalSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditMaepersonalViewLink}"/>
+                <br />
+                <h:commandLink action="#{maepersonalController.prepareList}" value="#{bundle.EditMaepersonalShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditMaepersonalIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

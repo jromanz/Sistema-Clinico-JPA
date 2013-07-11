@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTabespmedicaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTabespmedicaEmpty}" rendered="#{tabespmedicaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tabespmedicaController.items.rowCount > 0}">
+                    <h:outputText value="#{tabespmedicaController.pagination.pageFirstItem + 1}..#{tabespmedicaController.pagination.pageLastItem + 1}/#{tabespmedicaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tabespmedicaController.previous}" value="#{bundle.Previous} #{tabespmedicaController.pagination.pageSize}" rendered="#{tabespmedicaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tabespmedicaController.next}" value="#{bundle.Next} #{tabespmedicaController.pagination.pageSize}" rendered="#{tabespmedicaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tabespmedicaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabespmedicaTitle_idEspm}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEspm}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabespmedicaTitle_nombreEspm}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreEspm}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabespmedicaTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tabespmedicaController.prepareView}" value="#{bundle.ListTabespmedicaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabespmedicaController.prepareEdit}" value="#{bundle.ListTabespmedicaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabespmedicaController.destroy}" value="#{bundle.ListTabespmedicaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tabespmedicaController.prepareCreate}" value="#{bundle.ListTabespmedicaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTabespmedicaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateTabformpagoTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="#{bundle.CreateTabformpagoLabel_idFpag}" for="idFpag"/>  
+                            <p:inputText id="idFpag" value="#{tabformpagoController.selected.idFpag}" title="#{bundle.CreateTabformpagoTitle_idFpag}" required="false" readonly="true" style="width: 50px"/>
+
+                            <p:outputLabel value="#{bundle.CreateTabformpagoLabel_nombreFpag}" for="nombreFpag"/>
+                            <p:inputText id="nombreFpag" value="#{tabformpagoController.selected.nombreFpag}" title="#{bundle.CreateTabformpagoTitle_nombreFpag}" />
+
+                            <p:outputLabel value="#{bundle.CreateTabformpagoLabel_numerodiasFpag}" for="numerodiasFpag" />
+                            <p:inputText id="numerodiasFpag" value="#{tabformpagoController.selected.numerodiasFpag}" title="#{bundle.CreateTabformpagoTitle_numerodiasFpag}"/>
+
+                            <p:outputLabel value="#{bundle.CreateTabformpagoLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{tabformpagoController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateTabformpagoRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabformpagoController.create}" value="#{bundle.CreateTabformpagoSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{tabformpagoController.prepareList}" value="#{bundle.CreateTabformpagoShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateTabformpagoIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

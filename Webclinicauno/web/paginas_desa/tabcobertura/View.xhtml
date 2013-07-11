@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTabcoberturaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_idCobe}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.idCobe}" title="#{bundle.ViewTabcoberturaTitle_idCobe}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_consultaCobe}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.consultaCobe}" title="#{bundle.ViewTabcoberturaTitle_consultaCobe}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_deducibleCobe}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.deducibleCobe}" title="#{bundle.ViewTabcoberturaTitle_deducibleCobe}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_coaseguroCobe}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.coaseguroCobe}" title="#{bundle.ViewTabcoberturaTitle_coaseguroCobe}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_coasegfarmCobe}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.coasegfarmCobe}" title="#{bundle.ViewTabcoberturaTitle_coasegfarmCobe}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_dscfarmCobe}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.dscfarmCobe}" title="#{bundle.ViewTabcoberturaTitle_dscfarmCobe}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_diasvigenciaCobe}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.diasvigenciaCobe}" title="#{bundle.ViewTabcoberturaTitle_diasvigenciaCobe}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_flgvigconsultaCobe}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.flgvigconsultaCobe}" title="#{bundle.ViewTabcoberturaTitle_flgvigconsultaCobe}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_idTate}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.idTate}" title="#{bundle.ViewTabcoberturaTitle_idTate}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_idTest}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.idTest}" title="#{bundle.ViewTabcoberturaTitle_idTest}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_idMone}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.idMone}" title="#{bundle.ViewTabcoberturaTitle_idMone}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_idconsulMtar}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.idconsulMtar}" title="#{bundle.ViewTabcoberturaTitle_idconsulMtar}"/>
+                    <h:outputText value="#{bundle.ViewTabcoberturaLabel_idPlan}"/>
+                    <h:outputText value="#{tabcoberturaController.selected.idPlan}" title="#{bundle.ViewTabcoberturaTitle_idPlan}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tabcoberturaController.destroyAndView}" value="#{bundle.ViewTabcoberturaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTabcoberturaEditLink}"/>
+                <br />
+                <h:commandLink action="#{tabcoberturaController.prepareCreate}" value="#{bundle.ViewTabcoberturaCreateLink}" />
+                <br />
+                <h:commandLink action="#{tabcoberturaController.prepareList}" value="#{bundle.ViewTabcoberturaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTabcoberturaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

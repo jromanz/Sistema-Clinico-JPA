@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDethoteleriaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDethoteleriaLabel_idHote}" for="idHote" />
+                    <h:inputText id="idHote" value="#{dethoteleriaController.selected.idHote}" title="#{bundle.EditDethoteleriaTitle_idHote}"  required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.EditDethoteleriaLabel_fechaHote}" for="fechaHote" />
+                    <h:inputText id="fechaHote" value="#{dethoteleriaController.selected.fechaHote}" title="#{bundle.EditDethoteleriaTitle_fechaHote}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditDethoteleriaLabel_idRegi}" for="idRegi" />
+                    <h:selectOneMenu id="idRegi" value="#{dethoteleriaController.selected.idRegi}" title="#{bundle.EditDethoteleriaTitle_idRegi}" required="true" requiredMessage="#{bundle.EditDethoteleriaRequiredMessage_idRegi}">
+                        <f:selectItems value="#{maeregistroController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditDethoteleriaLabel_idCama}" for="idCama" />
+                    <h:selectOneMenu id="idCama" value="#{dethoteleriaController.selected.idCama}" title="#{bundle.EditDethoteleriaTitle_idCama}" required="true" requiredMessage="#{bundle.EditDethoteleriaRequiredMessage_idCama}">
+                        <f:selectItems value="#{tabcamasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditDethoteleriaLabel_idMtar}" for="idMtar" />
+                    <h:selectOneMenu id="idMtar" value="#{dethoteleriaController.selected.idMtar}" title="#{bundle.EditDethoteleriaTitle_idMtar}" required="true" requiredMessage="#{bundle.EditDethoteleriaRequiredMessage_idMtar}">
+                        <f:selectItems value="#{maetarifarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{dethoteleriaController.update}" value="#{bundle.EditDethoteleriaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDethoteleriaViewLink}"/>
+                <br />
+                <h:commandLink action="#{dethoteleriaController.prepareList}" value="#{bundle.EditDethoteleriaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDethoteleriaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

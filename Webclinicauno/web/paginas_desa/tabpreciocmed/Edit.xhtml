@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTabpreciocmedTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTabpreciocmedLabel_idPrcme}" for="idPrcme" />
+                    <h:inputText id="idPrcme" value="#{tabpreciocmedController.selected.idPrcme}" title="#{bundle.EditTabpreciocmedTitle_idPrcme}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.EditTabpreciocmedLabel_precioPrcme}" for="precioPrcme" />
+                    <h:inputText id="precioPrcme" value="#{tabpreciocmedController.selected.precioPrcme}" title="#{bundle.EditTabpreciocmedTitle_precioPrcme}" />
+                    <h:outputLabel value="#{bundle.EditTabpreciocmedLabel_idTest}" for="idTest" />
+                    <h:selectOneMenu id="idTest" value="#{tabpreciocmedController.selected.idTest}" title="#{bundle.EditTabpreciocmedTitle_idTest}" required="true" requiredMessage="#{bundle.EditTabpreciocmedRequiredMessage_idTest}">
+                        <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditTabpreciocmedLabel_idMtar}" for="idMtar" />
+                    <h:selectOneMenu id="idMtar" value="#{tabpreciocmedController.selected.idMtar}" title="#{bundle.EditTabpreciocmedTitle_idMtar}" required="true" requiredMessage="#{bundle.EditTabpreciocmedRequiredMessage_idMtar}">
+                        <f:selectItems value="#{maetarifarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditTabpreciocmedLabel_idMtaf}" for="idMtaf" />
+                    <h:selectOneMenu id="idMtaf" value="#{tabpreciocmedController.selected.idMtaf}" title="#{bundle.EditTabpreciocmedTitle_idMtaf}" required="true" requiredMessage="#{bundle.EditTabpreciocmedRequiredMessage_idMtaf}">
+                        <f:selectItems value="#{maetarifasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditTabpreciocmedLabel_idCmed}" for="idCmed" />
+                    <h:selectOneMenu id="idCmed" value="#{tabpreciocmedController.selected.idCmed}" title="#{bundle.EditTabpreciocmedTitle_idCmed}" required="true" requiredMessage="#{bundle.EditTabpreciocmedRequiredMessage_idCmed}">
+                        <f:selectItems value="#{maeciamedicaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{tabpreciocmedController.update}" value="#{bundle.EditTabpreciocmedSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTabpreciocmedViewLink}"/>
+                <br />
+                <h:commandLink action="#{tabpreciocmedController.prepareList}" value="#{bundle.EditTabpreciocmedShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTabpreciocmedIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

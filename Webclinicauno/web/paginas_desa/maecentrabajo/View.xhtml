@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMaecentrabajoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMaecentrabajoLabel_idCtra}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.idCtra}" title="#{bundle.ViewMaecentrabajoTitle_idCtra}"/>
+                    <h:outputText value="#{bundle.ViewMaecentrabajoLabel_numerorucCtra}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.numerorucCtra}" title="#{bundle.ViewMaecentrabajoTitle_numerorucCtra}"/>
+                    <h:outputText value="#{bundle.ViewMaecentrabajoLabel_nombreCtra}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.nombreCtra}" title="#{bundle.ViewMaecentrabajoTitle_nombreCtra}"/>
+                    <h:outputText value="#{bundle.ViewMaecentrabajoLabel_direccionCtra}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.direccionCtra}" title="#{bundle.ViewMaecentrabajoTitle_direccionCtra}"/>
+                    <h:outputText value="#{bundle.ViewMaecentrabajoLabel_numerotelCtra}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.numerotelCtra}" title="#{bundle.ViewMaecentrabajoTitle_numerotelCtra}"/>
+                    <h:outputText value="#{bundle.ViewMaecentrabajoLabel_idTest}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.idTest}" title="#{bundle.ViewMaecentrabajoTitle_idTest}"/>
+                    <h:outputText value="#{bundle.ViewMaecentrabajoLabel_idUbig}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.idUbig}" title="#{bundle.ViewMaecentrabajoTitle_idUbig}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maecentrabajoController.destroyAndView}" value="#{bundle.ViewMaecentrabajoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMaecentrabajoEditLink}"/>
+                <br />
+                <h:commandLink action="#{maecentrabajoController.prepareCreate}" value="#{bundle.ViewMaecentrabajoCreateLink}" />
+                <br />
+                <h:commandLink action="#{maecentrabajoController.prepareList}" value="#{bundle.ViewMaecentrabajoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMaecentrabajoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

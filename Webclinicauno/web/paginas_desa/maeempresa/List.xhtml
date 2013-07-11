@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMaeempresaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMaeempresaEmpty}" rendered="#{maeempresaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{maeempresaController.items.rowCount > 0}">
+                    <h:outputText value="#{maeempresaController.pagination.pageFirstItem + 1}..#{maeempresaController.pagination.pageLastItem + 1}/#{maeempresaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{maeempresaController.previous}" value="#{bundle.Previous} #{maeempresaController.pagination.pageSize}" rendered="#{maeempresaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{maeempresaController.next}" value="#{bundle.Next} #{maeempresaController.pagination.pageSize}" rendered="#{maeempresaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{maeempresaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeempresaTitle_idMemp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMemp}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeempresaTitle_rucMemp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rucMemp}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeempresaTitle_razonsocMemp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.razonsocMemp}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeempresaTitle_direccionMemp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionMemp}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeempresaTitle_baseMemp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.baseMemp}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaeempresaTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{maeempresaController.prepareView}" value="#{bundle.ListMaeempresaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maeempresaController.prepareEdit}" value="#{bundle.ListMaeempresaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maeempresaController.destroy}" value="#{bundle.ListMaeempresaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{maeempresaController.prepareCreate}" value="#{bundle.ListMaeempresaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMaeempresaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

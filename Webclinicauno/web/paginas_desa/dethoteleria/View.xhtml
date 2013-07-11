@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDethoteleriaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDethoteleriaLabel_idHote}"/>
+                    <h:outputText value="#{dethoteleriaController.selected.idHote}" title="#{bundle.ViewDethoteleriaTitle_idHote}"/>
+                    <h:outputText value="#{bundle.ViewDethoteleriaLabel_fechaHote}"/>
+                    <h:outputText value="#{dethoteleriaController.selected.fechaHote}" title="#{bundle.ViewDethoteleriaTitle_fechaHote}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewDethoteleriaLabel_idRegi}"/>
+                    <h:outputText value="#{dethoteleriaController.selected.idRegi}" title="#{bundle.ViewDethoteleriaTitle_idRegi}"/>
+                    <h:outputText value="#{bundle.ViewDethoteleriaLabel_idCama}"/>
+                    <h:outputText value="#{dethoteleriaController.selected.idCama}" title="#{bundle.ViewDethoteleriaTitle_idCama}"/>
+                    <h:outputText value="#{bundle.ViewDethoteleriaLabel_idMtar}"/>
+                    <h:outputText value="#{dethoteleriaController.selected.idMtar}" title="#{bundle.ViewDethoteleriaTitle_idMtar}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{dethoteleriaController.destroyAndView}" value="#{bundle.ViewDethoteleriaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDethoteleriaEditLink}"/>
+                <br />
+                <h:commandLink action="#{dethoteleriaController.prepareCreate}" value="#{bundle.ViewDethoteleriaCreateLink}" />
+                <br />
+                <h:commandLink action="#{dethoteleriaController.prepareList}" value="#{bundle.ViewDethoteleriaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDethoteleriaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

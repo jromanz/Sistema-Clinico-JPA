@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMaerolesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMaerolesLabel_idRole}" for="idRole" />
+                    <h:inputText id="idRole" value="#{maerolesController.selected.idRole}" title="#{bundle.EditMaerolesTitle_idRole}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.EditMaerolesLabel_nombreRole}" for="nombreRole" />
+                    <h:inputText id="nombreRole" value="#{maerolesController.selected.nombreRole}" title="#{bundle.EditMaerolesTitle_nombreRole}" />
+                    <h:outputLabel value="#{bundle.EditMaerolesLabel_idTest}" for="idTest" />
+                    <h:selectOneMenu id="idTest" value="#{maerolesController.selected.idTest}" title="#{bundle.EditMaerolesTitle_idTest}" required="true" requiredMessage="#{bundle.EditMaerolesRequiredMessage_idTest}">
+                        <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{maerolesController.update}" value="#{bundle.EditMaerolesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditMaerolesViewLink}"/>
+                <br />
+                <h:commandLink action="#{maerolesController.prepareList}" value="#{bundle.EditMaerolesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditMaerolesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

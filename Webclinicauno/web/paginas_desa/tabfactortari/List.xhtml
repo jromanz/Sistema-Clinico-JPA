@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTabfactortariTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTabfactortariEmpty}" rendered="#{tabfactortariController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tabfactortariController.items.rowCount > 0}">
+                    <h:outputText value="#{tabfactortariController.pagination.pageFirstItem + 1}..#{tabfactortariController.pagination.pageLastItem + 1}/#{tabfactortariController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tabfactortariController.previous}" value="#{bundle.Previous} #{tabfactortariController.pagination.pageSize}" rendered="#{tabfactortariController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tabfactortariController.next}" value="#{bundle.Next} #{tabfactortariController.pagination.pageSize}" rendered="#{tabfactortariController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tabfactortariController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabfactortariTitle_idFtari}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idFtari}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabfactortariTitle_factorFtari}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.factorFtari}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabfactortariTitle_idMtaf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMtaf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabfactortariTitle_idTtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabfactortariTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tabfactortariController.prepareView}" value="#{bundle.ListTabfactortariViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabfactortariController.prepareEdit}" value="#{bundle.ListTabfactortariEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabfactortariController.destroy}" value="#{bundle.ListTabfactortariDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tabfactortariController.prepareCreate}" value="#{bundle.ListTabfactortariCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTabfactortariIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

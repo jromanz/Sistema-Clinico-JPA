@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTabpreciotariTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTabpreciotariEmpty}" rendered="#{tabpreciotariController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tabpreciotariController.items.rowCount > 0}">
+                    <h:outputText value="#{tabpreciotariController.pagination.pageFirstItem + 1}..#{tabpreciotariController.pagination.pageLastItem + 1}/#{tabpreciotariController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tabpreciotariController.previous}" value="#{bundle.Previous} #{tabpreciotariController.pagination.pageSize}" rendered="#{tabpreciotariController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tabpreciotariController.next}" value="#{bundle.Next} #{tabpreciotariController.pagination.pageSize}" rendered="#{tabpreciotariController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tabpreciotariController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabpreciotariTitle_idPrtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPrtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabpreciotariTitle_precioPrtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.precioPrtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabpreciotariTitle_idMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabpreciotariTitle_idMtaf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMtaf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTabpreciotariTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tabpreciotariController.prepareView}" value="#{bundle.ListTabpreciotariViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabpreciotariController.prepareEdit}" value="#{bundle.ListTabpreciotariEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tabpreciotariController.destroy}" value="#{bundle.ListTabpreciotariDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tabpreciotariController.prepareCreate}" value="#{bundle.ListTabpreciotariCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTabpreciotariIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

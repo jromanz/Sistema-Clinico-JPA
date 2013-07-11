@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMaetarifasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMaetarifasLabel_idMtaf}"/>
+                    <h:outputText value="#{maetarifasController.selected.idMtaf}" title="#{bundle.ViewMaetarifasTitle_idMtaf}"/>
+                    <h:outputText value="#{bundle.ViewMaetarifasLabel_nombreMtaf}"/>
+                    <h:outputText value="#{maetarifasController.selected.nombreMtaf}" title="#{bundle.ViewMaetarifasTitle_nombreMtaf}"/>
+                    <h:outputText value="#{bundle.ViewMaetarifasLabel_flgciainteMtaf}"/>
+                    <h:outputText value="#{maetarifasController.selected.flgciainteMtaf}" title="#{bundle.ViewMaetarifasTitle_flgciainteMtaf}"/>
+                    <h:outputText value="#{bundle.ViewMaetarifasLabel_idTest}"/>
+                    <h:outputText value="#{maetarifasController.selected.idTest}" title="#{bundle.ViewMaetarifasTitle_idTest}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maetarifasController.destroyAndView}" value="#{bundle.ViewMaetarifasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMaetarifasEditLink}"/>
+                <br />
+                <h:commandLink action="#{maetarifasController.prepareCreate}" value="#{bundle.ViewMaetarifasCreateLink}" />
+                <br />
+                <h:commandLink action="#{maetarifasController.prepareList}" value="#{bundle.ViewMaetarifasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMaetarifasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

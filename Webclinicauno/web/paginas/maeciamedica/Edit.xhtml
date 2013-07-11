@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.EditMaeciamedicaTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="#{bundle.EditMaeciamedicaLabel_idCmed}" for="idCmed"/>  
+                            <p:inputText id="idCmed" value="#{maeciamedicaController.selected.idCmed}" title="#{bundle.EditMaeciamedicaTitle_idCmed}" required="false" readonly="true" style="width: 50px"/>
+
+                            <p:outputLabel value="#{bundle.EditMaeciamedicaLabel_nombreCmed}" for="nombreCmed"/>
+                            <p:inputText id="nombreCmed" value="#{maeciamedicaController.selected.nombreCmed}" title="#{bundle.EditMaeciamedicaTitle_numerorucCmed}" />
+
+                            <p:outputLabel value="#{bundle.EditMaeciamedicaLabel_numerorucCmed}" for="numerorucCmed"/>
+                            <p:inputText id="numerorucCmed" value="#{maeciamedicaController.selected.numerorucCmed}" title="#{bundle.EditMaeciamedicaTitle_numerorucCmed}" />
+
+                            <p:outputLabel value="#{bundle.EditMaeciamedicaLabel_direccionCmed}" for="direccionCmed"/>
+                            <p:inputText id="direccionCmed" value="#{maeciamedicaController.selected.direccionCmed}" title="#{bundle.EditMaeciamedicaTitle_direccionCmed}" />
+
+                            <p:outputLabel value="#{bundle.EditMaeciamedicaLabel_numerotelCmed}" for="numerotelCmed"/>
+                            <p:inputText id="numerotelCmed" value="#{maeciamedicaController.selected.numerotelCmed}" title="#{bundle.EditMaeciamedicaTitle_numerotelCmed}" />
+
+                            <p:outputLabel value="#{bundle.EditMaeciamedicaLabel_correoelecCmed}" for="correoelecCmed"/>
+                            <p:inputText id="correoelecCmed" value="#{maeciamedicaController.selected.correoelecCmed}" title="#{bundle.EditMaeciamedicaTitle_correoelecCmed}" />
+
+                            <p:outputLabel value="#{bundle.EditMaeciamedicaLabel_fechaingCmed}" for="fechaingCmed" />
+                            <p:calendar id="fechaingCmed" value="#{maeciamedicaController.selected.fechaingCmed}" title="#{bundle.EditMaeciamedicaTitle_fechaingCmed}" effect="slide" pattern="dd/MM/yyyy" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+
+                            <p:outputLabel value="#{bundle.EditMaetarifasLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{maeciamedicaController.selected.idTest}" required="true" requiredMessage="#{bundle.EditMaetarifasRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            
+                            <p:outputLabel value="#{bundle.EditMaeciamedicaLabel_idFpag}" for="idFpag" />
+                            <p:selectOneMenu id="idFpag" value="#{maeciamedicaController.selected.idFpag}" required="true" requiredMessage="#{bundle.EditMaeciamedicaRequiredMessage_idFpag}">
+                                <f:selectItems value="#{tabformpagoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            
+                            <p:outputLabel value="#{bundle.EditMaeciamedicaLabel_idUbig}" for="idUbig" />
+                            <p:selectOneMenu id="idUbig" value="#{maeciamedicaController.selected.idUbig}" required="true" requiredMessage="#{bundle.EditMaeciamedicaRequiredMessage_idUbig}"
+                                             panelStyle="width:70px" style="width:250px" filter="true"  >
+                                <f:selectItems value="#{tabubigeoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{maeciamedicaController.update}" value="#{bundle.EditMaetarifasSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maeciamedicaController.prepareList}" value="#{bundle.EditMaetarifasShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.EditMaetarifasIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

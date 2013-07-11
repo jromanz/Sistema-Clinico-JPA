@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMaeregistroTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_idRegi}"/>
+                    <h:outputText value="#{maeregistroController.selected.idRegi}" title="#{bundle.ViewMaeregistroTitle_idRegi}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_deducibleRegi}"/>
+                    <h:outputText value="#{maeregistroController.selected.deducibleRegi}" title="#{bundle.ViewMaeregistroTitle_deducibleRegi}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_coaseguroRegi}"/>
+                    <h:outputText value="#{maeregistroController.selected.coaseguroRegi}" title="#{bundle.ViewMaeregistroTitle_coaseguroRegi}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_coasegfarmRegi}"/>
+                    <h:outputText value="#{maeregistroController.selected.coasegfarmRegi}" title="#{bundle.ViewMaeregistroTitle_coasegfarmRegi}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_dscfarmRegi}"/>
+                    <h:outputText value="#{maeregistroController.selected.dscfarmRegi}" title="#{bundle.ViewMaeregistroTitle_dscfarmRegi}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_fechaRegi}"/>
+                    <h:outputText value="#{maeregistroController.selected.fechaRegi}" title="#{bundle.ViewMaeregistroTitle_fechaRegi}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_fechainiRegi}"/>
+                    <h:outputText value="#{maeregistroController.selected.fechainiRegi}" title="#{bundle.ViewMaeregistroTitle_fechainiRegi}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_fechafinRegi}"/>
+                    <h:outputText value="#{maeregistroController.selected.fechafinRegi}" title="#{bundle.ViewMaeregistroTitle_fechafinRegi}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_observacionRegi}"/>
+                    <h:outputText value="#{maeregistroController.selected.observacionRegi}" title="#{bundle.ViewMaeregistroTitle_observacionRegi}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_consultaRegi}"/>
+                    <h:outputText value="#{maeregistroController.selected.consultaRegi}" title="#{bundle.ViewMaeregistroTitle_consultaRegi}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_idTest}"/>
+                    <h:outputText value="#{maeregistroController.selected.idTest}" title="#{bundle.ViewMaeregistroTitle_idTest}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_idEstr}"/>
+                    <h:outputText value="#{maeregistroController.selected.idEstr}" title="#{bundle.ViewMaeregistroTitle_idEstr}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_idCobe}"/>
+                    <h:outputText value="#{maeregistroController.selected.idCobe}" title="#{bundle.ViewMaeregistroTitle_idCobe}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_idMtaf}"/>
+                    <h:outputText value="#{maeregistroController.selected.idMtaf}" title="#{bundle.ViewMaeregistroTitle_idMtaf}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_idPlan}"/>
+                    <h:outputText value="#{maeregistroController.selected.idPlan}" title="#{bundle.ViewMaeregistroTitle_idPlan}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_idPaci}"/>
+                    <h:outputText value="#{maeregistroController.selected.idPaci}" title="#{bundle.ViewMaeregistroTitle_idPaci}"/>
+                    <h:outputText value="#{bundle.ViewMaeregistroLabel_idTate}"/>
+                    <h:outputText value="#{maeregistroController.selected.idTate}" title="#{bundle.ViewMaeregistroTitle_idTate}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maeregistroController.destroyAndView}" value="#{bundle.ViewMaeregistroDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMaeregistroEditLink}"/>
+                <br />
+                <h:commandLink action="#{maeregistroController.prepareCreate}" value="#{bundle.ViewMaeregistroCreateLink}" />
+                <br />
+                <h:commandLink action="#{maeregistroController.prepareList}" value="#{bundle.ViewMaeregistroShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMaeregistroIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

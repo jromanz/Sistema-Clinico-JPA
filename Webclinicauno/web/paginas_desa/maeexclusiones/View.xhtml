@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMaeexclusionesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMaeexclusionesLabel_idExcl}"/>
+                    <h:outputText value="#{maeexclusionesController.selected.idExcl}" title="#{bundle.ViewMaeexclusionesTitle_idExcl}"/>
+                    <h:outputText value="#{bundle.ViewMaeexclusionesLabel_nombreExcl}"/>
+                    <h:outputText value="#{maeexclusionesController.selected.nombreExcl}" title="#{bundle.ViewMaeexclusionesTitle_nombreExcl}"/>
+                    <h:outputText value="#{bundle.ViewMaeexclusionesLabel_idEspm}"/>
+                    <h:outputText value="#{maeexclusionesController.selected.idEspm}" title="#{bundle.ViewMaeexclusionesTitle_idEspm}"/>
+                    <h:outputText value="#{bundle.ViewMaeexclusionesLabel_idPoli}"/>
+                    <h:outputText value="#{maeexclusionesController.selected.idPoli}" title="#{bundle.ViewMaeexclusionesTitle_idPoli}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maeexclusionesController.destroyAndView}" value="#{bundle.ViewMaeexclusionesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMaeexclusionesEditLink}"/>
+                <br />
+                <h:commandLink action="#{maeexclusionesController.prepareCreate}" value="#{bundle.ViewMaeexclusionesCreateLink}" />
+                <br />
+                <h:commandLink action="#{maeexclusionesController.prepareList}" value="#{bundle.ViewMaeexclusionesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMaeexclusionesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

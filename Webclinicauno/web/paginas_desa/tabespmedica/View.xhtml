@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTabespmedicaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTabespmedicaLabel_idEspm}"/>
+                    <h:outputText value="#{tabespmedicaController.selected.idEspm}" title="#{bundle.ViewTabespmedicaTitle_idEspm}"/>
+                    <h:outputText value="#{bundle.ViewTabespmedicaLabel_nombreEspm}"/>
+                    <h:outputText value="#{tabespmedicaController.selected.nombreEspm}" title="#{bundle.ViewTabespmedicaTitle_nombreEspm}"/>
+                    <h:outputText value="#{bundle.ViewTabespmedicaLabel_idTest}"/>
+                    <h:outputText value="#{tabespmedicaController.selected.idTest}" title="#{bundle.ViewTabespmedicaTitle_idTest}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tabespmedicaController.destroyAndView}" value="#{bundle.ViewTabespmedicaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTabespmedicaEditLink}"/>
+                <br />
+                <h:commandLink action="#{tabespmedicaController.prepareCreate}" value="#{bundle.ViewTabespmedicaCreateLink}" />
+                <br />
+                <h:commandLink action="#{tabespmedicaController.prepareList}" value="#{bundle.ViewTabespmedicaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTabespmedicaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

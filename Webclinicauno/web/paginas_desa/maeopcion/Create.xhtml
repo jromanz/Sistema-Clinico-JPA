@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMaeopcionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMaeopcionLabel_idOpci}" for="idOpci" />
+                    <h:inputText id="idOpci" value="#{maeopcionController.selected.idOpci}" title="#{bundle.CreateMaeopcionTitle_idOpci}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.CreateMaeopcionLabel_nombreOpci}" for="nombreOpci" />
+                    <h:inputText id="nombreOpci" value="#{maeopcionController.selected.nombreOpci}" title="#{bundle.CreateMaeopcionTitle_nombreOpci}" />
+                    <h:outputLabel value="#{bundle.CreateMaeopcionLabel_op00Opci}" for="op00Opci" />
+                    <h:inputText id="op00Opci" value="#{maeopcionController.selected.op00Opci}" title="#{bundle.CreateMaeopcionTitle_op00Opci}" />
+                    <h:outputLabel value="#{bundle.CreateMaeopcionLabel_idProg}" for="idProg" />
+                    <h:selectOneMenu id="idProg" value="#{maeopcionController.selected.idProg}" title="#{bundle.CreateMaeopcionTitle_idProg}" required="true" requiredMessage="#{bundle.CreateMaeopcionRequiredMessage_idProg}">
+                        <f:selectItems value="#{maeprogramaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maeopcionController.create}" value="#{bundle.CreateMaeopcionSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{maeopcionController.prepareList}" value="#{bundle.CreateMaeopcionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMaeopcionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

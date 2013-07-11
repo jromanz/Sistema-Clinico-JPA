@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMaerolesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMaerolesLabel_idRole}"/>
+                    <h:outputText value="#{maerolesController.selected.idRole}" title="#{bundle.ViewMaerolesTitle_idRole}"/>
+                    <h:outputText value="#{bundle.ViewMaerolesLabel_nombreRole}"/>
+                    <h:outputText value="#{maerolesController.selected.nombreRole}" title="#{bundle.ViewMaerolesTitle_nombreRole}"/>
+                    <h:outputText value="#{bundle.ViewMaerolesLabel_idTest}"/>
+                    <h:outputText value="#{maerolesController.selected.idTest}" title="#{bundle.ViewMaerolesTitle_idTest}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maerolesController.destroyAndView}" value="#{bundle.ViewMaerolesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMaerolesEditLink}"/>
+                <br />
+                <h:commandLink action="#{maerolesController.prepareCreate}" value="#{bundle.ViewMaerolesCreateLink}" />
+                <br />
+                <h:commandLink action="#{maerolesController.prepareList}" value="#{bundle.ViewMaerolesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMaerolesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

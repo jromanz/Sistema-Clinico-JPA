@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateMaepacienteTitle}" style="margin-bottom:100px;font-size:70%">
+                         <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idPaci}" for="idPaci"/>  
+                            <p:inputText id="idPaci" value="#{maepacienteController.selected.idPaci}" title="#{bundle.CreateMaepacienteTitle_idPaci}" required="false" readonly="true" style="width: 50px"/>
+
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_numeroPaci}" for="numeroPaci"/>
+                            <p:inputMask id="numeroPaci" value="#{maepacienteController.selected.numeroPaci}" title="#{bundle.CreateMaepacienteTitle_numeroPaci}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_numeroPaci}" mask="9999999999" />
+
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_nombrePaci}" for="nombrePaci" />
+                            <p:inputText id="nombrePaci" value="#{maepacienteController.selected.nombrePaci}" title="#{bundle.CreateMaepacienteTitle_nombrePaci}" style="text-transform: uppercase; width: 350px" maxlength="45">
+                                <p:watermark for="nombrePaci" value="#{bundle.CreateMaepacienteTitle_nombrePaci}" />  
+                            </p:inputText>
+
+
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_apepaternoPaci}" for="apepaternoPaci" />
+                            <p:inputText id="apepaternoPaci" value="#{maepacienteController.selected.apepaternoPaci}" title="#{bundle.CreateMaepacienteTitle_apepaternoPaci}" style="text-transform: uppercase; width: 350px" maxlength="45">
+                                <p:watermark for="apepaternoPaci" value="#{bundle.CreateMaepacienteTitle_apepaternoPaci}" />  
+                            </p:inputText>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_apematernoPaci}" for="apematernoPaci" />
+                            <p:inputText id="apematernoPaci" value="#{maepacienteController.selected.apematernoPaci}" title="#{bundle.CreateMaepacienteTitle_apematernoPaci}" style="text-transform: uppercase; width: 350px" maxlength="45">
+                                <p:watermark for="apematernoPaci" value="#{bundle.CreateMaepacienteTitle_apematernoPaci}" />  
+                            </p:inputText>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_fechaingPaci}" for="fechaingPaci" />
+                            <p:calendar id="fechaingPaci" value="#{maepacienteController.selected.fechaingPaci}" title="#{bundle.CreateMaepacienteTitle_fechaingPaci}" effect="slide">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </p:calendar>
+
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_direccionPaci}" for="direccionPaci" />
+                            <p:inputText id="direccionPaci" value="#{maepacienteController.selected.direccionPaci}" title="#{bundle.CreateMaepacienteTitle_direccionPaci}" style="text-transform: uppercase; width: 350px" maxlength="45">
+                                <p:watermark for="direccionPaci" value="#{bundle.CreateMaepacienteTitle_direccionPaci}" />  
+                            </p:inputText>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_numerotelPaci}" for="numerotelPaci" />
+                            <p:inputText id="numerotelPaci" value="#{maepacienteController.selected.numerotelPaci}" title="#{bundle.CreateMaepacienteTitle_numerotelPaci}" />
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_correoelecPaci}" for="correoelecPaci" />
+                            <p:inputText id="correoelecPaci" value="#{maepacienteController.selected.correoelecPaci}" title="#{bundle.CreateMaepacienteTitle_correoelecPaci}" />
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_sexoPaci}" for="sexoPaci" />
+                            <p:selectOneRadio id="sexoPaci" value="#{maepacienteController.selected.sexoPaci}">  
+                                <f:selectItem itemLabel="Mujer" itemValue="0" />
+                                <f:selectItem itemLabel="Hombre" itemValue="1" />  
+                            </p:selectOneRadio>  
+
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_numerodocPaci}" for="numerodocPaci" />
+                            <p:inputText id="numerodocPaci" value="#{maepacienteController.selected.numerodocPaci}" title="#{bundle.CreateMaepacienteTitle_numerodocPaci}" />
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_apppatertitPaci}" for="apppatertitPaci" />
+                            <p:inputText id="apppatertitPaci" value="#{maepacienteController.selected.apppatertitPaci}" title="#{bundle.CreateMaepacienteTitle_apppatertitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
+                                <p:watermark for="apppatertitPaci" value="#{bundle.CreateMaepacienteTitle_apppatertitPaci}" />  
+                            </p:inputText>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_appmatertitPaci}" for="appmatertitPaci" />
+                            <p:inputText id="appmatertitPaci" value="#{maepacienteController.selected.appmatertitPaci}" title="#{bundle.CreateMaepacienteTitle_appmatertitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
+                                <p:watermark for="appmatertitPaci" value="#{bundle.CreateMaepacienteTitle_appmatertitPaci}" />  
+                            </p:inputText>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_nombretitPaci}" for="nombretitPaci" />
+                            <p:inputText id="nombretitPaci" value="#{maepacienteController.selected.nombretitPaci}" title="#{bundle.CreateMaepacienteTitle_nombretitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
+                                <p:watermark for="nombretitPaci" value="#{bundle.CreateMaepacienteTitle_nombretitPaci}" />  
+                            </p:inputText>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idPcli}" for="idPcli" />
+                            <p:selectOneMenu id="idPcli" value="#{maepacienteController.selected.idPcli}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idPcli}">
+                                <f:selectItems value="#{maepolizaController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{maepacienteController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idCtra}" for="idCtra" />
+                            <p:selectOneMenu id="idCtra" value="#{maepacienteController.selected.idCtra}" >
+                                <f:selectItems value="#{maecentrabajoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTitu}" for="idTitu" />
+                            <p:selectOneMenu id="idTitu" value="#{maepacienteController.selected.idTitu}" >
+                                <f:selectItems value="#{maepacienteController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTpar}" for="idTpar" />
+                            <p:selectOneMenu id="idTpar" value="#{maepacienteController.selected.idTpar}"  required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTpar}">
+                                <f:selectItems value="#{tabparentescoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idCatp}" for="idCatp" />
+                            <p:selectOneMenu id="idCatp" value="#{maepacienteController.selected.idCatp}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idCatp}">
+                                <f:selectItems value="#{tabcategpaciController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTdoc}" for="idTdoc" />
+                            <p:selectOneMenu id="idTdoc" value="#{maepacienteController.selected.idTdoc}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTdoc}">
+                                <f:selectItems value="#{tabtipodocumentoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idUbig}" for="idUbig" />
+
+                            <p:selectOneMenu id="idUbig" value="#{maepacienteController.selected.idUbig}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idUbig}"
+                                             panelStyle="width:70px" style="width:250px" filter="true"  >
+                                <f:selectItems value="#{tabubigeoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                    </p:panel>
+                    <h:commandLink action="#{maepacienteController.create}" value="#{bundle.CreateMaepacienteSaveLink}" />
+                    <br />
+                    <br />
+                    <h:commandLink action="#{maepacienteController.prepareList}" value="#{bundle.CreateMaepacienteShowAllLink}" immediate="true"/>
+                    <br />
+                    <br />
+                    <h:link outcome="/index" value="#{bundle.CreateMaepacienteIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

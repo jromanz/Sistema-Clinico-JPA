@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateMaeplanesTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="#{bundle.CreateMaeplanesLabel_idPlan}" for="idPlan"/>  
+                            <p:inputText id="idPlan" value="#{maeplanesController.selected.idPlan}" title="#{bundle.CreateMaeplanesTitle_idPlan}" required="false" readonly="true"/>
+
+                            <p:outputLabel value="#{bundle.CreateMaeplanesLabel_nombrePlan}" for="nombrePlan"/>
+                            <p:inputText id="nombrePlan" value="#{maeplanesController.selected.nombrePlan}" title="#{bundle.CreateMaeplanesTitle_nombrePlan}" />
+
+                            <p:outputLabel value="#{bundle.CreateMaeplanesLabel_fechainiPlan}" for="fechainiPlan" />
+                            <p:calendar id="fechainiPlan" value="#{maeplanesController.selected.fechainiPlan}" title="#{bundle.CreateMaeplanesTitle_fechainiPlan}" effect="slide" pattern="dd/MM/yyyy" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+
+                            <p:outputLabel value="#{bundle.CreateMaeplanesLabel_fechafinPlan}" for="fechafinPlan" />
+                            <p:calendar id="fechafinPlan" value="#{maeplanesController.selected.fechafinPlan}" title="#{bundle.CreateMaeplanesTitle_fechafinPlan}" effect="slide" pattern="dd/MM/yyyy" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+
+                            <p:outputLabel value="#{bundle.CreateMaeplanesLabel_idMtaf}" for="idMtaf" />
+                            <p:selectOneMenu id="idMtaf" value="#{maeplanesController.selected.idMtaf}" required="true" requiredMessage="#{bundle.CreateMaeplanesRequiredMessage_idMtaf}">
+                                <f:selectItems value="#{maetarifasController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{maeplanesController.create}" value="#{bundle.CreateMaeplanesSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton action="#{maeplanesController.prepareList}" value="#{bundle.CreateMaeplanesShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateMaeplanesIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

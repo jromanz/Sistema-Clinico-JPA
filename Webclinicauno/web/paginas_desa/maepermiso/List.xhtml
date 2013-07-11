@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMaepermisoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMaepermisoEmpty}" rendered="#{maepermisoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{maepermisoController.items.rowCount > 0}">
+                    <h:outputText value="#{maepermisoController.pagination.pageFirstItem + 1}..#{maepermisoController.pagination.pageLastItem + 1}/#{maepermisoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{maepermisoController.previous}" value="#{bundle.Previous} #{maepermisoController.pagination.pageSize}" rendered="#{maepermisoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{maepermisoController.next}" value="#{bundle.Next} #{maepermisoController.pagination.pageSize}" rendered="#{maepermisoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{maepermisoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_idPerm}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPerm}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_opc01}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opc01}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_opc02}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opc02}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_opc03}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opc03}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_opc04}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opc04}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_opc05}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opc05}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_opc06}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opc06}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_opc07}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opc07}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_opc08}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opc08}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_opc09}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opc09}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_opc10}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opc10}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_idRole}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRole}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaepermisoTitle_idProg}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idProg}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{maepermisoController.prepareView}" value="#{bundle.ListMaepermisoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maepermisoController.prepareEdit}" value="#{bundle.ListMaepermisoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maepermisoController.destroy}" value="#{bundle.ListMaepermisoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{maepermisoController.prepareCreate}" value="#{bundle.ListMaepermisoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMaepermisoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

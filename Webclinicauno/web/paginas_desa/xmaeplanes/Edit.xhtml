@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMaeplanesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMaeplanesLabel_idPlan}" for="idPlan" />
+                    <h:inputText id="idPlan" value="#{maeplanesController.selected.idPlan}" title="#{bundle.EditMaeplanesTitle_idPlan}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.EditMaeplanesLabel_nombrePlan}" for="nombrePlan" />
+                    <h:inputText id="nombrePlan" value="#{maeplanesController.selected.nombrePlan}" title="#{bundle.EditMaeplanesTitle_nombrePlan}" />
+                    <h:outputLabel value="#{bundle.EditMaeplanesLabel_fechainiPlan}" for="fechainiPlan" />
+                    <h:inputText id="fechainiPlan" value="#{maeplanesController.selected.fechainiPlan}" title="#{bundle.EditMaeplanesTitle_fechainiPlan}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditMaeplanesLabel_fechafinPlan}" for="fechafinPlan" />
+                    <h:inputText id="fechafinPlan" value="#{maeplanesController.selected.fechafinPlan}" title="#{bundle.EditMaeplanesTitle_fechafinPlan}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditMaeplanesLabel_idMtaf}" for="idMtaf" />
+                    <h:selectOneMenu id="idMtaf" value="#{maeplanesController.selected.idMtaf}" title="#{bundle.EditMaeplanesTitle_idMtaf}" required="true" requiredMessage="#{bundle.EditMaeplanesRequiredMessage_idMtaf}">
+                        <f:selectItems value="#{maetarifasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{maeplanesController.update}" value="#{bundle.EditMaeplanesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditMaeplanesViewLink}"/>
+                <br />
+                <h:commandLink action="#{maeplanesController.prepareList}" value="#{bundle.EditMaeplanesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditMaeplanesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

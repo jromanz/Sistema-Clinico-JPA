@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTabpreciomediTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTabpreciomediLabel_idPrmed}"/>
+                    <h:outputText value="#{tabpreciomediController.selected.idPrmed}" title="#{bundle.ViewTabpreciomediTitle_idPrmed}"/>
+                    <h:outputText value="#{bundle.ViewTabpreciomediLabel_precioPrmed}"/>
+                    <h:outputText value="#{tabpreciomediController.selected.precioPrmed}" title="#{bundle.ViewTabpreciomediTitle_precioPrmed}"/>
+                    <h:outputText value="#{bundle.ViewTabpreciomediLabel_idTest}"/>
+                    <h:outputText value="#{tabpreciomediController.selected.idTest}" title="#{bundle.ViewTabpreciomediTitle_idTest}"/>
+                    <h:outputText value="#{bundle.ViewTabpreciomediLabel_idMtar}"/>
+                    <h:outputText value="#{tabpreciomediController.selected.idMtar}" title="#{bundle.ViewTabpreciomediTitle_idMtar}"/>
+                    <h:outputText value="#{bundle.ViewTabpreciomediLabel_idMtaf}"/>
+                    <h:outputText value="#{tabpreciomediController.selected.idMtaf}" title="#{bundle.ViewTabpreciomediTitle_idMtaf}"/>
+                    <h:outputText value="#{bundle.ViewTabpreciomediLabel_idMmed}"/>
+                    <h:outputText value="#{tabpreciomediController.selected.idMmed}" title="#{bundle.ViewTabpreciomediTitle_idMmed}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tabpreciomediController.destroyAndView}" value="#{bundle.ViewTabpreciomediDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTabpreciomediEditLink}"/>
+                <br />
+                <h:commandLink action="#{tabpreciomediController.prepareCreate}" value="#{bundle.ViewTabpreciomediCreateLink}" />
+                <br />
+                <h:commandLink action="#{tabpreciomediController.prepareList}" value="#{bundle.ViewTabpreciomediShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTabpreciomediIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTabmonedaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTabmonedaLabel_idMone}"/>
+                    <h:outputText value="#{tabmonedaController.selected.idMone}" title="#{bundle.ViewTabmonedaTitle_idMone}"/>
+                    <h:outputText value="#{bundle.ViewTabmonedaLabel_nombreMone}"/>
+                    <h:outputText value="#{tabmonedaController.selected.nombreMone}" title="#{bundle.ViewTabmonedaTitle_nombreMone}"/>
+                    <h:outputText value="#{bundle.ViewTabmonedaLabel_nomenglaMone}"/>
+                    <h:outputText value="#{tabmonedaController.selected.nomenglaMone}" title="#{bundle.ViewTabmonedaTitle_nomenglaMone}"/>
+                    <h:outputText value="#{bundle.ViewTabmonedaLabel_idTest}"/>
+                    <h:outputText value="#{tabmonedaController.selected.idTest}" title="#{bundle.ViewTabmonedaTitle_idTest}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tabmonedaController.destroyAndView}" value="#{bundle.ViewTabmonedaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTabmonedaEditLink}"/>
+                <br />
+                <h:commandLink action="#{tabmonedaController.prepareCreate}" value="#{bundle.ViewTabmonedaCreateLink}" />
+                <br />
+                <h:commandLink action="#{tabmonedaController.prepareList}" value="#{bundle.ViewTabmonedaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTabmonedaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

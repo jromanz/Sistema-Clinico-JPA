@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMaetarifarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_idMtar}" for="idMtar" />
+                    <h:inputText id="idMtar" value="#{maetarifarioController.selected.idMtar}" title="#{bundle.EditMaetarifarioTitle_idMtar}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_codsegusnMtar}" for="codsegusnMtar" />
+                    <h:inputText id="codsegusnMtar" value="#{maetarifarioController.selected.codsegusnMtar}" title="#{bundle.EditMaetarifarioTitle_codsegusnMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_codsegusMtar}" for="codsegusMtar" />
+                    <h:inputText id="codsegusMtar" value="#{maetarifarioController.selected.codsegusMtar}" title="#{bundle.EditMaetarifarioTitle_codsegusMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_flgtituloMtar}" for="flgtituloMtar" />
+                    <h:inputText id="flgtituloMtar" value="#{maetarifarioController.selected.flgtituloMtar}" title="#{bundle.EditMaetarifarioTitle_flgtituloMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_nombreMtar}" for="nombreMtar" />
+                    <h:inputText id="nombreMtar" value="#{maetarifarioController.selected.nombreMtar}" title="#{bundle.EditMaetarifarioTitle_nombreMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_unidadMtar}" for="unidadMtar" />
+                    <h:inputText id="unidadMtar" value="#{maetarifarioController.selected.unidadMtar}" title="#{bundle.EditMaetarifarioTitle_unidadMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_ayudantiaMtar}" for="ayudantiaMtar" />
+                    <h:inputText id="ayudantiaMtar" value="#{maetarifarioController.selected.ayudantiaMtar}" title="#{bundle.EditMaetarifarioTitle_ayudantiaMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_instrumentistaMtar}" for="instrumentistaMtar" />
+                    <h:inputText id="instrumentistaMtar" value="#{maetarifarioController.selected.instrumentistaMtar}" title="#{bundle.EditMaetarifarioTitle_instrumentistaMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_diashospitalMtar}" for="diashospitalMtar" />
+                    <h:inputText id="diashospitalMtar" value="#{maetarifarioController.selected.diashospitalMtar}" title="#{bundle.EditMaetarifarioTitle_diashospitalMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_sexoMtar}" for="sexoMtar" />
+                    <h:inputText id="sexoMtar" value="#{maetarifarioController.selected.sexoMtar}" title="#{bundle.EditMaetarifarioTitle_sexoMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_edadminMtar}" for="edadminMtar" />
+                    <h:inputText id="edadminMtar" value="#{maetarifarioController.selected.edadminMtar}" title="#{bundle.EditMaetarifarioTitle_edadminMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_edadmaxMtar}" for="edadmaxMtar" />
+                    <h:inputText id="edadmaxMtar" value="#{maetarifarioController.selected.edadmaxMtar}" title="#{bundle.EditMaetarifarioTitle_edadmaxMtar}" />
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_idEspm}" for="idEspm" />
+                    <h:selectOneMenu id="idEspm" value="#{maetarifarioController.selected.idEspm}" title="#{bundle.EditMaetarifarioTitle_idEspm}" >
+                        <f:selectItems value="#{tabespmedicaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_idServ}" for="idServ" />
+                    <h:selectOneMenu id="idServ" value="#{maetarifarioController.selected.idServ}" title="#{bundle.EditMaetarifarioTitle_idServ}" required="true" requiredMessage="#{bundle.EditMaetarifarioRequiredMessage_idServ}">
+                        <f:selectItems value="#{tabservicioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_idTtar}" for="idTtar" />
+                    <h:selectOneMenu id="idTtar" value="#{maetarifarioController.selected.idTtar}" title="#{bundle.EditMaetarifarioTitle_idTtar}" required="true" requiredMessage="#{bundle.EditMaetarifarioRequiredMessage_idTtar}">
+                        <f:selectItems value="#{tabtipotarifarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditMaetarifarioLabel_idTest}" for="idTest" />
+                    <h:selectOneMenu id="idTest" value="#{maetarifarioController.selected.idTest}" title="#{bundle.EditMaetarifarioTitle_idTest}" required="true" requiredMessage="#{bundle.EditMaetarifarioRequiredMessage_idTest}">
+                        <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{maetarifarioController.update}" value="#{bundle.EditMaetarifarioSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditMaetarifarioViewLink}"/>
+                <br />
+                <h:commandLink action="#{maetarifarioController.prepareList}" value="#{bundle.EditMaetarifarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditMaetarifarioIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

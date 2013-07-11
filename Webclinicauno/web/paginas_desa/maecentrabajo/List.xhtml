@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMaecentrabajoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMaecentrabajoEmpty}" rendered="#{maecentrabajoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{maecentrabajoController.items.rowCount > 0}">
+                    <h:outputText value="#{maecentrabajoController.pagination.pageFirstItem + 1}..#{maecentrabajoController.pagination.pageLastItem + 1}/#{maecentrabajoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{maecentrabajoController.previous}" value="#{bundle.Previous} #{maecentrabajoController.pagination.pageSize}" rendered="#{maecentrabajoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{maecentrabajoController.next}" value="#{bundle.Next} #{maecentrabajoController.pagination.pageSize}" rendered="#{maecentrabajoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{maecentrabajoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecentrabajoTitle_idCtra}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCtra}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecentrabajoTitle_numerorucCtra}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numerorucCtra}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecentrabajoTitle_nombreCtra}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreCtra}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecentrabajoTitle_direccionCtra}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionCtra}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecentrabajoTitle_numerotelCtra}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numerotelCtra}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecentrabajoTitle_idTest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMaecentrabajoTitle_idUbig}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idUbig}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{maecentrabajoController.prepareView}" value="#{bundle.ListMaecentrabajoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maecentrabajoController.prepareEdit}" value="#{bundle.ListMaecentrabajoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{maecentrabajoController.destroy}" value="#{bundle.ListMaecentrabajoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{maecentrabajoController.prepareCreate}" value="#{bundle.ListMaecentrabajoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMaecentrabajoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

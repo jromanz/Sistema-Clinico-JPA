@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMaemedicosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_idMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.idMmed}" title="#{bundle.ViewMaemedicosTitle_idMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_nombreMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.nombreMmed}" title="#{bundle.ViewMaemedicosTitle_nombreMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_apepaternoMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.apepaternoMmed}" title="#{bundle.ViewMaemedicosTitle_apepaternoMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_apematernoMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.apematernoMmed}" title="#{bundle.ViewMaemedicosTitle_apematernoMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_direccionMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.direccionMmed}" title="#{bundle.ViewMaemedicosTitle_direccionMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_numerodocMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.numerodocMmed}" title="#{bundle.ViewMaemedicosTitle_numerodocMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_numerorucMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.numerorucMmed}" title="#{bundle.ViewMaemedicosTitle_numerorucMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_numerocolegMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.numerocolegMmed}" title="#{bundle.ViewMaemedicosTitle_numerocolegMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_numeroespecMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.numeroespecMmed}" title="#{bundle.ViewMaemedicosTitle_numeroespecMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_numerotelMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.numerotelMmed}" title="#{bundle.ViewMaemedicosTitle_numerotelMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_correoelecMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.correoelecMmed}" title="#{bundle.ViewMaemedicosTitle_correoelecMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_fechanacMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.fechanacMmed}" title="#{bundle.ViewMaemedicosTitle_fechanacMmed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_fechaingMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.fechaingMmed}" title="#{bundle.ViewMaemedicosTitle_fechaingMmed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_numeroconsMmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.numeroconsMmed}" title="#{bundle.ViewMaemedicosTitle_numeroconsMmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_idTest}"/>
+                    <h:outputText value="#{maemedicosController.selected.idTest}" title="#{bundle.ViewMaemedicosTitle_idTest}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_idCmed}"/>
+                    <h:outputText value="#{maemedicosController.selected.idCmed}" title="#{bundle.ViewMaemedicosTitle_idCmed}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_idFpag}"/>
+                    <h:outputText value="#{maemedicosController.selected.idFpag}" title="#{bundle.ViewMaemedicosTitle_idFpag}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_idEspm}"/>
+                    <h:outputText value="#{maemedicosController.selected.idEspm}" title="#{bundle.ViewMaemedicosTitle_idEspm}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_idTdoc}"/>
+                    <h:outputText value="#{maemedicosController.selected.idTdoc}" title="#{bundle.ViewMaemedicosTitle_idTdoc}"/>
+                    <h:outputText value="#{bundle.ViewMaemedicosLabel_idUbig}"/>
+                    <h:outputText value="#{maemedicosController.selected.idUbig}" title="#{bundle.ViewMaemedicosTitle_idUbig}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maemedicosController.destroyAndView}" value="#{bundle.ViewMaemedicosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMaemedicosEditLink}"/>
+                <br />
+                <h:commandLink action="#{maemedicosController.prepareCreate}" value="#{bundle.ViewMaemedicosCreateLink}" />
+                <br />
+                <h:commandLink action="#{maemedicosController.prepareList}" value="#{bundle.ViewMaemedicosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMaemedicosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMaeciamedicaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMaeciamedicaLabel_idCmed}"/>
+                    <h:outputText value="#{maeciamedicaController.selected.idCmed}" title="#{bundle.ViewMaeciamedicaTitle_idCmed}"/>
+                    <h:outputText value="#{bundle.ViewMaeciamedicaLabel_nombreCmed}"/>
+                    <h:outputText value="#{maeciamedicaController.selected.nombreCmed}" title="#{bundle.ViewMaeciamedicaTitle_nombreCmed}"/>
+                    <h:outputText value="#{bundle.ViewMaeciamedicaLabel_numerorucCmed}"/>
+                    <h:outputText value="#{maeciamedicaController.selected.numerorucCmed}" title="#{bundle.ViewMaeciamedicaTitle_numerorucCmed}"/>
+                    <h:outputText value="#{bundle.ViewMaeciamedicaLabel_direccionCmed}"/>
+                    <h:outputText value="#{maeciamedicaController.selected.direccionCmed}" title="#{bundle.ViewMaeciamedicaTitle_direccionCmed}"/>
+                    <h:outputText value="#{bundle.ViewMaeciamedicaLabel_numerotelCmed}"/>
+                    <h:outputText value="#{maeciamedicaController.selected.numerotelCmed}" title="#{bundle.ViewMaeciamedicaTitle_numerotelCmed}"/>
+                    <h:outputText value="#{bundle.ViewMaeciamedicaLabel_correoelecCmed}"/>
+                    <h:outputText value="#{maeciamedicaController.selected.correoelecCmed}" title="#{bundle.ViewMaeciamedicaTitle_correoelecCmed}"/>
+                    <h:outputText value="#{bundle.ViewMaeciamedicaLabel_fechaingCmed}"/>
+                    <h:outputText value="#{maeciamedicaController.selected.fechaingCmed}" title="#{bundle.ViewMaeciamedicaTitle_fechaingCmed}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMaeciamedicaLabel_idTest}"/>
+                    <h:outputText value="#{maeciamedicaController.selected.idTest}" title="#{bundle.ViewMaeciamedicaTitle_idTest}"/>
+                    <h:outputText value="#{bundle.ViewMaeciamedicaLabel_idFpag}"/>
+                    <h:outputText value="#{maeciamedicaController.selected.idFpag}" title="#{bundle.ViewMaeciamedicaTitle_idFpag}"/>
+                    <h:outputText value="#{bundle.ViewMaeciamedicaLabel_idUbig}"/>
+                    <h:outputText value="#{maeciamedicaController.selected.idUbig}" title="#{bundle.ViewMaeciamedicaTitle_idUbig}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maeciamedicaController.destroyAndView}" value="#{bundle.ViewMaeciamedicaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMaeciamedicaEditLink}"/>
+                <br />
+                <h:commandLink action="#{maeciamedicaController.prepareCreate}" value="#{bundle.ViewMaeciamedicaCreateLink}" />
+                <br />
+                <h:commandLink action="#{maeciamedicaController.prepareList}" value="#{bundle.ViewMaeciamedicaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMaeciamedicaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

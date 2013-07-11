@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDetordenservTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDetordenservEmpty}" rendered="#{detordenservController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{detordenservController.items.rowCount > 0}">
+                    <h:outputText value="#{detordenservController.pagination.pageFirstItem + 1}..#{detordenservController.pagination.pageLastItem + 1}/#{detordenservController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{detordenservController.previous}" value="#{bundle.Previous} #{detordenservController.pagination.pageSize}" rendered="#{detordenservController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{detordenservController.next}" value="#{bundle.Next} #{detordenservController.pagination.pageSize}" rendered="#{detordenservController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{detordenservController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetordenservTitle_idDors}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idDors}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetordenservTitle_cantidadDors}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadDors}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetordenservTitle_preciobaseOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.preciobaseOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetordenservTitle_descuentoOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descuentoOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetordenservTitle_precioOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.precioOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetordenservTitle_idOrds}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idOrds}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetordenservTitle_idMtar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMtar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{detordenservController.prepareView}" value="#{bundle.ListDetordenservViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detordenservController.prepareEdit}" value="#{bundle.ListDetordenservEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detordenservController.destroy}" value="#{bundle.ListDetordenservDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{detordenservController.prepareCreate}" value="#{bundle.ListDetordenservCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDetordenservIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
