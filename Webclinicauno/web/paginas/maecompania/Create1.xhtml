@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMaecompaniaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMaecompaniaLabel_idMcia}" for="idMcia" />
+                    <h:inputText id="idMcia" value="#{maecompaniaController.selected.idMcia}" title="#{bundle.CreateMaecompaniaTitle_idMcia}" required="false" readonly="true"/>
+                    
+                    <h:outputLabel value="#{bundle.CreateMaecompaniaLabel_codigoMcia}" for="codigoMcia" />
+                    <h:inputText id="codigoMcia" value="#{maecompaniaController.selected.codigoMcia}" title="#{bundle.CreateMaecompaniaTitle_codigoMcia}" />
+                    
+                    <h:outputLabel value="#{bundle.CreateMaecompaniaLabel_nombreMcia}" for="nombreMcia" />
+                    <h:inputText id="nombreMcia" value="#{maecompaniaController.selected.nombreMcia}" title="#{bundle.CreateMaecompaniaTitle_nombreMcia}" />
+                    
+                    <h:outputLabel value="#{bundle.CreateMaecompaniaLabel_direccionMcia}" for="direccionMcia" />
+                    <h:inputText id="direccionMcia" value="#{maecompaniaController.selected.direccionMcia}" title="#{bundle.CreateMaecompaniaTitle_direccionMcia}" />
+                    
+                    <h:outputLabel value="#{bundle.CreateMaecompaniaLabel_numerotelMcia}" for="numerotelMcia" />
+                    <h:inputText id="numerotelMcia" value="#{maecompaniaController.selected.numerotelMcia}" title="#{bundle.CreateMaecompaniaTitle_numerotelMcia}" />
+                    
+                    <h:outputLabel value="#{bundle.CreateMaecompaniaLabel_correoelecMcia}" for="correoelecMcia" />
+                    <h:inputText id="correoelecMcia" value="#{maecompaniaController.selected.correoelecMcia}" title="#{bundle.CreateMaecompaniaTitle_correoelecMcia}" />
+                    
+                    <h:outputLabel value="#{bundle.CreateMaecompaniaLabel_nombrecontMcia}" for="nombrecontMcia" />
+                    <h:inputText id="nombrecontMcia" value="#{maecompaniaController.selected.nombrecontMcia}" title="#{bundle.CreateMaecompaniaTitle_nombrecontMcia}" />
+                    
+                    <h:outputLabel value="#{bundle.CreateMaecompaniaLabel_fechaingMcia}" for="fechaingMcia" />
+                    <h:inputText id="fechaingMcia" value="#{maecompaniaController.selected.fechaingMcia}" title="#{bundle.CreateMaecompaniaTitle_fechaingMcia}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateMaecompaniaLabel_idTest}" for="idTest" />
+                    <h:selectOneMenu id="idTest" value="#{maecompaniaController.selected.idTest}" title="#{bundle.CreateMaecompaniaTitle_idTest}" required="true" requiredMessage="#{bundle.CreateMaecompaniaRequiredMessage_idTest}">
+                        <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateMaecompaniaLabel_idUbig}" for="idUbig" />
+                    <h:selectOneMenu id="idUbig" value="#{maecompaniaController.selected.idUbig}" title="#{bundle.CreateMaecompaniaTitle_idUbig}" required="true" requiredMessage="#{bundle.CreateMaecompaniaRequiredMessage_idUbig}">
+                        <f:selectItems value="#{tabubigeoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{maecompaniaController.create}" value="#{bundle.CreateMaecompaniaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{maecompaniaController.prepareList}" value="#{bundle.CreateMaecompaniaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMaecompaniaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
