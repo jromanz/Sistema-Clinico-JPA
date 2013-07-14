@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -37,6 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Maepersonal.findByDireccionPers", query = "SELECT m FROM Maepersonal m WHERE m.direccionPers = :direccionPers"),
     @NamedQuery(name = "Maepersonal.findByNumerodocPers", query = "SELECT m FROM Maepersonal m WHERE m.numerodocPers = :numerodocPers")})
 public class Maepersonal implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,6 +57,7 @@ public class Maepersonal implements Serializable {
     @Size(max = 45)
     @Column(name = "APEMATERNO_PERS")
     private String apematernoPers;
+    @Pattern(regexp = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message = "Correo electrónico no válido usuario@dominio")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 45)
     @Column(name = "CORREO_PERS")
     private String correoPers;
@@ -202,7 +205,6 @@ public class Maepersonal implements Serializable {
 
     @Override
     public String toString() {
-        return apepaternoPers+" "+apematernoPers+", "+nombrePers;
+        return apepaternoPers + " " + apematernoPers + ", " + nombrePers;
     }
-    
 }

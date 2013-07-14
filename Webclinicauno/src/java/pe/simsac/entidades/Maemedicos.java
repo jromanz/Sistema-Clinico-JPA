@@ -22,6 +22,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -50,6 +51,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Maemedicos.findByFechaingMmed", query = "SELECT m FROM Maemedicos m WHERE m.fechaingMmed = :fechaingMmed"),
     @NamedQuery(name = "Maemedicos.findByNumeroconsMmed", query = "SELECT m FROM Maemedicos m WHERE m.numeroconsMmed = :numeroconsMmed")})
 public class Maemedicos implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -83,6 +85,7 @@ public class Maemedicos implements Serializable {
     @Size(max = 45)
     @Column(name = "NUMEROTEL_MMED")
     private String numerotelMmed;
+    @Pattern(regexp = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message = "Correo electrónico no válido usuario@dominio")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 45)
     @Column(name = "CORREOELEC_MMED")
     private String correoelecMmed;
@@ -338,5 +341,4 @@ public class Maemedicos implements Serializable {
     public String toString() {
         return nombreMmed;
     }
-    
 }
