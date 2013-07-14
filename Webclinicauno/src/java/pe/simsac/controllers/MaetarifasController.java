@@ -21,7 +21,7 @@ import javax.faces.model.SelectItem;
 @Named("maetarifasController")
 @SessionScoped
 public class MaetarifasController implements Serializable {
-
+    
     private Maetarifas current;
     private DataModel items = null;
     @EJB

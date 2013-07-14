@@ -9,7 +9,9 @@
     <ui:composition template="/principalClinica.xhtml">
         <ui:define name="content">
             <h:form prependId="false">  
-                <p:growl id="messagePanel" />  
+                <h:panelGroup id="messagePanel">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
                 <p:dataTable id="dataTable" var="item" value="#{maetarifasController.items}"  
                              paginator="true" rows="10"  
                              paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
