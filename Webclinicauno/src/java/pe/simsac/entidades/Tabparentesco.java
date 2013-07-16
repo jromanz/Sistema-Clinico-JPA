@@ -31,6 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Tabparentesco.findAll", query = "SELECT t FROM Tabparentesco t"),
     @NamedQuery(name = "Tabparentesco.findByIdTpar", query = "SELECT t FROM Tabparentesco t WHERE t.idTpar = :idTpar"),
+    @NamedQuery(name = "Tabparentesco.findByTitular", query = "SELECT t FROM Tabparentesco t WHERE t.nombreTpar = 'TITULAR'"),
     @NamedQuery(name = "Tabparentesco.findByNombreTpar", query = "SELECT t FROM Tabparentesco t WHERE t.nombreTpar = :nombreTpar")})
 public class Tabparentesco implements Serializable {
     private static final long serialVersionUID = 1L;
