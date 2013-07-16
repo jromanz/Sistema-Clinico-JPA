@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE html
@@ -53,4 +54,65 @@
             </p:panelMenu>						
         </f:view>
     </h:form>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="frmMenu">
+        <f:view>
+            <!--p:panelMenu style="height:100%;width:100%;font-size:70%" expandedIcon="ui-icon-triangle-1-s" collapsedIcon="ui-icon-triangle-1-e"-->
+            <p:panelMenu style="height:100%;width:100%;font-size:70%">
+                <p:submenu label="Admision" style="size:12">
+                    <p:menuitem  value="Paciente" icon="ui-icon-person" action="/paginas/maepaciente/List"  ajax="false"/>
+                    <p:menuitem  value="Poliza" icon="ui-icon-tag" action="/paginas/maepoliza/List"  ajax="false"/>
+                    <p:menuitem  value="Planes" icon="ui-icon-flag" action="/paginas/maeplanes/List"  ajax="false"/>
+                    <p:menuitem  value="Tarifas" icon="ui-icon-carat-2-n-s" action="/paginas/maetarifas/List"  ajax="false"/>
+                    <p:menuitem  value="Cia. Medica" icon="ui-icon-tag" action="/paginas/maeciamedica/List"  ajax="false"/>
+                    <p:menuitem  value="forma de pago" icon="ui-icon-tag" action="/paginas/tabformpago/List"  ajax="false"/>
+                    <p:menuitem  value="Compania" icon="ui-icon-tag" action="/paginas/maecompania/List"  ajax="false"/>
+                    <p:menuitem  value="Exclusiones" icon="ui-icon-tag" action="/paginas/maeexclusiones/List"  ajax="false"/>
+                    <p:menuitem  value="Especialidades" icon="ui-icon-tag" action="/paginas/tabespmedica/List"  ajax="false"/>
+                    <p:menuitem  value="Medicos" icon="ui-icon-tag" action="/paginas/maemedicos/List"  ajax="false"/>
+                    
+                </p:submenu>
+                <p:submenu label="Servicios" style="size:12">
+                    <p:menuitem value="Actualizar Datos" icon="ui-icon-refresh" action="actDatosNotario" ajax="true"/>
+                    <p:submenu label="Administrar Firmas">
+                        <p:menuitem value="Registrar Firmas" icon="ui-icon-disk"  action="registrarFirmas" ajax="false"/>
+                        <p:menuitem value="Eliminar Firmas" icon="ui-icon-trash" action="eliminarFirmas" ajax="true"/>							
+                    </p:submenu>	
+                    <p:submenu label="Administrar Sellos">
+                        <p:menuitem value="Registrar Sellos" icon="ui-icon-disk" action="registrarSellos" ajax="false"/>
+                        <p:menuitem value="Eliminar Sellos" icon="ui-icon-trash" action="eliminarSellos" ajax="true"/>							
+                    </p:submenu>
+                    <p:submenu label="Administrar Presentantes">
+                        <p:menuitem value="Registrar Presentantes" icon="ui-icon-disk" action="registrarPresentante" ajax="true"/>
+                        <p:menuitem value="Eliminar Presentantes" icon="ui-icon-trash" action="eliminarPresentantes" ajax="true"/>
+                    </p:submenu>																
+                </p:submenu>
+                <p:submenu label="Consultas">
+                    <p:menuitem value="Buscar Notario" icon="ui-icon-document" action="buscarNotarios" ajax="true"/>
+                    <p:menuitem value="Buscar Firmas" icon="ui-icon-pencil" action="buscarFirmas" ajax="true"/>
+                    <p:menuitem value="Buscar Sellos" icon="ui-icon-person" action="buscarSellos" ajax="true"/>
+                    <p:menuitem value="Buscar Presentante" icon="ui-icon-note" action="buscarPresentante" ajax="true"/>						
+                </p:submenu>
+                <p:submenu label="Administración">
+                    <p:menuitem value="Registrar Notario" icon="ui-icon-disk" action="registrarNotario" ajax="true"/>
+                    <p:menuitem value="Activar/Desactivar Notario" icon="ui-icon-transfer-e-w" action="estadoNotario" ajax="true"/>
+                    <p:menuitem value="Cargar Notario" icon="ui-icon-copy"/>
+                    <p:menuitem value="Modificar Clave Usuario" icon="ui-icon-locked"/>				
+                </p:submenu>														
+            </p:panelMenu>						
+        </f:view>
+    </h:form>
+>>>>>>> de9da3b1d60a8c255765a25502cdcf161dcba7ff
 </html>

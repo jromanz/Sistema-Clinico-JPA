@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateMaemedicosTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_idMmed}" for="idMmed" />
+                            <p:inputText id="idMmed" value="#{maemedicosController.selected.idMmed}" title="#{bundle.CreateMaemedicosTitle_idMmed}"  required="false" readonly="true"/>
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_nombreMmed}" for="nombreMmed" />
+                            <p:inputText id="nombreMmed" value="#{maemedicosController.selected.nombreMmed}" title="#{bundle.CreateMaemedicosTitle_nombreMmed}" />
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_apepaternoMmed}" for="apepaternoMmed" />
+                            <p:inputText id="apepaternoMmed" value="#{maemedicosController.selected.apepaternoMmed}" title="#{bundle.CreateMaemedicosTitle_apepaternoMmed}" />
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_apematernoMmed}" for="apematernoMmed" />
+                            <p:inputText id="apematernoMmed" value="#{maemedicosController.selected.apematernoMmed}" title="#{bundle.CreateMaemedicosTitle_apematernoMmed}" />
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_direccionMmed}" for="direccionMmed" />
+                            <p:inputText id="direccionMmed" value="#{maemedicosController.selected.direccionMmed}" title="#{bundle.CreateMaemedicosTitle_direccionMmed}" />
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_idTdoc}" for="idTdoc" />
+
+                            <p:selectOneMenu id="idTdoc" value="#{maemedicosController.selected.idTdoc}" required="true" requiredMessage="#{bundle.CreateMaemedicosRequiredMessage_idTdoc}">
+                                <f:selectItems value="#{tabtipodocumentoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_numerodocMmed}" for="numerodocMmed" />
+                            <p:inputText id="numerodocMmed" value="#{maemedicosController.selected.numerodocMmed}" title="#{bundle.CreateMaemedicosTitle_numerodocMmed}" />
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_numerorucMmed}" for="numerorucMmed" />
+                            <p:inputText id="numerorucMmed" value="#{maemedicosController.selected.numerorucMmed}" required="true" title="#{bundle.CreateMaemedicosTitle_numerorucMmed}" requiredMessage="#{bundle.CreateMaemedicosRequiredMessage_numerorucMmed}" />
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_numerocolegMmed}" for="numerocolegMmed" />
+                            <p:inputText id="numerocolegMmed" value="#{maemedicosController.selected.numerocolegMmed}" title="#{bundle.CreateMaemedicosTitle_numerocolegMmed}" />
+                            
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_idEspm}" for="idEspm" />
+                            <p:selectOneMenu id="idEspm" value="#{maemedicosController.selected.idEspm}" required="true" requiredMessage="#{bundle.CreateMaemedicosRequiredMessage_idEspm}">
+                                <f:selectItems value="#{tabespmedicaController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_numeroespecMmed}" for="numeroespecMmed" />
+                            <p:inputText id="numeroespecMmed" value="#{maemedicosController.selected.numeroespecMmed}" title="#{bundle.CreateMaemedicosTitle_numeroespecMmed}" />
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_numerotelMmed}" for="numerotelMmed" />
+                            <p:inputText id="numerotelMmed" value="#{maemedicosController.selected.numerotelMmed}" title="#{bundle.CreateMaemedicosTitle_numerotelMmed}" />
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_correoelecMmed}" for="correoelecMmed" />
+                            <p:inputText id="correoelecMmed" value="#{maemedicosController.selected.correoelecMmed}" title="#{bundle.CreateMaemedicosTitle_correoelecMmed}" />
+                            
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_fechanacMmed}" for="fechanacMmed" />
+                            <p:calendar id="fechanacMmed" value="#{maemedicosController.selected.fechanacMmed}" title="#{bundle.CreateMaemedicosTitle_fechanacMmed}"  effect="slide" pattern="dd/MM/yyyy" >
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </p:calendar>
+                            
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_fechaingMmed}" for="fechaingMmed" />
+                            <p:calendar id="fechaingMmed" value="#{maemedicosController.selected.fechaingMmed}" title="#{bundle.CreateMaemedicosTitle_fechaingMmed}"  effect="slide" pattern="dd/MM/yyyy" >
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </p:calendar>
+                            
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_numeroconsMmed}" for="numeroconsMmed" />
+                            <p:inputText id="numeroconsMmed" value="#{maemedicosController.selected.numeroconsMmed}" title="#{bundle.CreateMaemedicosTitle_numeroconsMmed}" />
+
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_idCmed}" for="idCmed" />
+                            <p:selectOneMenu id="idCmed" value="#{maemedicosController.selected.idCmed}" >
+                                <f:selectItems value="#{maeciamedicaController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_idFpag}" for="idFpag" />
+                            <p:selectOneMenu id="idFpag" value="#{maemedicosController.selected.idFpag}" required="true" requiredMessage="#{bundle.CreateMaemedicosRequiredMessage_idFpag}">
+                                <f:selectItems value="#{tabformpagoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_idUbig}" for="idUbig" />
+                            <p:selectOneMenu id="idUbig" value="#{maemedicosController.selected.idUbig}" required="true" requiredMessage="#{bundle.CreateMaemedicosRequiredMessage_idUbig}"
+                                             panelStyle="width:70px" style="width:250px" filter="true"  >
+                                <f:selectItems value="#{tabubigeoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="#{bundle.CreateMaemedicosLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{maemedicosController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateMaemedicosRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{maemedicosController.create}" value="#{bundle.CreateMaemedicosSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maemedicosController.prepareList}" value="#{bundle.CreateMaemedicosShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateMaemedicosIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>
