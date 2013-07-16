@@ -36,5 +36,9 @@ nbproject/
 *.war
 *.ear
 /Webclinicauno/build/
+<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/Simsac/csb_sistema.git
 /Webclinicauno/dist/
+=======
+/Webclinicauno/dist/
+>>>>>>> 41acb9cb14f07b9a88119853bbde9e01d36d8e37
