@@ -87,10 +87,6 @@ public class MaepacienteController implements Serializable {
 
     public String prepareCreate() {
         current = new Maepaciente();
-        
-            if (isIsTitular()==true){
-                getSelected().getIdTpar().setIdTpar(1);
-            }        
         selectedItemIndex = -1;
         return "Create";
     }
