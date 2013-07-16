@@ -18,12 +18,15 @@ import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import pe.simsac.entidades.Tabparentesco;
 
 @Named("maepacienteController")
 @SessionScoped
 public class MaepacienteController implements Serializable {
 
     private Maepaciente current;
+    private Tabparentesco tabParentesco;
+    
     private DataModel items = null;
     @EJB
     private pe.simsac.facade.MaepacienteFacade ejbFacade;
@@ -84,6 +87,7 @@ public class MaepacienteController implements Serializable {
 
     public String prepareCreate() {
         current = new Maepaciente();
+        
             if (isIsTitular()==true){
                 getSelected().getIdTpar().setIdTpar(1);
             }        
