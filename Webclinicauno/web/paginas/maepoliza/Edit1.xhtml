@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMaepolizaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMaepolizaLabel_idPoli}" for="idPoli" />
+                    <h:inputText id="idPoli" value="#{maepolizaController.selected.idPoli}" title="#{bundle.EditMaepolizaTitle_idPoli}" required="false" readonly="true"/>
+                    <h:outputLabel value="#{bundle.EditMaepolizaLabel_codigoPoli}" for="codigoPoli" />
+                    <h:inputText id="codigoPoli" value="#{maepolizaController.selected.codigoPoli}" title="#{bundle.EditMaepolizaTitle_codigoPoli}" />
+                    <h:outputLabel value="#{bundle.EditMaepolizaLabel_fechainiPoli}" for="fechainiPoli" />
+                    <h:inputText id="fechainiPoli" value="#{maepolizaController.selected.fechainiPoli}" title="#{bundle.EditMaepolizaTitle_fechainiPoli}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditMaepolizaLabel_fechafinPoli}" for="fechafinPoli" />
+                    <h:inputText id="fechafinPoli" value="#{maepolizaController.selected.fechafinPoli}" title="#{bundle.EditMaepolizaTitle_fechafinPoli}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditMaepolizaLabel_idPlan}" for="idPlan" />
+                    <h:selectOneMenu id="idPlan" value="#{maepolizaController.selected.idPlan}" title="#{bundle.EditMaepolizaTitle_idPlan}" required="true" requiredMessage="#{bundle.EditMaepolizaRequiredMessage_idPlan}">
+                        <f:selectItems value="#{maeplanesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditMaepolizaLabel_idMcia}" for="idMcia" />
+                    <h:selectOneMenu id="idMcia" value="#{maepolizaController.selected.idMcia}" title="#{bundle.EditMaepolizaTitle_idMcia}" required="true" requiredMessage="#{bundle.EditMaepolizaRequiredMessage_idMcia}">
+                        <f:selectItems value="#{maecompaniaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditMaepolizaLabel_idTest}" for="idTest" />
+                    <h:selectOneMenu id="idTest" value="#{maepolizaController.selected.idTest}" title="#{bundle.EditMaepolizaTitle_idTest}" required="true" requiredMessage="#{bundle.EditMaepolizaRequiredMessage_idTest}">
+                        <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{maepolizaController.update}" value="#{bundle.EditMaepolizaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditMaepolizaViewLink}"/>
+                <br />
+                <h:commandLink action="#{maepolizaController.prepareList}" value="#{bundle.EditMaepolizaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditMaepolizaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

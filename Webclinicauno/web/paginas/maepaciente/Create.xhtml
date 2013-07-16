@@ -9,9 +9,9 @@
     <ui:composition template="/principalClinica.xhtml">
         <ui:define name="content">
             <f:view>
-                <h:form>
+                <h:form id="myForm">
                     <p:panel header="#{bundle.CreateMaepacienteTitle}" style="margin-bottom:100px;font-size:70%">
-                         <p:growl id="messagePanel" />  
+                        <p:growl id="messagePanel" />  
                         <h:panelGrid columns="2">
 
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idPaci}" for="idPaci"/>  
@@ -36,7 +36,7 @@
                             </p:inputText>
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_fechaingPaci}" for="fechaingPaci" />
                             <p:calendar id="fechaingPaci" value="#{maepacienteController.selected.fechaingPaci}" title="#{bundle.CreateMaepacienteTitle_fechaingPaci}" effect="slide">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
                             </p:calendar>
 
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_direccionPaci}" for="direccionPaci" />
@@ -51,67 +51,75 @@
                             <p:selectOneRadio id="sexoPaci" value="#{maepacienteController.selected.sexoPaci}">  
                                 <f:selectItem itemLabel="Mujer" itemValue="0" />
                                 <f:selectItem itemLabel="Hombre" itemValue="1" />  
-                            </p:selectOneRadio>  
-
+                            </p:selectOneRadio>
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_numerodocPaci}" for="numerodocPaci" />
                             <p:inputText id="numerodocPaci" value="#{maepacienteController.selected.numerodocPaci}" title="#{bundle.CreateMaepacienteTitle_numerodocPaci}" />
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_apppatertitPaci}" for="apppatertitPaci" />
-                            <p:inputText id="apppatertitPaci" value="#{maepacienteController.selected.apppatertitPaci}" title="#{bundle.CreateMaepacienteTitle_apppatertitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
-                                <p:watermark for="apppatertitPaci" value="#{bundle.CreateMaepacienteTitle_apppatertitPaci}" />  
-                            </p:inputText>
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_appmatertitPaci}" for="appmatertitPaci" />
-                            <p:inputText id="appmatertitPaci" value="#{maepacienteController.selected.appmatertitPaci}" title="#{bundle.CreateMaepacienteTitle_appmatertitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
-                                <p:watermark for="appmatertitPaci" value="#{bundle.CreateMaepacienteTitle_appmatertitPaci}" />  
-                            </p:inputText>
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_nombretitPaci}" for="nombretitPaci" />
-                            <p:inputText id="nombretitPaci" value="#{maepacienteController.selected.nombretitPaci}" title="#{bundle.CreateMaepacienteTitle_nombretitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
-                                <p:watermark for="nombretitPaci" value="#{bundle.CreateMaepacienteTitle_nombretitPaci}" />  
-                            </p:inputText>
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idPcli}" for="idPcli" />
-                            <p:selectOneMenu id="idPcli" value="#{maepacienteController.selected.idPcli}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idPcli}">
-                                <f:selectItems value="#{maepolizaController.itemsAvailableSelectOne}"/>
-                            </p:selectOneMenu>
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTest}" for="idTest" />
-                            <p:selectOneMenu id="idTest" value="#{maepacienteController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTest}">
-                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
-                            </p:selectOneMenu>
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idCtra}" for="idCtra" />
-                            <p:selectOneMenu id="idCtra" value="#{maepacienteController.selected.idCtra}" >
-                                <f:selectItems value="#{maecentrabajoController.itemsAvailableSelectOne}"/>
-                            </p:selectOneMenu>
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTitu}" for="idTitu" />
-                            <p:selectOneMenu id="idTitu" value="#{maepacienteController.selected.idTitu}" >
-                                <f:selectItems value="#{maepacienteController.itemsAvailableSelectOne}"/>
-                            </p:selectOneMenu>
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTpar}" for="idTpar" />
-                            <p:selectOneMenu id="idTpar" value="#{maepacienteController.selected.idTpar}"  required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTpar}">
-                                <f:selectItems value="#{tabparentescoController.itemsAvailableSelectOne}"/>
-                            </p:selectOneMenu>
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idCatp}" for="idCatp" />
-                            <p:selectOneMenu id="idCatp" value="#{maepacienteController.selected.idCatp}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idCatp}">
-                                <f:selectItems value="#{tabcategpaciController.itemsAvailableSelectOne}"/>
-                            </p:selectOneMenu>
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTdoc}" for="idTdoc" />
                             <p:selectOneMenu id="idTdoc" value="#{maepacienteController.selected.idTdoc}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTdoc}">
                                 <f:selectItems value="#{tabtipodocumentoController.itemsAvailableSelectOne}"/>
                             </p:selectOneMenu>
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idUbig}" for="idUbig" />
-
                             <p:selectOneMenu id="idUbig" value="#{maepacienteController.selected.idUbig}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idUbig}"
                                              panelStyle="width:70px" style="width:250px" filter="true"  >
                                 <f:selectItems value="#{tabubigeoController.itemsAvailableSelectOne}"/>
                             </p:selectOneMenu>
+
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTitu}" for="idTitular" />
+                            <p:selectOneRadio id="idTitular" valueChangeListener="#{maepacienteController.change}" value="#{maepacienteController.isTitular}">
+                                <f:selectItem itemLabel="Si"  itemValue="#{true}"/>
+                                <f:selectItem itemLabel="No" itemValue="#{false}"/>
+                                <p:ajax update="gridContainer :myForm:panelTitular"></p:ajax>
+                            </p:selectOneRadio>
                         </h:panelGrid>
+
+                        <p:outputPanel id="gridContainer" layout="block">
+                            <p:panelGrid id="panelTitular" columns="2" rendered="#{maepacienteController.isTitular != 'true'}">
+                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_apppatertitPaci}" for="apppatertitPaci" />
+                                <p:inputText id="apppatertitPaci" value="#{maepacienteController.selected.apppatertitPaci}" title="#{bundle.CreateMaepacienteTitle_apppatertitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
+                                    <p:watermark for="apppatertitPaci" value="#{bundle.CreateMaepacienteTitle_apppatertitPaci}" />  
+                                </p:inputText>
+                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_appmatertitPaci}" for="appmatertitPaci" />
+                                <p:inputText id="appmatertitPaci" value="#{maepacienteController.selected.appmatertitPaci}" title="#{bundle.CreateMaepacienteTitle_appmatertitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
+                                    <p:watermark for="appmatertitPaci" value="#{bundle.CreateMaepacienteTitle_appmatertitPaci}" />  
+                                </p:inputText>
+                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_nombretitPaci}" for="nombretitPaci" />
+                                <p:inputText id="nombretitPaci" value="#{maepacienteController.selected.nombretitPaci}" title="#{bundle.CreateMaepacienteTitle_nombretitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
+                                    <p:watermark for="nombretitPaci" value="#{bundle.CreateMaepacienteTitle_nombretitPaci}" />  
+                                </p:inputText>
+                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idPcli}" for="idPcli" />
+                                <p:selectOneMenu id="idPcli" value="#{maepacienteController.selected.idPcli}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idPcli}">
+                                    <f:selectItems value="#{maepolizaController.itemsAvailableSelectOne}"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTest}" for="idTest" />
+                                <p:selectOneMenu id="idTest" value="#{maepacienteController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTest}">
+                                    <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idCtra}" for="idCtra" />
+                                <p:selectOneMenu id="idCtra" value="#{maepacienteController.selected.idCtra}" >
+                                    <f:selectItems value="#{maecentrabajoController.itemsAvailableSelectOne}"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTitu}" for="idTitu" />
+                                <p:selectOneMenu id="idTitu" value="#{maepacienteController.selected.idTitu}" >
+                                    <f:selectItems value="#{maepacienteController.itemsAvailableSelectOne}"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTpar}" for="idTpar" />
+                                <p:selectOneMenu id="idTpar" value="#{maepacienteController.selected.idTpar}"  required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTpar}">
+                                    <f:selectItems value="#{tabparentescoController.itemsAvailableSelectOne}"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idCatp}" for="idCatp" />
+                                <p:selectOneMenu id="idCatp" value="#{maepacienteController.selected.idCatp}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idCatp}">
+                                    <f:selectItems value="#{tabcategpaciController.itemsAvailableSelectOne}"/>
+                                </p:selectOneMenu>
+                            </p:panelGrid>
+                        </p:outputPanel>
+
+                        <p:commandButton action="#{maepacienteController.create}" value="#{bundle.CreateMaepacienteSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton action="#{maepacienteController.prepareList}" value="#{bundle.CreateMaepacienteShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />                    
                     </p:panel>
-                    <h:commandLink action="#{maepacienteController.create}" value="#{bundle.CreateMaepacienteSaveLink}" />
-                    <br />
-                    <br />
-                    <h:commandLink action="#{maepacienteController.prepareList}" value="#{bundle.CreateMaepacienteShowAllLink}" immediate="true"/>
-                    <br />
-                    <br />
                     <h:link outcome="/index" value="#{bundle.CreateMaepacienteIndexLink}"/>
                 </h:form>
-            </f:view>
+            </f:view>            
         </ui:define>
     </ui:composition>
 

@@ -14,6 +14,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
@@ -26,10 +27,19 @@ public class MaepacienteController implements Serializable {
     private DataModel items = null;
     @EJB
     private pe.simsac.facade.MaepacienteFacade ejbFacade;
+    @EJB
+    private pe.simsac.facade.TabparentescoFacade tabParentescoFacade;
+    
     private PaginationHelper pagination;
     private int selectedItemIndex;
-
+    private boolean isTitular;
+    
+    public void change(ValueChangeEvent event){
+        System.out.println(event.getNewValue().toString()+":"+this.isIsTitular());
+    }
+    
     public MaepacienteController() {
+        this.isTitular=true;
     }
 
     public Maepaciente getSelected() {
@@ -74,6 +84,9 @@ public class MaepacienteController implements Serializable {
 
     public String prepareCreate() {
         current = new Maepaciente();
+            if (isIsTitular()==true){
+                getSelected().getIdTpar().setIdTpar(1);
+            }        
         selectedItemIndex = -1;
         return "Create";
     }
@@ -84,7 +97,8 @@ public class MaepacienteController implements Serializable {
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MaepacienteCreated"));
             return prepareCreate();
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            System.out.println(e.getMessage());
+            //JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
         }
     }
@@ -229,4 +243,14 @@ public class MaepacienteController implements Serializable {
             }
         }
     }
+
+    public boolean isIsTitular() {
+        return isTitular;
+    }
+
+    public void setIsTitular(boolean isTitular) {
+        this.isTitular = isTitular;
+    }
+    
+    
 }
