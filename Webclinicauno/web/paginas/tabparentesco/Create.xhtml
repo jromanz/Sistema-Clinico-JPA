@@ -3,32 +3,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.CreateTabparentescoTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateTabparentescoLabel_idTpar}" for="idTpar" />
-                    <h:inputText id="idTpar" value="#{tabparentescoController.selected.idTpar}" title="#{bundle.CreateTabparentescoTitle_idTpar}" required="false" readonly="true"/>
-                    <h:outputLabel value="#{bundle.CreateTabparentescoLabel_nombreTpar}" for="nombreTpar" />
-                    <h:inputText id="nombreTpar" value="#{tabparentescoController.selected.nombreTpar}" title="#{bundle.CreateTabparentescoTitle_nombreTpar}" />
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{tabparentescoController.create}" value="#{bundle.CreateTabparentescoSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{tabparentescoController.prepareList}" value="#{bundle.CreateTabparentescoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateTabparentescoIndexLink}"/>
-            </h:form>
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateTabparentescoTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <h:outputLabel value="#{bundle.CreateTabparentescoLabel_idTpar}" for="idTpar" />
+                            <h:inputText id="idTpar" value="#{tabparentescoController.selected.idTpar}" title="#{bundle.CreateTabparentescoTitle_idTpar}" required="false" readonly="true"/>
+                            <h:outputLabel value="#{bundle.CreateTabparentescoLabel_nombreTpar}" for="nombreTpar" />
+                            <h:inputText id="nombreTpar" value="#{tabparentescoController.selected.nombreTpar}" title="#{bundle.CreateTabparentescoTitle_nombreTpar}" />
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabparentescoController.create}" value="#{bundle.CreateTabparentescoSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton action="#{tabparentescoController.prepareList}" value="#{bundle.CreateTabparentescoShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />                    
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateTabparentescoIndexLink}"/>
+                </h:form>
+            </f:view>
         </ui:define>
     </ui:composition>
 
