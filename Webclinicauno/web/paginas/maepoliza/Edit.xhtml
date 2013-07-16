@@ -18,13 +18,13 @@
                             <h:outputLabel value="#{bundle.EditMaepolizaLabel_codigoPoli}" for="codigoPoli" />
                             <h:inputText id="codigoPoli" value="#{maepolizaController.selected.codigoPoli}" title="#{bundle.EditMaepolizaTitle_codigoPoli}" />
                             <h:outputLabel value="#{bundle.EditMaepolizaLabel_fechainiPoli}" for="fechainiPoli" />
-                            <h:inputText id="fechainiPoli" value="#{maepolizaController.selected.fechainiPoli}" title="#{bundle.EditMaepolizaTitle_fechainiPoli}" >
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>
+                            <p:calendar id="fechainiPoli" value="#{maepolizaController.selected.fechainiPoli}" title="#{bundle.EditMaepolizaTitle_fechainiPoli}" effect="slide" pattern="dd/MM/yyyy" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>                            
                             <h:outputLabel value="#{bundle.EditMaepolizaLabel_fechafinPoli}" for="fechafinPoli" />
-                            <h:inputText id="fechafinPoli" value="#{maepolizaController.selected.fechafinPoli}" title="#{bundle.EditMaepolizaTitle_fechafinPoli}" >
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>
+                            <p:calendar id="fechafinPoli" value="#{maepolizaController.selected.fechafinPoli}" title="#{bundle.EditMaepolizaTitle_fechafinPoli}" effect="slide" pattern="dd/MM/yyyy" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>               
                             <h:outputLabel value="#{bundle.EditMaepolizaLabel_idPlan}" for="idPlan" />
                             <h:selectOneMenu id="idPlan" value="#{maepolizaController.selected.idPlan}" title="#{bundle.EditMaepolizaTitle_idPlan}" required="true" requiredMessage="#{bundle.EditMaepolizaRequiredMessage_idPlan}">
                                 <f:selectItems value="#{maeplanesController.itemsAvailableSelectOne}"/>

@@ -9,9 +9,7 @@
     <ui:composition template="/principalClinica.xhtml">
         <ui:define name="content">
             <h:form prependId="false">  
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
+                <p:growl id="messagePanel" />  
                 <p:dataTable id="dataTable" var="item" value="#{maepolizaController.items}"  
                              paginator="true" rows="10"  
                              paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  

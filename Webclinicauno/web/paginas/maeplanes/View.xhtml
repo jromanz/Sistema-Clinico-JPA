@@ -3,48 +3,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ViewMaeplanesTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewMaeplanesLabel_idPlan}"/>
-                    <h:outputText value="#{maeplanesController.selected.idPlan}" title="#{bundle.ViewMaeplanesTitle_idPlan}"/>
-                    <h:outputText value="#{bundle.ViewMaeplanesLabel_nombrePlan}"/>
-                    <h:outputText value="#{maeplanesController.selected.nombrePlan}" title="#{bundle.ViewMaeplanesTitle_nombrePlan}"/>
-                    <h:outputText value="#{bundle.ViewMaeplanesLabel_fechainiPlan}"/>
-                    <h:outputText value="#{maeplanesController.selected.fechainiPlan}" title="#{bundle.ViewMaeplanesTitle_fechainiPlan}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:outputText>
-                    <h:outputText value="#{bundle.ViewMaeplanesLabel_fechafinPlan}"/>
-                    <h:outputText value="#{maeplanesController.selected.fechafinPlan}" title="#{bundle.ViewMaeplanesTitle_fechafinPlan}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:outputText>
-                    <h:outputText value="#{bundle.ViewMaeplanesLabel_idMtaf}"/>
-                    <h:outputText value="#{maeplanesController.selected.idMtaf}" title="#{bundle.ViewMaeplanesTitle_idMtaf}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{maeplanesController.destroyAndView}" value="#{bundle.ViewMaeplanesDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewMaeplanesEditLink}"/>
-                <br />
-                <h:commandLink action="#{maeplanesController.prepareCreate}" value="#{bundle.ViewMaeplanesCreateLink}" />
-                <br />
-                <h:commandLink action="#{maeplanesController.prepareList}" value="#{bundle.ViewMaeplanesShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewMaeplanesIndexLink}"/>
-
-            </h:form>
-        </ui:define>
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.ViewMaeplanesTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{bundle.ViewMaeplanesLabel_idPlan}"/>
+                            <h:outputText value="#{maeplanesController.selected.idPlan}" title="#{bundle.ViewMaeplanesTitle_idPlan}"/>
+                            <h:outputText value="#{bundle.ViewMaeplanesLabel_nombrePlan}"/>
+                            <h:outputText value="#{maeplanesController.selected.nombrePlan}" title="#{bundle.ViewMaeplanesTitle_nombrePlan}"/>
+                            <h:outputText value="#{bundle.ViewMaeplanesLabel_fechainiPlan}"/>
+                            <h:outputText value="#{maeplanesController.selected.fechainiPlan}" title="#{bundle.ViewMaeplanesTitle_fechainiPlan}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                            <h:outputText value="#{bundle.ViewMaeplanesLabel_fechafinPlan}"/>
+                            <h:outputText value="#{maeplanesController.selected.fechafinPlan}" title="#{bundle.ViewMaeplanesTitle_fechafinPlan}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                            <h:outputText value="#{bundle.ViewMaeplanesLabel_idMtaf}"/>
+                            <h:outputText value="#{maeplanesController.selected.idMtaf}" title="#{bundle.ViewMaeplanesTitle_idMtaf}"/>
+                        </h:panelGrid>
+                        <p:commandButton action="Edit" value="#{bundle.ViewMaeplanesEditLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maeplanesController.prepareList}" value="#{bundle.ViewMaeplanesShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.ViewMaeplanesIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>        
     </ui:composition>
 
 </html>

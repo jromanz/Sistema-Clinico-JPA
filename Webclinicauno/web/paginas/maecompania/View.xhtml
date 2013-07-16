@@ -3,56 +3,46 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ViewMaecompaniaTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewMaecompaniaLabel_idMcia}"/>
-                    <h:outputText value="#{maecompaniaController.selected.idMcia}" title="#{bundle.ViewMaecompaniaTitle_idMcia}"/>
-                    <h:outputText value="#{bundle.ViewMaecompaniaLabel_codigoMcia}"/>
-                    <h:outputText value="#{maecompaniaController.selected.codigoMcia}" title="#{bundle.ViewMaecompaniaTitle_codigoMcia}"/>
-                    <h:outputText value="#{bundle.ViewMaecompaniaLabel_nombreMcia}"/>
-                    <h:outputText value="#{maecompaniaController.selected.nombreMcia}" title="#{bundle.ViewMaecompaniaTitle_nombreMcia}"/>
-                    <h:outputText value="#{bundle.ViewMaecompaniaLabel_direccionMcia}"/>
-                    <h:outputText value="#{maecompaniaController.selected.direccionMcia}" title="#{bundle.ViewMaecompaniaTitle_direccionMcia}"/>
-                    <h:outputText value="#{bundle.ViewMaecompaniaLabel_numerotelMcia}"/>
-                    <h:outputText value="#{maecompaniaController.selected.numerotelMcia}" title="#{bundle.ViewMaecompaniaTitle_numerotelMcia}"/>
-                    <h:outputText value="#{bundle.ViewMaecompaniaLabel_correoelecMcia}"/>
-                    <h:outputText value="#{maecompaniaController.selected.correoelecMcia}" title="#{bundle.ViewMaecompaniaTitle_correoelecMcia}"/>
-                    <h:outputText value="#{bundle.ViewMaecompaniaLabel_nombrecontMcia}"/>
-                    <h:outputText value="#{maecompaniaController.selected.nombrecontMcia}" title="#{bundle.ViewMaecompaniaTitle_nombrecontMcia}"/>
-                    <h:outputText value="#{bundle.ViewMaecompaniaLabel_fechaingMcia}"/>
-                    <h:outputText value="#{maecompaniaController.selected.fechaingMcia}" title="#{bundle.ViewMaecompaniaTitle_fechaingMcia}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:outputText>
-                    <h:outputText value="#{bundle.ViewMaecompaniaLabel_idTest}"/>
-                    <h:outputText value="#{maecompaniaController.selected.idTest}" title="#{bundle.ViewMaecompaniaTitle_idTest}"/>
-                    <h:outputText value="#{bundle.ViewMaecompaniaLabel_idUbig}"/>
-                    <h:outputText value="#{maecompaniaController.selected.idUbig}" title="#{bundle.ViewMaecompaniaTitle_idUbig}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{maecompaniaController.destroyAndView}" value="#{bundle.ViewMaecompaniaDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewMaecompaniaEditLink}"/>
-                <br />
-                <h:commandLink action="#{maecompaniaController.prepareCreate}" value="#{bundle.ViewMaecompaniaCreateLink}" />
-                <br />
-                <h:commandLink action="#{maecompaniaController.prepareList}" value="#{bundle.ViewMaecompaniaShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewMaecompaniaIndexLink}"/>
-
-            </h:form>
-        </ui:define>
-    </ui:composition>
-
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.ViewMaecompaniaTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{bundle.ViewMaecompaniaLabel_idMcia}"/>
+                            <h:outputText value="#{maecompaniaController.selected.idMcia}" title="#{bundle.ViewMaecompaniaTitle_idMcia}"/>
+                            <h:outputText value="#{bundle.ViewMaecompaniaLabel_codigoMcia}"/>
+                            <h:outputText value="#{maecompaniaController.selected.codigoMcia}" title="#{bundle.ViewMaecompaniaTitle_codigoMcia}"/>
+                            <h:outputText value="#{bundle.ViewMaecompaniaLabel_nombreMcia}"/>
+                            <h:outputText value="#{maecompaniaController.selected.nombreMcia}" title="#{bundle.ViewMaecompaniaTitle_nombreMcia}"/>
+                            <h:outputText value="#{bundle.ViewMaecompaniaLabel_direccionMcia}"/>
+                            <h:outputText value="#{maecompaniaController.selected.direccionMcia}" title="#{bundle.ViewMaecompaniaTitle_direccionMcia}"/>
+                            <h:outputText value="#{bundle.ViewMaecompaniaLabel_numerotelMcia}"/>
+                            <h:outputText value="#{maecompaniaController.selected.numerotelMcia}" title="#{bundle.ViewMaecompaniaTitle_numerotelMcia}"/>
+                            <h:outputText value="#{bundle.ViewMaecompaniaLabel_correoelecMcia}"/>
+                            <h:outputText value="#{maecompaniaController.selected.correoelecMcia}" title="#{bundle.ViewMaecompaniaTitle_correoelecMcia}"/>
+                            <h:outputText value="#{bundle.ViewMaecompaniaLabel_nombrecontMcia}"/>
+                            <h:outputText value="#{maecompaniaController.selected.nombrecontMcia}" title="#{bundle.ViewMaecompaniaTitle_nombrecontMcia}"/>
+                            <h:outputText value="#{bundle.ViewMaecompaniaLabel_fechaingMcia}"/>
+                            <h:outputText value="#{maecompaniaController.selected.fechaingMcia}" title="#{bundle.ViewMaecompaniaTitle_fechaingMcia}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                            <h:outputText value="#{bundle.ViewMaecompaniaLabel_idTest}"/>
+                            <h:outputText value="#{maecompaniaController.selected.idTest}" title="#{bundle.ViewMaecompaniaTitle_idTest}"/>
+                            <h:outputText value="#{bundle.ViewMaecompaniaLabel_idUbig}"/>
+                            <h:outputText value="#{maecompaniaController.selected.idUbig}" title="#{bundle.ViewMaecompaniaTitle_idUbig}"/>
+                        </h:panelGrid>
+                        <p:commandButton action="Edit" value="#{bundle.ViewMaecompaniaEditLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maecompaniaController.prepareList}" value="#{bundle.ViewMaecompaniaShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.ViewMaecompaniaIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>        
+    </ui:composition>    
 </html>

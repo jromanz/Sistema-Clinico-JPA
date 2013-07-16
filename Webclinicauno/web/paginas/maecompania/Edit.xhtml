@@ -34,9 +34,9 @@
                             <h:outputLabel value="#{bundle.EditMaecompaniaLabel_nombrecontMcia}" for="nombrecontMcia" />
                             <h:inputText id="nombrecontMcia" value="#{maecompaniaController.selected.nombrecontMcia}" title="#{bundle.EditMaecompaniaTitle_nombrecontMcia}" />
                             <h:outputLabel value="#{bundle.EditMaecompaniaLabel_fechaingMcia}" for="fechaingMcia" />
-                            <h:inputText id="fechaingMcia" value="#{maecompaniaController.selected.fechaingMcia}" title="#{bundle.EditMaecompaniaTitle_fechaingMcia}" >
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>                            
+                            <p:calendar id="fechaingMcia" value="#{maecompaniaController.selected.fechaingMcia}" title="#{bundle.CreateMaecompaniaTitle_fechaingMcia}" effect="slide" pattern="dd/MM/yyyy" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
                             <p:outputLabel value="#{bundle.EditMaecompaniaLabel_idTest}" for="idTest" />
                             <p:selectOneMenu id="idTest" value="#{maecompaniaController.selected.idTest}" required="true" requiredMessage="#{bundle.EditMaecompaniaRequiredMessage_idTest}">
                                 <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
