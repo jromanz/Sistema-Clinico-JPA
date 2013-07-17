@@ -16,23 +16,23 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateMaeexclusionesLabel_idExcl}" for="idExcl" />
-                    <h:inputText id="idExcl" value="#{maeexclusionesController.selected.idExcl}" title="#{bundle.CreateMaeexclusionesTitle_idExcl}" required="false" readonly="true"/>
+                    <h:inputText id="idExcl" value="#{maecentrabajoController.selected.idExcl}" title="#{bundle.CreateMaeexclusionesTitle_idExcl}" required="false" readonly="true"/>
                     <h:outputLabel value="#{bundle.CreateMaeexclusionesLabel_nombreExcl}" for="nombreExcl" />
-                    <h:inputText id="nombreExcl" value="#{maeexclusionesController.selected.nombreExcl}" title="#{bundle.CreateMaeexclusionesTitle_nombreExcl}" />
+                    <h:inputText id="nombreExcl" value="#{maecentrabajoController.selected.nombreExcl}" title="#{bundle.CreateMaeexclusionesTitle_nombreExcl}" />
                     <h:outputLabel value="#{bundle.CreateMaeexclusionesLabel_idEspm}" for="idEspm" />
-                    <h:selectOneMenu id="idEspm" value="#{maeexclusionesController.selected.idEspm}" title="#{bundle.CreateMaeexclusionesTitle_idEspm}" required="true" requiredMessage="#{bundle.CreateMaeexclusionesRequiredMessage_idEspm}">
+                    <h:selectOneMenu id="idEspm" value="#{maecentrabajoController.selected.idEspm}" title="#{bundle.CreateMaeexclusionesTitle_idEspm}" required="true" requiredMessage="#{bundle.CreateMaeexclusionesRequiredMessage_idEspm}">
                         <f:selectItems value="#{tabespmedicaController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateMaeexclusionesLabel_idPoli}" for="idPoli" />
-                    <h:selectOneMenu id="idPoli" value="#{maeexclusionesController.selected.idPoli}" title="#{bundle.CreateMaeexclusionesTitle_idPoli}" required="true" requiredMessage="#{bundle.CreateMaeexclusionesRequiredMessage_idPoli}">
+                    <h:selectOneMenu id="idPoli" value="#{maecentrabajoController.selected.idPoli}" title="#{bundle.CreateMaeexclusionesTitle_idPoli}" required="true" requiredMessage="#{bundle.CreateMaeexclusionesRequiredMessage_idPoli}">
                         <f:selectItems value="#{maepolizaController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{maeexclusionesController.create}" value="#{bundle.CreateMaeexclusionesSaveLink}" />
+                <h:commandLink action="#{maecentrabajoController.create}" value="#{bundle.CreateMaeexclusionesSaveLink}" />
                 <br />
                 <br />
-                <h:commandLink action="#{maeexclusionesController.prepareList}" value="#{bundle.CreateMaeexclusionesShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{maecentrabajoController.prepareList}" value="#{bundle.CreateMaeexclusionesShowAllLink}" immediate="true"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.CreateMaeexclusionesIndexLink}"/>

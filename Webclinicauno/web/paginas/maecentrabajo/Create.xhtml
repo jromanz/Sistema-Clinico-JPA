@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateMaecentrabajoTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                              
+                            <p:outputLabel value="#{bundle.CreateMaecentrabajoLabel_idCtra}" for="idCtra" />
+                            <p:inputText id="idCtra" value="#{maecentrabajoController.selected.idCtra}" title="#{bundle.CreateMaecentrabajoTitle_idCtra}"  required="false" readonly="true"/>
+                            
+                            <p:outputLabel value="#{bundle.CreateMaecentrabajoLabel_numerorucCtra}" for="numerorucCtra" />
+                            <p:inputText id="numerorucCtra" value="#{maecentrabajoController.selected.numerorucCtra}" title="#{bundle.CreateMaecentrabajoTitle_numerorucCtra}" />
+                            
+                            <p:outputLabel value="#{bundle.CreateMaecentrabajoLabel_nombreCtra}" for="nombreCtra" />
+                            <p:inputText id="nombreCtra" value="#{maecentrabajoController.selected.nombreCtra}" title="#{bundle.CreateMaecentrabajoTitle_nombreCtra}" />
+                            
+                            <p:outputLabel value="#{bundle.CreateMaecentrabajoLabel_direccionCtra}" for="direccionCtra" />
+                            <p:inputText id="direccionCtra" value="#{maecentrabajoController.selected.direccionCtra}" title="#{bundle.CreateMaecentrabajoTitle_direccionCtra}" />
+                            
+                            <p:outputLabel value="#{bundle.CreateMaecentrabajoLabel_numerotelCtra}" for="numerotelCtra" />
+                            <p:inputText id="numerotelCtra" value="#{maecentrabajoController.selected.numerotelCtra}" title="#{bundle.CreateMaecentrabajoTitle_numerotelCtra}" />
+                            
+                            <p:outputLabel value="#{bundle.CreateMaecentrabajoLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{maecentrabajoController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateMaecentrabajoRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            
+                            <p:outputLabel value="#{bundle.CreateMaecentrabajoLabel_idUbig}" for="idUbig" />
+                            <p:selectOneMenu id="idUbig" value="#{maecentrabajoController.selected.idUbig}" required="true" requiredMessage="#{bundle.CreateMaecentrabajoRequiredMessage_idUbig}">
+                                <f:selectItems value="#{tabubigeoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{maecentrabajoController.create}" value="#{bundle.CreateMaecentrabajoSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maecentrabajoController.prepareList}" value="#{bundle.CreateMaecentrabajoShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateMaecentrabajoIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>      
+</html>

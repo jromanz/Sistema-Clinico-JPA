@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.EditTabmonedaTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="#{bundle.EditTabmonedaLabel_idMone}" for="idMone" />
+                            <p:inputText id="idMone" value="#{tabmonedaController.selected.idMone}" title="#{bundle.EditTabmonedaTitle_idMone}" required="false" readonly="true"/>
+                            <p:outputLabel value="#{bundle.EditTabmonedaLabel_nombreMone}" for="nombreMone" />
+                            <p:inputText id="nombreMone" value="#{tabmonedaController.selected.nombreMone}" title="#{bundle.EditTabmonedaTitle_nombreMone}" required="true" requiredMessage="#{bundle.EditTabmonedaRequiredMessage_nombreMone}"/>
+                            <p:outputLabel value="#{bundle.EditTabmonedaLabel_nomenglaMone}" for="nomenglaMone" />
+                            <p:inputText id="nomenglaMone" value="#{tabmonedaController.selected.nomenglaMone}" title="#{bundle.EditTabmonedaTitle_nomenglaMone}" required="true" requiredMessage="#{bundle.EditTabmonedaRequiredMessage_nomenglaMone}"/>
+                            <p:outputLabel value="#{bundle.EditTabmonedaLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{tabmonedaController.selected.idTest}" required="true" requiredMessage="#{bundle.EditTabmonedaRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabmonedaController.update}" value="#{bundle.EditTabmonedaSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{tabmonedaController.prepareList}" value="#{bundle.EditTabmonedaShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.EditTabmonedaIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

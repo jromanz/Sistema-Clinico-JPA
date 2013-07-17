@@ -193,7 +193,7 @@ public class MaeexclusionesController implements Serializable {
     }
 
     @FacesConverter(forClass = Maeexclusiones.class)
-    public static class MaeexclusionesControllerConverter implements Converter {
+    public static class maeexclusionesControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {

@@ -16,23 +16,23 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewMaeexclusionesLabel_idExcl}"/>
-                    <h:outputText value="#{maeexclusionesController.selected.idExcl}" title="#{bundle.ViewMaeexclusionesTitle_idExcl}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.idExcl}" title="#{bundle.ViewMaeexclusionesTitle_idExcl}"/>
                     <h:outputText value="#{bundle.ViewMaeexclusionesLabel_nombreExcl}"/>
-                    <h:outputText value="#{maeexclusionesController.selected.nombreExcl}" title="#{bundle.ViewMaeexclusionesTitle_nombreExcl}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.nombreExcl}" title="#{bundle.ViewMaeexclusionesTitle_nombreExcl}"/>
                     <h:outputText value="#{bundle.ViewMaeexclusionesLabel_idEspm}"/>
-                    <h:outputText value="#{maeexclusionesController.selected.idEspm}" title="#{bundle.ViewMaeexclusionesTitle_idEspm}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.idEspm}" title="#{bundle.ViewMaeexclusionesTitle_idEspm}"/>
                     <h:outputText value="#{bundle.ViewMaeexclusionesLabel_idPoli}"/>
-                    <h:outputText value="#{maeexclusionesController.selected.idPoli}" title="#{bundle.ViewMaeexclusionesTitle_idPoli}"/>
+                    <h:outputText value="#{maecentrabajoController.selected.idPoli}" title="#{bundle.ViewMaeexclusionesTitle_idPoli}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{maeexclusionesController.destroyAndView}" value="#{bundle.ViewMaeexclusionesDestroyLink}"/>
+                <h:commandLink action="#{maecentrabajoController.destroyAndView}" value="#{bundle.ViewMaeexclusionesDestroyLink}"/>
                 <br />
                 <br />
                 <h:link outcome="Edit" value="#{bundle.ViewMaeexclusionesEditLink}"/>
                 <br />
-                <h:commandLink action="#{maeexclusionesController.prepareCreate}" value="#{bundle.ViewMaeexclusionesCreateLink}" />
+                <h:commandLink action="#{maecentrabajoController.prepareCreate}" value="#{bundle.ViewMaeexclusionesCreateLink}" />
                 <br />
-                <h:commandLink action="#{maeexclusionesController.prepareList}" value="#{bundle.ViewMaeexclusionesShowAllLink}"/>
+                <h:commandLink action="#{maecentrabajoController.prepareList}" value="#{bundle.ViewMaeexclusionesShowAllLink}"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ViewMaeexclusionesIndexLink}"/>

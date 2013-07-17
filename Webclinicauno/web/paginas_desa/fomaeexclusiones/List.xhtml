@@ -14,12 +14,12 @@
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListMaeexclusionesEmpty}" rendered="#{maeexclusionesController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{maeexclusionesController.items.rowCount > 0}">
-                    <h:outputText value="#{maeexclusionesController.pagination.pageFirstItem + 1}..#{maeexclusionesController.pagination.pageLastItem + 1}/#{maeexclusionesController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{maeexclusionesController.previous}" value="#{bundle.Previous} #{maeexclusionesController.pagination.pageSize}" rendered="#{maeexclusionesController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{maeexclusionesController.next}" value="#{bundle.Next} #{maeexclusionesController.pagination.pageSize}" rendered="#{maeexclusionesController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{maeexclusionesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                <h:outputText escape="false" value="#{bundle.ListMaeexclusionesEmpty}" rendered="#{maecentrabajoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{maecentrabajoController.items.rowCount > 0}">
+                    <h:outputText value="#{maecentrabajoController.pagination.pageFirstItem + 1}..#{maecentrabajoController.pagination.pageLastItem + 1}/#{maecentrabajoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{maecentrabajoController.previous}" value="#{bundle.Previous} #{maecentrabajoController.pagination.pageSize}" rendered="#{maecentrabajoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{maecentrabajoController.next}" value="#{bundle.Next} #{maecentrabajoController.pagination.pageSize}" rendered="#{maecentrabajoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{maecentrabajoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMaeexclusionesTitle_idExcl}"/>
@@ -48,16 +48,16 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{maeexclusionesController.prepareView}" value="#{bundle.ListMaeexclusionesViewLink}"/>
+                            <h:commandLink action="#{maecentrabajoController.prepareView}" value="#{bundle.ListMaeexclusionesViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{maeexclusionesController.prepareEdit}" value="#{bundle.ListMaeexclusionesEditLink}"/>
+                            <h:commandLink action="#{maecentrabajoController.prepareEdit}" value="#{bundle.ListMaeexclusionesEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{maeexclusionesController.destroy}" value="#{bundle.ListMaeexclusionesDestroyLink}"/>
+                            <h:commandLink action="#{maecentrabajoController.destroy}" value="#{bundle.ListMaeexclusionesDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{maeexclusionesController.prepareCreate}" value="#{bundle.ListMaeexclusionesCreateLink}"/>
+                <h:commandLink action="#{maecentrabajoController.prepareCreate}" value="#{bundle.ListMaeexclusionesCreateLink}"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListMaeexclusionesIndexLink}"/>

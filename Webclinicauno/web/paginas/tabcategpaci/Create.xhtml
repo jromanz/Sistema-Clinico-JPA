@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateTabcategpaciTitle}" style="margin-bottom:100px;font-size:70%">
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{bundle.CreateTabcategpaciLabel_idCatp}" for="idCatp" />
+                            <h:inputText id="idCatp" value="#{tabcategpaciController.selected.idCatp}" title="#{bundle.CreateTabcategpaciTitle_idCatp}" required="false" readonly="true"/>
+                            <h:outputLabel value="#{bundle.CreateTabcategpaciLabel_nombreCatp}" for="nombreCatp" />
+                            <h:inputText id="nombreCatp" value="#{tabcategpaciController.selected.nombreCatp}" title="#{bundle.CreateTabcategpaciTitle_nombreCatp}" />
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabcategpaciController.create}" value="#{bundle.CreateTabcategpaciSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{tabcategpaciController.prepareList}" value="#{bundle.CreateTabcategpaciShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateTabcategpaciIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>
