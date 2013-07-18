@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.ViewMaetarifarioTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_idMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.idMtar}" title="#{bundle.ViewMaetarifarioTitle_idMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_codsegusnMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.codsegusnMtar}" title="#{bundle.ViewMaetarifarioTitle_codsegusnMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_codsegusMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.codsegusMtar}" title="#{bundle.ViewMaetarifarioTitle_codsegusMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_flgtituloMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.flgtituloMtar}" title="#{bundle.ViewMaetarifarioTitle_flgtituloMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_nombreMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.nombreMtar}" title="#{bundle.ViewMaetarifarioTitle_nombreMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_unidadMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.unidadMtar}" title="#{bundle.ViewMaetarifarioTitle_unidadMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_ayudantiaMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.ayudantiaMtar}" title="#{bundle.ViewMaetarifarioTitle_ayudantiaMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_instrumentistaMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.instrumentistaMtar}" title="#{bundle.ViewMaetarifarioTitle_instrumentistaMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_diashospitalMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.diashospitalMtar}" title="#{bundle.ViewMaetarifarioTitle_diashospitalMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_sexoMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.sexoMtar}" title="#{bundle.ViewMaetarifarioTitle_sexoMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_edadminMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.edadminMtar}" title="#{bundle.ViewMaetarifarioTitle_edadminMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_edadmaxMtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.edadmaxMtar}" title="#{bundle.ViewMaetarifarioTitle_edadmaxMtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_idEspm}"/>
+                            <h:outputText value="#{maetarifarioController.selected.idEspm}" title="#{bundle.ViewMaetarifarioTitle_idEspm}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_idServ}"/>
+                            <h:outputText value="#{maetarifarioController.selected.idServ}" title="#{bundle.ViewMaetarifarioTitle_idServ}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_idTtar}"/>
+                            <h:outputText value="#{maetarifarioController.selected.idTtar}" title="#{bundle.ViewMaetarifarioTitle_idTtar}"/>
+                            <h:outputText value="#{bundle.ViewMaetarifarioLabel_idTest}"/>
+                            <h:outputText value="#{maetarifarioController.selected.idTest}" title="#{bundle.ViewMaetarifarioTitle_idTest}"/>
+                        </h:panelGrid>
+                        <p:commandButton action="Edit" value="#{bundle.ViewMaetarifarioEditLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maetarifarioController.prepareList}" value="#{bundle.ViewMaetarifarioShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.ViewMaetarifarioIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

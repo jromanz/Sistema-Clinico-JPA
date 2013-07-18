@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <h:form prependId="false">  
+                <p:growl id="messagePanel" />  
+                <p:dataTable id="dataTable" var="item" value="#{maepersonalController.items}"  
+                             paginator="true" rows="10"  
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                             rowsPerPageTemplate="5,10,15" style="margin-bottom:100px;font-size:70%"
+                             emptyMessage="#{bundle.ListMaepersonalEmpty}">  
+                    <f:facet name="header">  
+                        #{bundle.ListMaepersonalTitle}
+                    </f:facet>  
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_idPers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idPers}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_codigoPers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.codigoPers}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_nombrePers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombrePers}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_apepaternoPers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.apepaternoPers}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_apematernoPers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.apematernoPers}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_correoPers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.correoPers}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_direccionPers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.direccionPers}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_numerodocPers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.numerodocPers}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_idMemp}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idMemp}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_idTdoc}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idTdoc}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_idUbig}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idUbig}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaepersonalTitle_idEstc}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idEstc}"/>
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <p:commandButton value="#{bundle.ListMaepersonalViewLink}" action="#{maepersonalController.prepareView}" icon="ui-icon-folder-open" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton value="#{bundle.ListMaepersonalEditLink}" action="#{maepersonalController.prepareEdit}" icon="ui-icon-extlink" ajax="false" style="align:right;font-size:70%" />
+                    </p:column>
+                    <f:facet name="footer">  
+                        <p:commandButton value="#{bundle.ListMaepersonalCreateLink}" action="#{maepersonalController.prepareCreate}" icon="ui-icon-plusthick" ajax="false" style="align:right;font-size:70%"/>
+                    </f:facet> 
+                </p:dataTable>  
+                <h:link outcome="/index" value="#{bundle.ListMaepersonalIndexLink}"/>
+            </h:form>  
+
+        </ui:define>
+    </ui:composition>
+
+</html>

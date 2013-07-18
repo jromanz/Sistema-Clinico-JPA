@@ -25,6 +25,10 @@ public class JsfUtil {
         return items;
     }
 
+    public static SelectItem[] getSelectItemsIdAndField(List<?> entities, boolean isLabel) {
+        return null;
+    }
+
     public static void addErrorMessage(Exception ex, String defaultMsg) {
         String msg = ex.getLocalizedMessage();
         if (msg != null && msg.length() > 0) {

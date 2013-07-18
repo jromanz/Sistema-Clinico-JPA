@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateTabservicioTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{bundle.CreateTabservicioLabel_idServ}" for="idServ" />
+                            <h:inputText id="idServ" value="#{tabservicioController.selected.idServ}" title="#{bundle.CreateTabservicioTitle_idServ}" required="false" readonly="true"/>
+                            <h:outputLabel value="#{bundle.CreateTabservicioLabel_nombreServ}" for="nombreServ" />
+                            <h:inputText id="nombreServ" value="#{tabservicioController.selected.nombreServ}" title="#{bundle.CreateTabservicioTitle_nombreServ}" />
+                            <h:outputLabel value="#{bundle.CreateTabservicioLabel_idMmed}" for="idMmed" />
+                            <h:selectOneMenu id="idMmed" value="#{tabservicioController.selected.idMmed}" title="#{bundle.CreateTabservicioTitle_idMmed}" required="true" requiredMessage="#{bundle.CreateTabservicioRequiredMessage_idMmed}">
+                                <f:selectItems value="#{maemedicosController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="#{bundle.CreateTabservicioLabel_idTest}" for="idTest" />
+                            <h:selectOneMenu id="idTest" value="#{tabservicioController.selected.idTest}" title="#{bundle.CreateTabservicioTitle_idTest}" required="true" requiredMessage="#{bundle.CreateTabservicioRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabservicioController.create}" value="#{bundle.CreateTabservicioSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{tabservicioController.prepareList}" value="#{bundle.CreateTabservicioShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateTabservicioIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

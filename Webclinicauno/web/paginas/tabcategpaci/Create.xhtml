@@ -11,6 +11,7 @@
             <f:view>
                 <h:form>
                     <p:panel header="#{bundle.CreateTabcategpaciTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />
                         <h:panelGrid columns="2">
                             <h:outputLabel value="#{bundle.CreateTabcategpaciLabel_idCatp}" for="idCatp" />
                             <h:inputText id="idCatp" value="#{tabcategpaciController.selected.idCatp}" title="#{bundle.CreateTabcategpaciTitle_idCatp}" required="false" readonly="true"/>

@@ -6,6 +6,7 @@ import pe.simsac.controllers.util.PaginationHelper;
 import pe.simsac.facade.MaeempresaFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;

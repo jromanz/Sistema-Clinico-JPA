@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateTabcamasTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{bundle.CreateTabcamasLabel_idCama}" for="idCama" />
+                            <h:inputText id="idCama" value="#{tabcamasController.selected.idCama}" title="#{bundle.CreateTabcamasTitle_idCama}" required="false" readonly="true"/>
+                            <h:outputLabel value="#{bundle.CreateTabcamasLabel_nombreCama}" for="nombreCama" />
+                            <h:inputText id="nombreCama" value="#{tabcamasController.selected.nombreCama}" title="#{bundle.CreateTabcamasTitle_nombreCama}" />
+                            <h:outputLabel value="#{bundle.CreateTabcamasLabel_idEstc}" for="idEstc" />
+                            <h:selectOneMenu id="idEstc" value="#{tabcamasController.selected.idEstc}" title="#{bundle.CreateTabcamasTitle_idEstc}" required="true" requiredMessage="#{bundle.CreateTabcamasRequiredMessage_idEstc}">
+                                <f:selectItems value="#{tabestacamaController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabcamasController.create}" value="#{bundle.CreateTabcamasSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{tabcamasController.prepareList}" value="#{bundle.CreateTabcamasShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateTabcamasIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -4,9 +4,11 @@
  */
 package pe.simsac.facade;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import pe.simsac.entidades.Maeempresa;
 
 /**
@@ -27,4 +29,8 @@ public class MaeempresaFacade extends AbstractFacade<Maeempresa> {
         super(Maeempresa.class);
     }
     
+    public List<Maeempresa> findIdAndRuc(){
+        Query query = em.createNamedQuery("findIdAndRuc");
+        return query.getResultList();
+    }
 }

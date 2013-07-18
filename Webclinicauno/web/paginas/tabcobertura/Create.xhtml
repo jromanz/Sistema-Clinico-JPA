@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateTabcoberturaTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_idCobe}" for="idCobe" />
+                            <h:inputText id="idCobe" value="#{tabcoberturaController.selected.idCobe}" title="#{bundle.CreateTabcoberturaTitle_idCobe}" required="false" readonly="true"/>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_consultaCobe}" for="consultaCobe" />
+                            <h:inputText id="consultaCobe" value="#{tabcoberturaController.selected.consultaCobe}" title="#{bundle.CreateTabcoberturaTitle_consultaCobe}" />
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_deducibleCobe}" for="deducibleCobe" />
+                            <h:inputText id="deducibleCobe" value="#{tabcoberturaController.selected.deducibleCobe}" title="#{bundle.CreateTabcoberturaTitle_deducibleCobe}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_deducibleCobe}"/>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_coaseguroCobe}" for="coaseguroCobe" />
+                            <h:inputText id="coaseguroCobe" value="#{tabcoberturaController.selected.coaseguroCobe}" title="#{bundle.CreateTabcoberturaTitle_coaseguroCobe}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_coaseguroCobe}"/>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_coasegfarmCobe}" for="coasegfarmCobe" />
+                            <h:inputText id="coasegfarmCobe" value="#{tabcoberturaController.selected.coasegfarmCobe}" title="#{bundle.CreateTabcoberturaTitle_coasegfarmCobe}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_coasegfarmCobe}"/>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_dscfarmCobe}" for="dscfarmCobe" />
+                            <h:inputText id="dscfarmCobe" value="#{tabcoberturaController.selected.dscfarmCobe}" title="#{bundle.CreateTabcoberturaTitle_dscfarmCobe}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_dscfarmCobe}"/>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_diasvigenciaCobe}" for="diasvigenciaCobe" />
+                            <h:inputText id="diasvigenciaCobe" value="#{tabcoberturaController.selected.diasvigenciaCobe}" title="#{bundle.CreateTabcoberturaTitle_diasvigenciaCobe}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_diasvigenciaCobe}"/>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_flgvigconsultaCobe}" for="flgvigconsultaCobe" />
+                            <h:inputText id="flgvigconsultaCobe" value="#{tabcoberturaController.selected.flgvigconsultaCobe}" title="#{bundle.CreateTabcoberturaTitle_flgvigconsultaCobe}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_flgvigconsultaCobe}"/>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_idTate}" for="idTate" />
+                            <h:selectOneMenu id="idTate" value="#{tabcoberturaController.selected.idTate}" title="#{bundle.CreateTabcoberturaTitle_idTate}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_idTate}">
+                                <f:selectItems value="#{tabtipoatencionController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_idTest}" for="idTest" />
+                            <h:selectOneMenu id="idTest" value="#{tabcoberturaController.selected.idTest}" title="#{bundle.CreateTabcoberturaTitle_idTest}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_idMone}" for="idMone" />
+                            <h:selectOneMenu id="idMone" value="#{tabcoberturaController.selected.idMone}" title="#{bundle.CreateTabcoberturaTitle_idMone}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_idMone}">
+                                <f:selectItems value="#{tabmonedaController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_idconsulMtar}" for="idconsulMtar" />
+                            <h:selectOneMenu id="idconsulMtar" value="#{tabcoberturaController.selected.idconsulMtar}" title="#{bundle.CreateTabcoberturaTitle_idconsulMtar}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_idconsulMtar}">
+                                <f:selectItems value="#{maetarifarioController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="#{bundle.CreateTabcoberturaLabel_idPlan}" for="idPlan" />
+                            <h:selectOneMenu id="idPlan" value="#{tabcoberturaController.selected.idPlan}" title="#{bundle.CreateTabcoberturaTitle_idPlan}" required="true" requiredMessage="#{bundle.CreateTabcoberturaRequiredMessage_idPlan}">
+                                <f:selectItems value="#{maeplanesController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabcoberturaController.create}" value="#{bundle.CreateTabcoberturaSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{tabcoberturaController.prepareList}" value="#{bundle.CreateTabcoberturaShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateTabcoberturaIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

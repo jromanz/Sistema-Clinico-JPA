@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.ViewTabcamasTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <h:outputText value="#{bundle.ViewTabcamasLabel_idCama}"/>
+                            <h:outputText value="#{tabcamasController.selected.idCama}" title="#{bundle.ViewTabcamasTitle_idCama}"/>
+                            <h:outputText value="#{bundle.ViewTabcamasLabel_nombreCama}"/>
+                            <h:outputText value="#{tabcamasController.selected.nombreCama}" title="#{bundle.ViewTabcamasTitle_nombreCama}"/>
+                            <h:outputText value="#{bundle.ViewTabcamasLabel_idEstc}"/>
+                            <h:outputText value="#{tabcamasController.selected.idEstc}" title="#{bundle.ViewTabcamasTitle_idEstc}"/>                            
+
+                        </h:panelGrid>
+                        <p:commandButton action="Edit" value="#{bundle.ViewTabcamasEditLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{tabcamasController.prepareList}" value="#{bundle.ViewTabcamasShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.ViewTabcamasIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

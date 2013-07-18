@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateTabtipotarifarioTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{bundle.CreateTabtipotarifarioLabel_idTtar}" for="idTtar" />
+                            <h:inputText id="idTtar" value="#{tabtipotarifarioController.selected.idTtar}" title="#{bundle.CreateTabtipotarifarioTitle_idTtar}" required="false" readonly="true"/>
+                            <h:outputLabel value="#{bundle.CreateTabtipotarifarioLabel_NombreTtar}" for="nombreTtar" />
+                            <h:inputText id="nombreTtar" value="#{tabtipotarifarioController.selected.nombreTtar}" title="#{bundle.CreateTabtipotarifarioTitle_nombreTtar}" />
+                            <h:outputLabel value="#{bundle.CreateTabtipotarifarioLabel_idTest}" for="idTest" />
+                            <h:selectOneMenu id="idTest" value="#{tabtipotarifarioController.selected.idTest}" title="#{bundle.CreateTabtipotarifarioTitle_idTest}" required="true" requiredMessage="#{bundle.CreateTabtipotarifarioRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>                            
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabtipotarifarioController.create}" value="#{bundle.CreateTabtipotarifarioSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{tabtipotarifarioController.prepareList}" value="#{bundle.CreateTabtipotarifarioShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateTabtipotarifarioIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>
