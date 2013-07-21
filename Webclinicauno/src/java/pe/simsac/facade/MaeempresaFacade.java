@@ -28,9 +28,6 @@ public class MaeempresaFacade extends AbstractFacade<Maeempresa> {
     public MaeempresaFacade() {
         super(Maeempresa.class);
     }
+
     
-    public List<Maeempresa> findIdAndRuc(){
-        Query query = em.createNamedQuery("findIdAndRuc");
-        return query.getResultList();
-    }
 }

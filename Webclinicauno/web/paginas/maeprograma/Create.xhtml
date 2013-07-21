@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateMaeprogramaTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="#{bundle.CreateMaeprogramaLabel_idProg}" for="idProg" />
+                            <p:inputText id="idProg" value="#{maeprogramaController.selected.idProg}" title="#{bundle.CreateMaeprogramaTitle_idProg}" required="false" readonly="true"/>
+                            <p:outputLabel value="#{bundle.CreateMaeprogramaLabel_nombreProg}" for="nombreProg" />
+                            <p:inputText id="nombreProg" value="#{maeprogramaController.selected.nombreProg}" title="#{bundle.CreateMaeprogramaTitle_nombreProg}" />
+                            <p:outputLabel value="#{bundle.CreateMaeprogramaLabel_flgventanaProg}" for="flgventanaProg" />
+                            <p:inputText id="flgventanaProg" value="#{maeprogramaController.selected.flgventanaProg}" title="#{bundle.CreateMaeprogramaTitle_flgventanaProg}" />
+                            <p:outputLabel value="#{bundle.CreateMaeprogramaLabel_objetoProg}" for="objetoProg" />
+                            <p:inputText id="objetoProg" value="#{maeprogramaController.selected.objetoProg}" title="#{bundle.CreateMaeprogramaTitle_objetoProg}" />
+                            <p:outputLabel value="#{bundle.CreateMaeprogramaLabel_iconoProg}" for="iconoProg" />
+                            <p:inputText id="iconoProg" value="#{maeprogramaController.selected.iconoProg}" title="#{bundle.CreateMaeprogramaTitle_iconoProg}" />
+                            <p:outputLabel value="#{bundle.CreateMaeprogramaLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{maeprogramaController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateMaeprogramaRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaeprogramaLabel_idModu}" for="idModu" />
+                            <p:selectOneMenu id="idModu" value="#{maeprogramaController.selected.idModu}" required="true" requiredMessage="#{bundle.CreateMaeprogramaRequiredMessage_idModu}">
+                                <f:selectItems value="#{maemoduloController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaeprogramaLabel_idPadre}" for="idPadre" />
+                            <p:selectOneMenu id="idPadre" value="#{maeprogramaController.selected.idPadre}" required="true" requiredMessage="#{bundle.CreateMaeprogramaRequiredMessage_idPadre}">
+                                <f:selectItems value="#{maeprogramaController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                        <p:commandButton action="#{maeprogramaController.create}" value="#{bundle.CreateMaeprogramaSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton action="#{maeprogramaController.prepareList}" value="#{bundle.CreateMaeprogramaShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />                    
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateMaeprogramaIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

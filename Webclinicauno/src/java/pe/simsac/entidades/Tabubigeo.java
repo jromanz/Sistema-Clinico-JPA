@@ -80,6 +80,7 @@ public class Tabubigeo implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUbig")
     private Collection<Maeciamedica> maeciamedicaCollection;
 
+   
     public Tabubigeo() {
     }
 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <h:form prependId="false">  
+                <p:growl id="messagePanel" /> 
+                <p:dataTable id="dataTable" var="item" value="#{tabpreciomediController.items}"  
+                             paginator="true" rows="10"  
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                             rowsPerPageTemplate="5,10,15" style="margin-bottom:100px;font-size:70%"
+                             emptyMessage="#{bundle.ListTabpreciomediEmpty}">  
+                    <f:facet name="header">  
+                        #{bundle.ListTabpreciomediTitle}
+                    </f:facet>  
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTabpreciomediTitle_idPrmed}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idPrmed}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTabpreciomediTitle_precioPrmed}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.precioPrmed}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTabpreciomediTitle_idTest}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idTest}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTabpreciomediTitle_idMtar}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idMtar}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTabpreciomediTitle_idMtaf}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idMtaf}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTabpreciomediTitle_idMmed}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idMmed}"/>
+                    </p:column>
+
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <p:commandButton value="#{bundle.ListTabpreciomediViewLink}" action="#{tabpreciomediController.prepareView}" icon="ui-icon-folder-open" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton value="#{bundle.ListTabpreciomediEditLink}" action="#{tabpreciomediController.prepareEdit}" icon="ui-icon-extlink" ajax="false" style="align:right;font-size:70%" />
+                    </p:column>
+                    <f:facet name="footer">  
+                        <p:commandButton value="#{bundle.ListTabpreciomediCreateLink}" action="#{tabpreciomediController.prepareCreate}" icon="ui-icon-plusthick" ajax="false" style="align:right"/>
+                    </f:facet> 
+                </p:dataTable>  
+                <h:link outcome="/index" value="#{bundle.ListTabpreciomediIndexLink}"/>
+            </h:form>  
+
+        </ui:define>
+    </ui:composition>
+
+</html>

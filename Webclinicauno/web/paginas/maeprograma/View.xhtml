@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.ViewMaeprogramaTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{bundle.ViewMaeprogramaLabel_idProg}"/>
+                            <h:outputText value="#{maeprogramaController.selected.idProg}" title="#{bundle.ViewMaeprogramaTitle_idProg}"/>
+                            <h:outputText value="#{bundle.ViewMaeprogramaLabel_nombreProg}"/>
+                            <h:outputText value="#{maeprogramaController.selected.nombreProg}" title="#{bundle.ViewMaeprogramaTitle_nombreProg}"/>
+                            <h:outputText value="#{bundle.ViewMaeprogramaLabel_flgventanaProg}"/>
+                            <h:outputText value="#{maeprogramaController.selected.flgventanaProg}" title="#{bundle.ViewMaeprogramaTitle_flgventanaProg}"/>
+                            <h:outputText value="#{bundle.ViewMaeprogramaLabel_objetoProg}"/>
+                            <h:outputText value="#{maeprogramaController.selected.objetoProg}" title="#{bundle.ViewMaeprogramaTitle_objetoProg}"/>
+                            <h:outputText value="#{bundle.ViewMaeprogramaLabel_iconoProg}"/>
+                            <h:outputText value="#{maeprogramaController.selected.iconoProg}" title="#{bundle.ViewMaeprogramaTitle_iconoProg}"/>
+                            <h:outputText value="#{bundle.ViewMaeprogramaLabel_idTest}"/>
+                            <h:outputText value="#{maeprogramaController.selected.idTest}" title="#{bundle.ViewMaeprogramaTitle_idTest}"/>
+                            <h:outputText value="#{bundle.ViewMaeprogramaLabel_idModu}"/>
+                            <h:outputText value="#{maeprogramaController.selected.idModu}" title="#{bundle.ViewMaeprogramaTitle_idModu}"/>
+                            <h:outputText value="#{bundle.ViewMaeprogramaLabel_idPadre}"/>
+                            <h:outputText value="#{maeprogramaController.selected.idPadre}" title="#{bundle.ViewMaeprogramaTitle_idPadre}"/>
+                        </h:panelGrid>
+                        <p:commandButton action="Edit" value="#{bundle.ViewMaeprogramaEditLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maeprogramaController.prepareList}" value="#{bundle.ViewMaeprogramaShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.ViewMaeprogramaIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

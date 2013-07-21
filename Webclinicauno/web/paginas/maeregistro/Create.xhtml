@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateMaeregistroTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_idRegi}" for="idRegi" />
+                            <p:inputText id="idRegi" value="#{maeregistroController.selected.idRegi}" title="#{bundle.CreateMaeregistroTitle_idRegi}" required="false" readonly="true"/>
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_deducibleRegi}" for="deducibleRegi" />
+                            <p:inputText id="deducibleRegi" value="#{maeregistroController.selected.deducibleRegi}" title="#{bundle.CreateMaeregistroTitle_deducibleRegi}" />
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_coaseguroRegi}" for="coaseguroRegi" />
+                            <p:inputText id="coaseguroRegi" value="#{maeregistroController.selected.coaseguroRegi}" title="#{bundle.CreateMaeregistroTitle_coaseguroRegi}" />
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_coasegfarmRegi}" for="coasegfarmRegi" />
+                            <p:inputText id="coasegfarmRegi" value="#{maeregistroController.selected.coasegfarmRegi}" title="#{bundle.CreateMaeregistroTitle_coasegfarmRegi}" />
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_dscfarmRegi}" for="dscfarmRegi" />
+                            <p:inputText id="dscfarmRegi" value="#{maeregistroController.selected.dscfarmRegi}" title="#{bundle.CreateMaeregistroTitle_dscfarmRegi}" />
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_fechaRegi}" for="fechaRegi" />
+                            <p:calendar id="fechaRegi" value="#{maeregistroController.selected.fechaRegi}" title="#{bundle.CreateMaeregistroTitle_fechaRegi}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_fechainiRegi}" for="fechainiRegi" />
+                            <p:calendar id="fechainiRegi" value="#{maeregistroController.selected.fechainiRegi}" title="#{bundle.CreateMaeregistroTitle_fechainiRegi}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_fechafinRegi}" for="fechafinRegi" />
+                            <p:calendar id="fechafinRegi" value="#{maeregistroController.selected.fechafinRegi}" title="#{bundle.CreateMaeregistroTitle_fechafinRegi}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_observacionRegi}" for="observacionRegi" />
+                            <p:inputText id="observacionRegi" value="#{maeregistroController.selected.observacionRegi}" title="#{bundle.CreateMaeregistroTitle_observacionRegi}" />
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_consultaRegi}" for="consultaRegi" />
+                            <p:inputText id="consultaRegi" value="#{maeregistroController.selected.consultaRegi}" title="#{bundle.CreateMaeregistroTitle_consultaRegi}" />
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{maeregistroController.selected.idTest}" >
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_idEstr}" for="idEstr" />
+                            <p:selectOneMenu id="idEstr" value="#{maeregistroController.selected.idEstr}" required="true" requiredMessage="#{bundle.CreateMaeregistroRequiredMessage_idEstr}">
+                                <f:selectItems value="#{tabestaregistroController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_idCobe}" for="idCobe" />
+                            <p:selectOneMenu id="idCobe" value="#{maeregistroController.selected.idCobe}" required="true" requiredMessage="#{bundle.CreateMaeregistroRequiredMessage_idCobe}">
+                                <f:selectItems value="#{tabcoberturaController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_idMtaf}" for="idMtaf" />
+                            <p:selectOneMenu id="idMtaf" value="#{maeregistroController.selected.idMtaf}" required="true" requiredMessage="#{bundle.CreateMaeregistroRequiredMessage_idMtaf}">
+                                <f:selectItems value="#{maetarifasController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_idPlan}" for="idPlan" />
+                            <p:selectOneMenu id="idPlan" value="#{maeregistroController.selected.idPlan}" required="true" requiredMessage="#{bundle.CreateMaeregistroRequiredMessage_idPlan}">
+                                <f:selectItems value="#{maeplanesController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_idPaci}" for="idPaci" />
+                            <p:selectOneMenu id="idPaci" value="#{maeregistroController.selected.idPaci}" required="true" requiredMessage="#{bundle.CreateMaeregistroRequiredMessage_idPaci}">
+                                <f:selectItems value="#{maepacienteController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaeregistroLabel_idTate}" for="idTate" />
+                            <p:selectOneMenu id="idTate" value="#{maeregistroController.selected.idTate}" required="true" requiredMessage="#{bundle.CreateMaeregistroRequiredMessage_idTate}">
+                                <f:selectItems value="#{tabtipoatencionController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{maeregistroController.create}" value="#{bundle.CreateMaeregistroSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton action="#{maeregistroController.prepareList}" value="#{bundle.CreateMaeregistroShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />                    
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateMaeregistroIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateTabubigeoTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{bundle.CreateTabubigeoLabel_idUbig}" for="idUbig" />
+                            <h:inputText id="idUbig" value="#{tabubigeoController.selected.idUbig}" title="#{bundle.CreateTabubigeoTitle_idUbig}" required="false" readonly="true" />
+                            <h:outputLabel value="#{bundle.CreateTabubigeoLabel_codigoUbig}" for="codigoUbig" />
+                            <h:inputText id="codigoUbig" value="#{tabubigeoController.selected.codigoUbig}" title="#{bundle.CreateTabubigeoTitle_codigoUbig}" required="true" requiredMessage="#{bundle.CreateTabubigeoRequiredMessage_codigoUbig}"/>
+                            <h:outputLabel value="#{bundle.CreateTabubigeoLabel_coddptoUbig}" for="coddptoUbig" />
+                            <h:inputText id="coddptoUbig" value="#{tabubigeoController.selected.coddptoUbig}" title="#{bundle.CreateTabubigeoTitle_coddptoUbig}" required="true" requiredMessage="#{bundle.CreateTabubigeoRequiredMessage_coddptoUbig}"/>
+                            <h:outputLabel value="#{bundle.CreateTabubigeoLabel_codprovUbig}" for="codprovUbig" />
+                            <h:inputText id="codprovUbig" value="#{tabubigeoController.selected.codprovUbig}" title="#{bundle.CreateTabubigeoTitle_codprovUbig}" required="true" requiredMessage="#{bundle.CreateTabubigeoRequiredMessage_codprovUbig}"/>
+                            <h:outputLabel value="#{bundle.CreateTabubigeoLabel_coddistUbig}" for="coddistUbig" />
+                            <h:inputText id="coddistUbig" value="#{tabubigeoController.selected.coddistUbig}" title="#{bundle.CreateTabubigeoTitle_coddistUbig}" required="true" requiredMessage="#{bundle.CreateTabubigeoRequiredMessage_coddistUbig}"/>
+                            <h:outputLabel value="#{bundle.CreateTabubigeoLabel_nombreUbig}" for="nombreUbig" />
+                            <h:inputText id="nombreUbig" value="#{tabubigeoController.selected.nombreUbig}" title="#{bundle.CreateTabubigeoTitle_nombreUbig}" />
+
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabubigeoController.create}" value="#{bundle.CreateTabubigeoSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{tabubigeoController.prepareList}" value="#{bundle.CreateTabubigeoShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateTabubigeoIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateMaeusurioTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="#{bundle.CreateMaeusurioLabel_idUsua}" for="idUsua" />
+                            <p:inputText id="idUsua" value="#{maeusurioController.selected.idUsua}" title="#{bundle.CreateMaeusurioTitle_idUsua}" required="false" readonly="true"/>
+                            <p:outputLabel value="#{bundle.CreateMaeusurioLabel_loginUsua}" for="loginUsua" />
+                            <p:inputText id="loginUsua" value="#{maeusurioController.selected.loginUsua}" title="#{bundle.CreateMaeusurioTitle_loginUsua}" />
+                            <p:outputLabel value="#{bundle.CreateMaeusurioLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{maeusurioController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateMaeusurioRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            
+                            <p:outputLabel value="#{bundle.CreateMaeusurioLabel_idPers}" for="idPers" />
+                            <p:selectOneMenu id="idPers" value="#{maeusurioController.selected.idPers}" required="true" requiredMessage="#{bundle.CreateMaeusurioRequiredMessage_idPers}">
+                                <f:selectItems value="#{maepersonalController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="#{bundle.CreateMaeusurioLabel_fechainicioUsua}" for="fechainicioUsua" />
+                            <p:calendar id="fechainicioUsua" value="#{maeusurioController.selected.fechainicioUsua}" title="#{bundle.CreateMaeusurioTitle_fechainicioUsua}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:outputLabel value="#{bundle.CreateMaeusurioLabel_fechafinUsua}" for="fechafinUsua" />
+                            <p:calendar id="fechafinUsua" value="#{maeusurioController.selected.fechafinUsua}" title="#{bundle.CreateMaeusurioTitle_fechafinUsua}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:outputLabel value="#{bundle.CreateMaeusurioLabel_claveUsua}" for="claveUsua" />
+                            <p:inputText id="claveUsua" value="#{maeusurioController.selected.claveUsua}" title="#{bundle.CreateMaeusurioTitle_claveUsua}" />
+                            <p:outputLabel value="#{bundle.CreateMaeusurioLabel_idRole}" for="idRole" />
+                            <p:selectOneMenu id="idRole" value="#{maeusurioController.selected.idRole}" required="true" requiredMessage="#{bundle.CreateMaeusurioRequiredMessage_idRole}">
+                                <f:selectItems value="#{maerolesController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{maeusurioController.create}" value="#{bundle.CreateMaeusurioSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maeusurioController.prepareList}" value="#{bundle.CreateMaeusurioShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateMaeusurioIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

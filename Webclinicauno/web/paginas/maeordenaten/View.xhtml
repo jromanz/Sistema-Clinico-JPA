@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.ViewMaeordenatenTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{bundle.ViewMaeordenatenLabel_idOrda}"/>
+                            <h:outputText value="#{maeordenatenController.selected.idOrda}" title="#{bundle.ViewMaeordenatenTitle_idOrda}"/>
+                            <h:outputText value="#{bundle.ViewMaeordenatenLabel_fechaOrda}"/>
+                            <h:outputText value="#{maeordenatenController.selected.fechaOrda}" title="#{bundle.ViewMaeordenatenTitle_fechaOrda}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                            <h:outputText value="#{bundle.ViewMaeordenatenLabel_consultaOrda}"/>
+                            <h:outputText value="#{maeordenatenController.selected.consultaOrda}" title="#{bundle.ViewMaeordenatenTitle_consultaOrda}"/>
+                            <h:outputText value="#{bundle.ViewMaeordenatenLabel_deducibleOrda}"/>
+                            <h:outputText value="#{maeordenatenController.selected.deducibleOrda}" title="#{bundle.ViewMaeordenatenTitle_deducibleOrda}"/>
+                            <h:outputText value="#{bundle.ViewMaeordenatenLabel_flgcargaconsumoOrda}"/>
+                            <h:outputText value="#{maeordenatenController.selected.flgcargaconsumoOrda}" title="#{bundle.ViewMaeordenatenTitle_flgcargaconsumoOrda}"/>
+                            <h:outputText value="#{bundle.ViewMaeordenatenLabel_flgcargahonorarioOrda}"/>
+                            <h:outputText value="#{maeordenatenController.selected.flgcargahonorarioOrda}" title="#{bundle.ViewMaeordenatenTitle_flgcargahonorarioOrda}"/>
+                            <h:outputText value="#{bundle.ViewMaeordenatenLabel_idTest}"/>
+                            <h:outputText value="#{maeordenatenController.selected.idTest}" title="#{bundle.ViewMaeordenatenTitle_idTest}"/>
+                            <h:outputText value="#{bundle.ViewMaeordenatenLabel_idMmed}"/>
+                            <h:outputText value="#{maeordenatenController.selected.idMmed}" title="#{bundle.ViewMaeordenatenTitle_idMmed}"/>
+                            <h:outputText value="#{bundle.ViewMaeordenatenLabel_idRegi}"/>
+                            <h:outputText value="#{maeordenatenController.selected.idRegi}" title="#{bundle.ViewMaeordenatenTitle_idRegi}"/>
+                        </h:panelGrid>
+                        <p:commandButton action="Edit" value="#{bundle.ViewMaeordenatenEditLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maeordenatenController.prepareList}" value="#{bundle.ViewMaeordenatenShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.ViewMaeordenatenIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>        
+    </ui:composition>
+
+</html>

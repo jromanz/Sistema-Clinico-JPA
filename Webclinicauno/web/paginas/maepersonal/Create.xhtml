@@ -14,26 +14,26 @@
                         <p:growl id="messagePanel" />  
                         <h:panelGrid columns="2">
 
-                            <h:outputLabel value="#{bundle.CreateMaepersonalLabel_idPers}" for="idPers" />
-                            <h:inputText id="idPers" value="#{maepersonalController.selected.idPers}" title="#{bundle.CreateMaepersonalTitle_idPers}" required="false" readonly="true"/>
-                            <h:outputLabel value="#{bundle.CreateMaepersonalLabel_codigoPers}" for="codigoPers" />
-                            <h:inputText id="codigoPers" value="#{maepersonalController.selected.codigoPers}" title="#{bundle.CreateMaepersonalTitle_codigoPers}" />
-                            <h:outputLabel value="#{bundle.CreateMaepersonalLabel_nombrePers}" for="nombrePers" />
-                            <h:inputText id="nombrePers" value="#{maepersonalController.selected.nombrePers}" title="#{bundle.CreateMaepersonalTitle_nombrePers}" />
-                            <h:outputLabel value="#{bundle.CreateMaepersonalLabel_apepaternoPers}" for="apepaternoPers" />
-                            <h:inputText id="apepaternoPers" value="#{maepersonalController.selected.apepaternoPers}" title="#{bundle.CreateMaepersonalTitle_apepaternoPers}" />
-                            <h:outputLabel value="#{bundle.CreateMaepersonalLabel_apematernoPers}" for="apematernoPers" />
-                            <h:inputText id="apematernoPers" value="#{maepersonalController.selected.apematernoPers}" title="#{bundle.CreateMaepersonalTitle_apematernoPers}" />
-                            <h:outputLabel value="#{bundle.CreateMaepersonalLabel_correoPers}" for="correoPers" />
-                            <h:inputText id="correoPers" value="#{maepersonalController.selected.correoPers}" title="#{bundle.CreateMaepersonalTitle_correoPers}" />
-                            <h:outputLabel value="#{bundle.CreateMaepersonalLabel_direccionPers}" for="direccionPers" />
-                            <h:inputText id="direccionPers" value="#{maepersonalController.selected.direccionPers}" title="#{bundle.CreateMaepersonalTitle_direccionPers}" />
-                            <h:outputLabel value="#{bundle.CreateMaepersonalLabel_numerodocPers}" for="numerodocPers" />
-                            <h:inputText id="numerodocPers" value="#{maepersonalController.selected.numerodocPers}" title="#{bundle.CreateMaepersonalTitle_numerodocPers}" />
-                            <h:outputLabel value="#{bundle.CreateMaepersonalLabel_idMemp}" for="idMemp" />
+                            <p:outputLabel value="#{bundle.CreateMaepersonalLabel_idPers}" for="idPers" />
+                            <p:inputText id="idPers" value="#{maepersonalController.selected.idPers}" title="#{bundle.CreateMaepersonalTitle_idPers}" required="false" readonly="true"/>
+                            <p:outputLabel value="#{bundle.CreateMaepersonalLabel_codigoPers}" for="codigoPers" />
+                            <p:inputText id="codigoPers" value="#{maepersonalController.selected.codigoPers}" title="#{bundle.CreateMaepersonalTitle_codigoPers}" />
+                            <p:outputLabel value="#{bundle.CreateMaepersonalLabel_nombrePers}" for="nombrePers" />
+                            <p:inputText id="nombrePers" value="#{maepersonalController.selected.nombrePers}" title="#{bundle.CreateMaepersonalTitle_nombrePers}" />
+                            <p:outputLabel value="#{bundle.CreateMaepersonalLabel_apepaternoPers}" for="apepaternoPers" />
+                            <p:inputText id="apepaternoPers" value="#{maepersonalController.selected.apepaternoPers}" title="#{bundle.CreateMaepersonalTitle_apepaternoPers}" />
+                            <p:outputLabel value="#{bundle.CreateMaepersonalLabel_apematernoPers}" for="apematernoPers" />
+                            <p:inputText id="apematernoPers" value="#{maepersonalController.selected.apematernoPers}" title="#{bundle.CreateMaepersonalTitle_apematernoPers}" />
+                            <p:outputLabel value="#{bundle.CreateMaepersonalLabel_correoPers}" for="correoPers" />
+                            <p:inputText id="correoPers" value="#{maepersonalController.selected.correoPers}" title="#{bundle.CreateMaepersonalTitle_correoPers}" />
+                            <p:outputLabel value="#{bundle.CreateMaepersonalLabel_direccionPers}" for="direccionPers" />
+                            <p:inputText id="direccionPers" value="#{maepersonalController.selected.direccionPers}" title="#{bundle.CreateMaepersonalTitle_direccionPers}" />
+                            <p:outputLabel value="#{bundle.CreateMaepersonalLabel_numerodocPers}" for="numerodocPers" />
+                            <p:inputText id="numerodocPers" value="#{maepersonalController.selected.numerodocPers}" title="#{bundle.CreateMaepersonalTitle_numerodocPers}" />
+                            <p:outputLabel value="#{bundle.CreateMaepersonalLabel_idMemp}" for="idMemp" />
                             <p:selectOneMenu id="idMemp" value="#{maepersonalController.selected.idMemp}" required="true" requiredMessage="#{bundle.CreateMaepersonalRequiredMessage_idMemp}">
                                 <f:selectItems value="#{maeempresaController.itemsAvailableSelectOne}"/>
-                            </p:selectOneMenu>
+                            </p:selectOneMenu>                            
                             <p:outputLabel value="#{bundle.CreateMaepersonalLabel_idTdoc}" for="idTdoc" />
                             <p:selectOneMenu id="idTdoc" value="#{maepersonalController.selected.idTdoc}" required="true" requiredMessage="#{bundle.CreateMaepersonalRequiredMessage_idTdoc}">
                                 <f:selectItems value="#{tabtipodocumentoController.itemsAvailableSelectOne}"/>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <h:form prependId="false">  
+                <p:growl id="messagePanel" />  
+                <p:dataTable id="dataTable" var="item" value="#{maeregistroController.items}"  
+                             paginator="true" rows="10"  
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                             rowsPerPageTemplate="5,10,15" style="margin-bottom:100px;font-size:70%"
+                             emptyMessage="#{bundle.ListMaeregistroEmpty}">  
+                    <f:facet name="header">  
+                        #{bundle.ListMaeregistroTitle}
+                    </f:facet>  
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_idRegi}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idRegi}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_deducibleRegi}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.deducibleRegi}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_coaseguroRegi}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.coaseguroRegi}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_coasegfarmRegi}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.coasegfarmRegi}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_dscfarmRegi}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dscfarmRegi}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_fechaRegi}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fechaRegi}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_fechainiRegi}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fechainiRegi}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_fechafinRegi}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fechafinRegi}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_observacionRegi}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.observacionRegi}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_consultaRegi}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.consultaRegi}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_idTest}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idTest}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_idEstr}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idEstr}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_idCobe}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idCobe}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_idMtaf}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idMtaf}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_idPlan}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idPlan}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_idPaci}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idPaci}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMaeregistroTitle_idTate}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idTate}"/>
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <p:commandButton value="#{bundle.ListMaeregistroViewLink}" action="#{maeregistroController.prepareView}" icon="ui-icon-folder-open" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton value="#{bundle.ListMaeregistroEditLink}" action="#{maeregistroController.prepareEdit}" icon="ui-icon-extlink" ajax="false" style="align:right;font-size:70%" />
+                    </p:column>
+                    <f:facet name="footer">  
+                        <p:commandButton value="#{bundle.ListMaeregistroCreateLink}" action="#{maeregistroController.prepareCreate}" icon="ui-icon-plusthick" ajax="false" style="align:right"/>
+                    </f:facet> 
+                </p:dataTable>  
+                <h:link outcome="/index" value="#{bundle.ListMaeregistroIndexLink}"/>
+            </h:form>  
+
+        </ui:define>
+    </ui:composition>
+
+</html>

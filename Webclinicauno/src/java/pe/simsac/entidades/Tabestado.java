@@ -101,6 +101,17 @@ public class Tabestado implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTest")
     private Collection<Tabpreciocmed> tabpreciocmedCollection;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTest")
+    private Collection<Maeusurio> maeusurioCollection;
+
+    public Collection<Maeusurio> getMaeusurioCollection() {
+        return maeusurioCollection;
+    }
+
+    public void setMaeusurioCollection(Collection<Maeusurio> maeusurioCollection) {
+        this.maeusurioCollection = maeusurioCollection;
+    }
+    
     public Tabestado() {
     }
 

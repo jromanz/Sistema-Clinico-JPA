@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.ViewMaeusurioTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{bundle.ViewMaeusurioLabel_idUsua}"/>
+                            <h:outputText value="#{maeusurioController.selected.idUsua}" title="#{bundle.ViewMaeusurioTitle_idUsua}"/>
+                            <h:outputText value="#{bundle.ViewMaeusurioLabel_loginUsua}"/>
+                            <h:outputText value="#{maeusurioController.selected.loginUsua}" title="#{bundle.ViewMaeusurioTitle_loginUsua}"/>
+                            <h:outputText value="#{bundle.ViewMaeusurioLabel_idTest}"/>
+                            <h:outputText value="#{maeusurioController.selected.idTest}" title="#{bundle.ViewMaeusurioTitle_idTest}"/>
+                            <h:outputText value="#{bundle.ViewMaeusurioLabel_idPers}"/>
+                            <h:outputText value="#{maeusurioController.selected.idPers}" title="#{bundle.ViewMaeusurioTitle_idPers}"/>
+                            <h:outputText value="#{bundle.ViewMaeusurioLabel_fechainicioUsua}"/>
+                            <h:outputText value="#{maeusurioController.selected.fechainicioUsua}" title="#{bundle.ViewMaeusurioTitle_fechainicioUsua}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                            <h:outputText value="#{bundle.ViewMaeusurioLabel_fechafinUsua}"/>
+                            <h:outputText value="#{maeusurioController.selected.fechafinUsua}" title="#{bundle.ViewMaeusurioTitle_fechafinUsua}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                            <h:outputText value="#{bundle.ViewMaeusurioLabel_claveUsua}"/>
+                            <h:outputText value="#{maeusurioController.selected.claveUsua}" title="#{bundle.ViewMaeusurioTitle_claveUsua}"/>
+                            <h:outputText value="#{bundle.ViewMaeusurioLabel_idRole}"/>
+                            <h:outputText value="#{maeusurioController.selected.idRole}" title="#{bundle.ViewMaeusurioTitle_idRole}"/>
+
+                        </h:panelGrid>
+                        <p:commandButton action="Edit" value="#{bundle.ViewMaeusurioEditLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maetarifasController.prepareList}" value="#{bundle.ViewMaeusurioShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.ViewMaeusurioIndexLink}"/>            
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

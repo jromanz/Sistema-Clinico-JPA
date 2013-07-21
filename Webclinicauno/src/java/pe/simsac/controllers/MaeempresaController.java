@@ -188,11 +188,11 @@ public class MaeempresaController implements Serializable {
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
-
+    
     public Maeempresa getMaeempresa(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
-
+    
     @FacesConverter(forClass = Maeempresa.class)
     public static class MaeempresaControllerConverter implements Converter {
 

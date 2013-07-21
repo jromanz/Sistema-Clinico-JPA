@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -48,14 +50,15 @@ public class Maeusurio implements Serializable {
     @Size(max = 20)
     @Column(name = "LOGIN_USUA")
     private String loginUsua;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ID_TEST")
-    private int idTest;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ID_PERS")
-    private int idPers;
+    
+    @ManyToOne(optional=false)
+    @JoinColumn(name = "ID_TEST",referencedColumnName="ID_TEST")
+    private Tabestado idTest;
+    
+    @ManyToOne(optional=false)
+    @JoinColumn(name = "ID_PERS",referencedColumnName="ID_PERS")
+    private Maepersonal idPers;
+    
     @Column(name = "FECHAINICIO_USUA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechainicioUsua;
@@ -65,23 +68,16 @@ public class Maeusurio implements Serializable {
     @Size(max = 100)
     @Column(name = "CLAVE_USUA")
     private String claveUsua;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ID_ROLE")
-    private int idRole;
+    
+    @JoinColumn(name = "ID_ROLE", referencedColumnName="ID_ROLE")
+    @ManyToOne(optional=false)
+    private Maeroles idRole;
 
     public Maeusurio() {
     }
 
     public Maeusurio(Integer idUsua) {
         this.idUsua = idUsua;
-    }
-
-    public Maeusurio(Integer idUsua, int idTest, int idPers, int idRole) {
-        this.idUsua = idUsua;
-        this.idTest = idTest;
-        this.idPers = idPers;
-        this.idRole = idRole;
     }
 
     public Integer getIdUsua() {
@@ -100,19 +96,19 @@ public class Maeusurio implements Serializable {
         this.loginUsua = loginUsua;
     }
 
-    public int getIdTest() {
+    public Tabestado getIdTest() {
         return idTest;
     }
 
-    public void setIdTest(int idTest) {
+    public void setIdTest(Tabestado idTest) {
         this.idTest = idTest;
     }
 
-    public int getIdPers() {
+    public Maepersonal getIdPers() {
         return idPers;
     }
 
-    public void setIdPers(int idPers) {
+    public void setIdPers(Maepersonal idPers) {
         this.idPers = idPers;
     }
 
@@ -140,11 +136,11 @@ public class Maeusurio implements Serializable {
         this.claveUsua = claveUsua;
     }
 
-    public int getIdRole() {
+    public Maeroles getIdRole() {
         return idRole;
     }
 
-    public void setIdRole(int idRole) {
+    public void setIdRole(Maeroles idRole) {
         this.idRole = idRole;
     }
 

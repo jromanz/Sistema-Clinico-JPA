@@ -21,6 +21,7 @@ public class JsfUtil {
         }
         for (Object x : entities) {
             items[i++] = new SelectItem(x, x.toString());
+            System.out.println(x +": "+x.toString());
         }
         return items;
     }

@@ -49,7 +49,17 @@ public class Maeroles implements Serializable {
     @JoinColumn(name = "ID_TEST", referencedColumnName = "ID_TEST")
     @ManyToOne(optional = false)
     private Tabestado idTest;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRole")
+    private Collection<Maeusurio> maeusurioCollection;
 
+    public Collection<Maeusurio> getMaeusurioCollection() {
+        return maeusurioCollection;
+    }
+
+    public void setMaeusurioCollection(Collection<Maeusurio> maeusurioCollection) {
+        this.maeusurioCollection = maeusurioCollection;
+    }
+    
     public Maeroles() {
     }
 

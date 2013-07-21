@@ -11,6 +11,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -109,11 +110,14 @@ public class Maepaciente implements Serializable {
     @JoinColumn(name = "ID_CTRA", referencedColumnName = "ID_CTRA")
     @ManyToOne
     private Maecentrabajo idCtra;
+    
     @OneToMany(mappedBy = "idTitu")
     private Collection<Maepaciente> maepacienteCollection;
+    
     @JoinColumn(name = "ID_TITU", referencedColumnName = "ID_PACI")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Maepaciente idTitu;
+    
     @JoinColumn(name = "ID_TPAR", referencedColumnName = "ID_TPAR")
     @ManyToOne(optional = false)
     private Tabparentesco idTpar;

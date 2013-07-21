@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateTabpreciocmedTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+                            <p:outputLabel value="#{bundle.CreateTabpreciocmedLabel_idPrcme}" for="idPrcme" />
+                            <p:inputText id="idPrcme" value="#{tabpreciocmedController.selected.idPrcme}" title="#{bundle.CreateTabpreciocmedTitle_idPrcme}" required="false" readonly="true"/>
+                            <p:outputLabel value="#{bundle.CreateTabpreciocmedLabel_precioPrcme}" for="precioPrcme" />
+                            <p:inputText id="precioPrcme" value="#{tabpreciocmedController.selected.precioPrcme}" title="#{bundle.CreateTabpreciocmedTitle_precioPrcme}" />
+                            <p:outputLabel value="#{bundle.CreateTabpreciocmedLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{tabpreciocmedController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateTabpreciocmedRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateTabpreciocmedLabel_idMtar}" for="idMtar" />
+                            <p:selectOneMenu id="idMtar" value="#{tabpreciocmedController.selected.idMtar}" required="true" requiredMessage="#{bundle.CreateTabpreciocmedRequiredMessage_idMtar}">
+                                <f:selectItems value="#{maetarifarioController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateTabpreciocmedLabel_idMtaf}" for="idMtaf" />
+                            <p:selectOneMenu id="idMtaf" value="#{tabpreciocmedController.selected.idMtaf}" required="true" requiredMessage="#{bundle.CreateTabpreciocmedRequiredMessage_idMtaf}">
+                                <f:selectItems value="#{maetarifasController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateTabpreciocmedLabel_idCmed}" for="idCmed" />
+                            <p:selectOneMenu id="idCmed" value="#{tabpreciocmedController.selected.idCmed}" required="true" requiredMessage="#{bundle.CreateTabpreciocmedRequiredMessage_idCmed}">
+                                <f:selectItems value="#{maeciamedicaController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabpreciocmedController.create}" value="#{bundle.CreateTabpreciocmedSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton action="#{tabpreciocmedController.prepareList}" value="#{bundle.CreateTabpreciocmedShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />                    
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateTabpreciocmedIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

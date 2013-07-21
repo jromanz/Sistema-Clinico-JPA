@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.EditTabpreciotariTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />                 
+                        <h:panelGrid columns="2">
+
+                            <h:outputLabel value="#{bundle.EditTabpreciotariLabel_idPrtar}" for="idPrtar" />
+                            <h:inputText id="idPrtar" value="#{tabpreciotariController.selected.idPrtar}" title="#{bundle.EditTabpreciotariTitle_idPrtar}" required="false" readonly="true"/>
+                            <h:outputLabel value="#{bundle.EditTabpreciotariLabel_precioPrtar}" for="precioPrtar" />
+                            <h:inputText id="precioPrtar" value="#{tabpreciotariController.selected.precioPrtar}" title="#{bundle.EditTabpreciotariTitle_precioPrtar}" />
+                            <h:outputLabel value="#{bundle.EditTabpreciotariLabel_idMtar}" for="idMtar" />
+                            <h:selectOneMenu id="idMtar" value="#{tabpreciotariController.selected.idMtar}" title="#{bundle.EditTabpreciotariTitle_idMtar}" required="true" requiredMessage="#{bundle.EditTabpreciotariRequiredMessage_idMtar}">
+                                <f:selectItems value="#{maetarifarioController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="#{bundle.EditTabpreciotariLabel_idMtaf}" for="idMtaf" />
+                            <h:selectOneMenu id="idMtaf" value="#{tabpreciotariController.selected.idMtaf}" title="#{bundle.EditTabpreciotariTitle_idMtaf}" required="true" requiredMessage="#{bundle.EditTabpreciotariRequiredMessage_idMtaf}">
+                                <f:selectItems value="#{maetarifasController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="#{bundle.EditTabpreciotariLabel_idTest}" for="idTest" />
+                            <h:selectOneMenu id="idTest" value="#{tabpreciotariController.selected.idTest}" title="#{bundle.EditTabpreciotariTitle_idTest}" required="true" requiredMessage="#{bundle.EditTabpreciotariRequiredMessage_idTest}">
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{tabpreciotariController.update}" value="#{bundle.EditTabpreciotariSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton action="#{tabpreciotariController.prepareList}" value="#{bundle.EditTabpreciotariShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.EditTabpreciotariIndexLink}" />
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

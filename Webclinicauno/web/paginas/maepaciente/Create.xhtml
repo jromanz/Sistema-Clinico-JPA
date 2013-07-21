@@ -67,6 +67,14 @@
                             <p:selectOneMenu id="idPcli" value="#{maepacienteController.selected.idPcli}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idPcli}">
                                 <f:selectItems value="#{maepolizaController.itemsAvailableSelectOne}"/>
                             </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idCtra}" for="idCtra" />
+                            <p:selectOneMenu id="idCtra" value="#{maepacienteController.selected.idCtra}" >
+                                <f:selectItems value="#{maecentrabajoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>                            
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idCatp}" for="idCatp" />
+                            <p:selectOneMenu id="idCatp" value="#{maepacienteController.selected.idCatp}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idCatp}">
+                                <f:selectItems value="#{tabcategpaciController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTest}" for="idTest" />
                             <p:selectOneMenu id="idTest" value="#{maepacienteController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTest}">
                                 <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
@@ -94,10 +102,6 @@
                                 <p:inputText id="nombretitPaci" value="#{maepacienteController.selected.nombretitPaci}" title="#{bundle.CreateMaepacienteTitle_nombretitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
                                     <p:watermark for="nombretitPaci" value="#{bundle.CreateMaepacienteTitle_nombretitPaci}" />  
                                 </p:inputText>
-                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idCtra}" for="idCtra" />
-                                <p:selectOneMenu id="idCtra" value="#{maepacienteController.selected.idCtra}" >
-                                    <f:selectItems value="#{maecentrabajoController.itemsAvailableSelectOne}"/>
-                                </p:selectOneMenu>
                                 <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTitu}" for="idTitu" />
                                 <p:selectOneMenu id="idTitu" value="#{maepacienteController.selected.idTitu}" >
                                     <f:selectItems value="#{maepacienteController.itemsAvailableSelectOne}"/>
@@ -105,10 +109,6 @@
                                 <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTpar}" for="idTpar" />
                                 <p:selectOneMenu id="idTpar" value="#{maepacienteController.selected.idTpar}"  required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTpar}">
                                     <f:selectItems value="#{tabparentescoController.itemsAvailableSelectOne}"/>
-                                </p:selectOneMenu>
-                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idCatp}" for="idCatp" />
-                                <p:selectOneMenu id="idCatp" value="#{maepacienteController.selected.idCatp}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idCatp}">
-                                    <f:selectItems value="#{tabcategpaciController.itemsAvailableSelectOne}"/>
                                 </p:selectOneMenu>
                             </p:panelGrid>
                         </p:outputPanel>
