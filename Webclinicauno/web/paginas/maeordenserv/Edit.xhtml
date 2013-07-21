@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.EditMaeordenservTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_idOrds}" for="idOrds" />
+                            <p:inputText id="idOrds" value="#{maeordenservController.selected.idOrds}" title="#{bundle.EditMaeordenservTitle_idOrds}" required="false" readonly="true"/>
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_fechaOrds}" for="fechaOrds" />
+                            <p:calendar id="fechaOrds" value="#{maeordenservController.selected.fechaOrds}" title="#{bundle.EditMaeordenservTitle_fechaOrds}" effect="slide" pattern="dd/MM/yyyy">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_coaseguroOrds}" for="coaseguroOrds" />
+                            <p:inputText id="coaseguroOrds" value="#{maeordenservController.selected.coaseguroOrds}" title="#{bundle.EditMaeordenservTitle_coaseguroOrds}" />
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_totalOrds}" for="totalOrds" />
+                            <p:inputText id="totalOrds" value="#{maeordenservController.selected.totalOrds}" title="#{bundle.EditMaeordenservTitle_totalOrds}" />
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_descuentoOrds}" for="descuentoOrds" />
+                            <p:inputText id="descuentoOrds" value="#{maeordenservController.selected.descuentoOrds}" title="#{bundle.EditMaeordenservTitle_descuentoOrds}" />
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_baseOrds}" for="baseOrds" />
+                            <p:inputText id="baseOrds" value="#{maeordenservController.selected.baseOrds}" title="#{bundle.EditMaeordenservTitle_baseOrds}" />
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_flgcargaconsumoOrds}" for="flgcargaconsumoOrds" />
+                            <p:inputText id="flgcargaconsumoOrds" value="#{maeordenservController.selected.flgcargaconsumoOrds}" title="#{bundle.EditMaeordenservTitle_flgcargaconsumoOrds}" />
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_flgcargahonorarioOrds}" for="flgcargahonorarioOrds" />
+                            <p:inputText id="flgcargahonorarioOrds" value="#{maeordenservController.selected.flgcargahonorarioOrds}" title="#{bundle.EditMaeordenservTitle_flgcargahonorarioOrds}" />
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_codigoOrda}" for="codigoOrda" />
+                            <p:inputText id="codigoOrda" value="#{maeordenservController.selected.codigoOrda}" title="#{bundle.EditMaeordenservTitle_codigoOrda}" />
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_idTest}" for="idTest" />
+                            <p:selectOneMenu id="idTest" value="#{maeordenservController.selected.idTest}" >
+                                <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_idServ}" for="idServ" />
+                            <p:selectOneMenu id="idServ" value="#{maeordenservController.selected.idServ}" required="true" requiredMessage="#{bundle.EditMaeordenservRequiredMessage_idServ}">
+                                <f:selectItems value="#{tabservicioController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.EditMaeordenservLabel_idOrda}" for="idOrda" />
+                            <p:selectOneMenu id="idOrda" value="#{maeordenservController.selected.idOrda}" required="true" requiredMessage="#{bundle.EditMaeordenservRequiredMessage_idOrda}">
+                                <f:selectItems value="#{maeordenservController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{maeordenservController.update}" value="#{bundle.EditMaeordenservSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton action="#{maeordenservController.prepareList}" value="#{bundle.EditMaeordenservShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.EditMaeordenservIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

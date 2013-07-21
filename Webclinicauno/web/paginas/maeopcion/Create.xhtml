@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"	
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.CreateMaeopcionTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <p:outputLabel value="#{bundle.CreateMaeopcionLabel_idOpci}" for="idOpci" />
+                            <p:inputText id="idOpci" value="#{maeopcionController.selected.idOpci}" title="#{bundle.CreateMaeopcionTitle_idOpci}" required="false" readonly="true"/>
+                            <p:outputLabel value="#{bundle.CreateMaeopcionLabel_nombreOpci}" for="nombreOpci" />
+                            <p:inputText id="nombreOpci" value="#{maeopcionController.selected.nombreOpci}" title="#{bundle.CreateMaeopcionTitle_nombreOpci}" />
+                            <p:outputLabel value="#{bundle.CreateMaeopcionLabel_op00Opci}" for="op00Opci" />
+                            <p:inputText id="op00Opci" value="#{maeopcionController.selected.op00Opci}" title="#{bundle.CreateMaeopcionTitle_op00Opci}" />
+                            <p:outputLabel value="#{bundle.CreateMaeopcionLabel_idProg}" for="idProg" />
+                            <p:selectOneMenu id="idProg" value="#{maeopcionController.selected.idProg}" required="true" requiredMessage="#{bundle.CreateMaeopcionRequiredMessage_idProg}">
+                                <f:selectItems value="#{maeprogramaController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{maeopcionController.create}" value="#{bundle.CreateMaeopcionSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton action="#{maeopcionController.prepareList}" value="#{bundle.CreateMaeopcionShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.CreateMaeopcionIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+
+</html>

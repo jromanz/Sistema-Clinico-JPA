@@ -3,80 +3,74 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ViewMaepacienteTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_idPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.idPaci}" title="#{bundle.ViewMaepacienteTitle_idPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_numeroPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.numeroPaci}" title="#{bundle.ViewMaepacienteTitle_numeroPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_nombrePaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.nombrePaci}" title="#{bundle.ViewMaepacienteTitle_nombrePaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_apepaternoPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.apepaternoPaci}" title="#{bundle.ViewMaepacienteTitle_apepaternoPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_apematernoPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.apematernoPaci}" title="#{bundle.ViewMaepacienteTitle_apematernoPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_fechaingPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.fechaingPaci}" title="#{bundle.ViewMaepacienteTitle_fechaingPaci}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:outputText>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_direccionPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.direccionPaci}" title="#{bundle.ViewMaepacienteTitle_direccionPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_numerotelPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.numerotelPaci}" title="#{bundle.ViewMaepacienteTitle_numerotelPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_correoelecPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.correoelecPaci}" title="#{bundle.ViewMaepacienteTitle_correoelecPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_sexoPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.sexoPaci}" title="#{bundle.ViewMaepacienteTitle_sexoPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_numerodocPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.numerodocPaci}" title="#{bundle.ViewMaepacienteTitle_numerodocPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_apppatertitPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.apppatertitPaci}" title="#{bundle.ViewMaepacienteTitle_apppatertitPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_appmatertitPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.appmatertitPaci}" title="#{bundle.ViewMaepacienteTitle_appmatertitPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_nombretitPaci}"/>
-                    <h:outputText value="#{maepacienteController.selected.nombretitPaci}" title="#{bundle.ViewMaepacienteTitle_nombretitPaci}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_idPcli}"/>
-                    <h:outputText value="#{maepacienteController.selected.idPcli}" title="#{bundle.ViewMaepacienteTitle_idPcli}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_idTest}"/>
-                    <h:outputText value="#{maepacienteController.selected.idTest}" title="#{bundle.ViewMaepacienteTitle_idTest}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_idCtra}"/>
-                    <h:outputText value="#{maepacienteController.selected.idCtra}" title="#{bundle.ViewMaepacienteTitle_idCtra}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_idTitu}"/>
-                    <h:outputText value="#{maepacienteController.selected.idTitu}" title="#{bundle.ViewMaepacienteTitle_idTitu}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_idTpar}"/>
-                    <h:outputText value="#{maepacienteController.selected.idTpar}" title="#{bundle.ViewMaepacienteTitle_idTpar}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_idCatp}"/>
-                    <h:outputText value="#{maepacienteController.selected.idCatp}" title="#{bundle.ViewMaepacienteTitle_idCatp}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_idTdoc}"/>
-                    <h:outputText value="#{maepacienteController.selected.idTdoc}" title="#{bundle.ViewMaepacienteTitle_idTdoc}"/>
-                    <h:outputText value="#{bundle.ViewMaepacienteLabel_idUbig}"/>
-                    <h:outputText value="#{maepacienteController.selected.idUbig}" title="#{bundle.ViewMaepacienteTitle_idUbig}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{maepacienteController.destroyAndView}" value="#{bundle.ViewMaepacienteDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewMaepacienteEditLink}"/>
-                <br />
-                <h:commandLink action="#{maepacienteController.prepareCreate}" value="#{bundle.ViewMaepacienteCreateLink}" />
-                <br />
-                <h:commandLink action="#{maepacienteController.prepareList}" value="#{bundle.ViewMaepacienteShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewMaepacienteIndexLink}"/>
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.ViewMaepacienteTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
 
-            </h:form>
-        </ui:define>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_idPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.idPaci}" title="#{bundle.ViewMaepacienteTitle_idPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_numeroPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.numeroPaci}" title="#{bundle.ViewMaepacienteTitle_numeroPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_nombrePaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.nombrePaci}" title="#{bundle.ViewMaepacienteTitle_nombrePaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_apepaternoPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.apepaternoPaci}" title="#{bundle.ViewMaepacienteTitle_apepaternoPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_apematernoPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.apematernoPaci}" title="#{bundle.ViewMaepacienteTitle_apematernoPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_fechaingPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.fechaingPaci}" title="#{bundle.ViewMaepacienteTitle_fechaingPaci}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_direccionPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.direccionPaci}" title="#{bundle.ViewMaepacienteTitle_direccionPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_numerotelPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.numerotelPaci}" title="#{bundle.ViewMaepacienteTitle_numerotelPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_correoelecPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.correoelecPaci}" title="#{bundle.ViewMaepacienteTitle_correoelecPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_sexoPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.sexoPaci}" title="#{bundle.ViewMaepacienteTitle_sexoPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_numerodocPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.numerodocPaci}" title="#{bundle.ViewMaepacienteTitle_numerodocPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_apppatertitPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.apppatertitPaci}" title="#{bundle.ViewMaepacienteTitle_apppatertitPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_appmatertitPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.appmatertitPaci}" title="#{bundle.ViewMaepacienteTitle_appmatertitPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_nombretitPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.nombretitPaci}" title="#{bundle.ViewMaepacienteTitle_nombretitPaci}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_idPcli}"/>
+                            <h:outputText value="#{maepacienteController.selected.idPcli}" title="#{bundle.ViewMaepacienteTitle_idPcli}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_idTest}"/>
+                            <h:outputText value="#{maepacienteController.selected.idTest}" title="#{bundle.ViewMaepacienteTitle_idTest}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_idCtra}"/>
+                            <h:outputText value="#{maepacienteController.selected.idCtra}" title="#{bundle.ViewMaepacienteTitle_idCtra}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_idTitu}"/>
+                            <h:outputText value="#{maepacienteController.selected.idTitu}" title="#{bundle.ViewMaepacienteTitle_idTitu}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_idTpar}"/>
+                            <h:outputText value="#{maepacienteController.selected.idTpar}" title="#{bundle.ViewMaepacienteTitle_idTpar}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_idCatp}"/>
+                            <h:outputText value="#{maepacienteController.selected.idCatp}" title="#{bundle.ViewMaepacienteTitle_idCatp}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_idTdoc}"/>
+                            <h:outputText value="#{maepacienteController.selected.idTdoc}" title="#{bundle.ViewMaepacienteTitle_idTdoc}"/>
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_idUbig}"/>
+                            <h:outputText value="#{maepacienteController.selected.idUbig}" title="#{bundle.ViewMaepacienteTitle_idUbig}"/>
+
+
+                        </h:panelGrid>
+                        <p:commandButton action="Edit" value="#{bundle.ViewMaepacienteEditLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maepacienteController.prepareList}" value="#{bundle.ViewMaepacienteShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.ViewMaepacienteIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>        
     </ui:composition>
 
 </html>

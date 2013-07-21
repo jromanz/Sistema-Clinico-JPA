@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.EditDetordenservTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />                 
+                        <h:panelGrid columns="2">
+                            <p:outputLabel value="#{bundle.EditDetordenservLabel_idDors}" for="idDors" />
+                            <p:inputText id="idDors" value="#{detordenservController.selected.idDors}" title="#{bundle.EditDetordenservTitle_idDors}"  required="false" readonly="true"/>
+                            <p:outputLabel value="#{bundle.EditDetordenservLabel_cantidadDors}" for="cantidadDors" />
+                            <p:inputText id="cantidadDors" value="#{detordenservController.selected.cantidadDors}" title="#{bundle.EditDetordenservTitle_cantidadDors}" />
+                            <p:outputLabel value="#{bundle.EditDetordenservLabel_preciobaseOrds}" for="preciobaseOrds" />
+                            <p:inputText id="preciobaseOrds" value="#{detordenservController.selected.preciobaseOrds}" title="#{bundle.EditDetordenservTitle_preciobaseOrds}" />
+                            <p:outputLabel value="#{bundle.EditDetordenservLabel_descuentoOrds}" for="descuentoOrds" />
+                            <p:inputText id="descuentoOrds" value="#{detordenservController.selected.descuentoOrds}" title="#{bundle.EditDetordenservTitle_descuentoOrds}" />
+                            <p:outputLabel value="#{bundle.EditDetordenservLabel_precioOrds}" for="precioOrds" />
+                            <p:inputText id="precioOrds" value="#{detordenservController.selected.precioOrds}" title="#{bundle.EditDetordenservTitle_precioOrds}" />
+                            <p:outputLabel value="#{bundle.EditDetordenservLabel_idOrds}" for="idOrds" />
+                            <p:selectOneMenu id="idOrds" value="#{detordenservController.selected.idOrds}" required="true" requiredMessage="#{bundle.EditDetordenservRequiredMessage_idOrds}">
+                                <f:selectItems value="#{maeordenservController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.EditDetordenservLabel_idMtar}" for="idMtar" />
+                            <p:selectOneMenu id="idMtar" value="#{detordenservController.selected.idMtar}" required="true" requiredMessage="#{bundle.EditDetordenservRequiredMessage_idMtar}">
+                                <f:selectItems value="#{maetarifarioController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>                        
+                        </h:panelGrid>
+                        <p:commandButton action="#{detordenservController.update}" value="#{bundle.EditDetordenservSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="5"/>
+                        <p:commandButton action="#{detordenservController.prepareList}" value="#{bundle.EditDetordenservShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.EditDetordenservIndexLink}" />
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+</html>

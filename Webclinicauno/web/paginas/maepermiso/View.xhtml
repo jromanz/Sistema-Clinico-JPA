@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/principalClinica.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form>
+                    <p:panel header="#{bundle.ViewMaepermisoTitle}" style="margin-bottom:100px;font-size:70%">
+                        <p:growl id="messagePanel" />  
+                        <h:panelGrid columns="2">
+
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_idPerm}"/>
+                            <h:outputText value="#{maepermisoController.selected.idPerm}" title="#{bundle.ViewMaepermisoTitle_idPerm}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_opc01}"/>
+                            <h:outputText value="#{maepermisoController.selected.opc01}" title="#{bundle.ViewMaepermisoTitle_opc01}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_opc02}"/>
+                            <h:outputText value="#{maepermisoController.selected.opc02}" title="#{bundle.ViewMaepermisoTitle_opc02}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_opc03}"/>
+                            <h:outputText value="#{maepermisoController.selected.opc03}" title="#{bundle.ViewMaepermisoTitle_opc03}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_opc04}"/>
+                            <h:outputText value="#{maepermisoController.selected.opc04}" title="#{bundle.ViewMaepermisoTitle_opc04}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_opc05}"/>
+                            <h:outputText value="#{maepermisoController.selected.opc05}" title="#{bundle.ViewMaepermisoTitle_opc05}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_opc06}"/>
+                            <h:outputText value="#{maepermisoController.selected.opc06}" title="#{bundle.ViewMaepermisoTitle_opc06}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_opc07}"/>
+                            <h:outputText value="#{maepermisoController.selected.opc07}" title="#{bundle.ViewMaepermisoTitle_opc07}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_opc08}"/>
+                            <h:outputText value="#{maepermisoController.selected.opc08}" title="#{bundle.ViewMaepermisoTitle_opc08}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_opc09}"/>
+                            <h:outputText value="#{maepermisoController.selected.opc09}" title="#{bundle.ViewMaepermisoTitle_opc09}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_opc10}"/>
+                            <h:outputText value="#{maepermisoController.selected.opc10}" title="#{bundle.ViewMaepermisoTitle_opc10}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_idTest}"/>
+                            <h:outputText value="#{maepermisoController.selected.idTest}" title="#{bundle.ViewMaepermisoTitle_idTest}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_idRole}"/>
+                            <h:outputText value="#{maepermisoController.selected.idRole}" title="#{bundle.ViewMaepermisoTitle_idRole}"/>
+                            <h:outputText value="#{bundle.ViewMaepermisoLabel_idProg}"/>
+                            <h:outputText value="#{maepermisoController.selected.idProg}" title="#{bundle.ViewMaepermisoTitle_idProg}"/>
+                        </h:panelGrid>
+                        <p:commandButton action="Edit" value="#{bundle.ViewMaepermisoEditLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
+                        <p:spacer width="2" height="2" />
+                        <p:commandButton action="#{maepermisoController.prepareList}" value="#{bundle.ViewMaepermisoShowAllLink}" icon="ui-icon-calculator" ajax="false" style="align:right;font-size:70%" immediate="true" />
+                    </p:panel>
+                    <h:link outcome="/index" value="#{bundle.ViewMaepermisoIndexLink}"/>
+                </h:form>
+            </f:view>
+        </ui:define>        
+    </ui:composition>
+
+</html>
