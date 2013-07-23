@@ -35,7 +35,7 @@
                                 <p:watermark for="apematernoPaci" value="#{bundle.CreateMaepacienteTitle_apematernoPaci}" />  
                             </p:inputText>
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_fechaingPaci}" for="fechaingPaci" />
-                            <p:calendar id="fechaingPaci" value="#{maepacienteController.selected.fechaingPaci}" title="#{bundle.CreateMaepacienteTitle_fechaingPaci}" effect="slide">
+                            <p:calendar id="fechaingPaci" value="#{maepacienteController.selected.fechaingPaci}" title="#{bundle.CreateMaepacienteTitle_fechaingPaci}" effect="slide"  pattern="dd/MM/yyyy" >
                                 <f:convertDateTime pattern="dd/MM/yyyy" />
                             </p:calendar>
 
@@ -79,7 +79,10 @@
                             <p:selectOneMenu id="idTest" value="#{maepacienteController.selected.idTest}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTest}">
                                 <f:selectItems value="#{tabestadoController.itemsAvailableSelectOne}"/>
                             </p:selectOneMenu>
-
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTpar}" for="idTpar" />
+                            <p:selectOneMenu id="idTpar" value="#{maepacienteController.selected.idTpar}"  required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTpar}">
+                                <f:selectItems value="#{tabparentescoController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTitu}" for="idTitular" />
                             <p:selectOneRadio id="idTitular" valueChangeListener="#{maepacienteController.change}" value="#{maepacienteController.isTitular}">
                                 <f:selectItem itemLabel="Si"  itemValue="#{true}"/>
@@ -106,10 +109,7 @@
                                 <p:selectOneMenu id="idTitu" value="#{maepacienteController.selected.idTitu}" >
                                     <f:selectItems value="#{maepacienteController.itemsAvailableSelectOne}"/>
                                 </p:selectOneMenu>
-                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTpar}" for="idTpar" />
-                                <p:selectOneMenu id="idTpar" value="#{maepacienteController.selected.idTpar}"  required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTpar}">
-                                    <f:selectItems value="#{tabparentescoController.itemsAvailableSelectOne}"/>
-                                </p:selectOneMenu>
+
                             </p:panelGrid>
                         </p:outputPanel>
 

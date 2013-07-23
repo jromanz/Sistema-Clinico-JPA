@@ -39,16 +39,8 @@
                         <f:facet name="header">  
                             <h:outputText value="#{bundle.ListMaepacienteTitle_nombrePaci}"/>
                         </f:facet>  
-                        <h:outputText value="#{item.nombrePaci}"/>
+                        <h:outputText value="#{item.apepaternoPaci} #{item.apematernoPaci}, #{item.nombrePaci}"/>
                     </p:column>  
-
-                    <p:column>  
-                        <f:facet name="header">  
-                            <h:outputText value="#{bundle.ListMaepacienteTitle_apepaternoPaci}"/>
-                        </f:facet>  
-                        <h:outputText value="#{item.apepaternoPaci}"/>
-                    </p:column>
-
                     <p:column>  
                         <f:facet name="header">  
                             <h:outputText value="#{bundle.ListMaepacienteTitle_direccionPaci}"/>
@@ -86,7 +78,7 @@
                         <p:commandButton value="#{bundle.ListMaepacienteEditLink}" action="#{maepacienteController.prepareEdit}" icon="ui-icon-extlink" ajax="false" style="align:right;font-size:70%" />
                     </p:column>                    
                     <f:facet name="footer">  
-                        <p:commandButton value="#{bundle.ListMaepacienteCreateLink}" action="#{maepacienteController.prepareCreate}" icon="ui-icon-plusthick" ajax="false" style="align:right"/>
+                        <p:commandButton value="#{bundle.ListMaepacienteCreateLink}" action="#{maepacienteController.prepareCreate}" icon="ui-icon-plusthick" ajax="false" style="align:right;font-size:70%" />
                     </f:facet> 
                 </p:dataTable>  
                 <h:link outcome="/index" value="#{bundle.ListMaepacienteIndexLink}"/>
