@@ -28,10 +28,13 @@ public class MaeusurioController implements Serializable {
     private pe.simsac.facade.MaeusurioFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-
+    
     public MaeusurioController() {
     }
-
+    
+    public MaeusurioController(String user, String password){
+    }
+    
     public Maeusurio getSelected() {
         if (current == null) {
             current = new Maeusurio();
@@ -39,6 +42,7 @@ public class MaeusurioController implements Serializable {
         }
         return current;
     }
+
 
     private MaeusurioFacade getFacade() {
         return ejbFacade;
@@ -231,4 +235,5 @@ public class MaeusurioController implements Serializable {
             }
         }
     }
+
 }

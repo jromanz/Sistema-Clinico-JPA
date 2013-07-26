@@ -10,7 +10,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 
-<title>Módulo de Clinico</title>
+<title>Módulo de Clinica</title>
 </h:head>
 <h:body>
 	<f:view>
@@ -32,16 +32,16 @@
 					<div class="centeredPanel">
 						<p:panel header="Sistema Clinico" style="text-align:left; width:250px;" >
 					        <h:panelGrid columns="2">
-					            <h:outputText value="Usuario: " />
-					            <p:inputText id="idUsuario" value="" required="true" size="10" />
-					
-					            <h:outputText value="Contraseña: " />
-					            <p:keyboard id="idPass" value="" password="true" required="true"/>	
-					            
+					            <p:outputLabel value="#{bundle.loginClinicaUser}" for="idUsuario" />
+                                                    <p:inputText id="idUsuario" value="#{maeusurioCredentials.user}" required="true" size="10" />
+                                                    <p:outputLabel value="#{bundle.loginClinicaPassword}" for="idPass"/>
+                                                    <p:keyboard id="idPass" value="#{maeusurioCredentials.password}" password="true" required="true"/>	
 					            <p:column />
 					            <p:column />					           		
 					        </h:panelGrid>
-					        <p:commandButton id="logearBtn" value="Iniciar Sesión" icon="ui-icon-circle-check" style="margin:0" action="page-menuNotario" />
+                                                    <p:commandButton id="logearBtn" value="#{bundle.loginClinicaIniciarSesion}" 
+                                                                     icon="ui-icon-circle-check" style="margin:0" 
+                                                                     action="#{loginController.validarUsuario}" />
 					        <p:column />
 					        <br/>
 	    				</p:panel>

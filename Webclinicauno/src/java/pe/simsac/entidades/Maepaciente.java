@@ -130,6 +130,7 @@ public class Maepaciente implements Serializable {
     @JoinColumn(name = "ID_UBIG", referencedColumnName = "ID_UBIG")
     @ManyToOne(optional = false)
     private Tabubigeo idUbig;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPaci")
     private Collection<Maeregistro> maeregistroCollection;
 

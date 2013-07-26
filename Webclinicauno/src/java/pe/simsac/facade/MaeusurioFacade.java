@@ -14,7 +14,8 @@ import pe.simsac.entidades.Maeusurio;
  * @author simsac
  */
 @Stateless
-public class MaeusurioFacade extends AbstractFacade<Maeusurio> {
+public class MaeusurioFacade extends AbstractFacade<Maeusurio>{
+
     @PersistenceContext(unitName = "sgClinicacsbPU")
     private EntityManager em;
 
@@ -26,5 +27,5 @@ public class MaeusurioFacade extends AbstractFacade<Maeusurio> {
     public MaeusurioFacade() {
         super(Maeusurio.class);
     }
-    
+
 }
