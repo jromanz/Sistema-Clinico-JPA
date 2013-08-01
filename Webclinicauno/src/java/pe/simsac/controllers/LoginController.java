@@ -26,7 +26,7 @@ public class LoginController implements Serializable {
         loginUsuario = maeusuriologinFacade.validarUsuario(
                 maeusurioCredentials.getUser(), maeusurioCredentials.getPassword());
         if (loginUsuario == null) {
-            return "index";
+            return "loginClinica";
         }
         return "principalClinica";
     }

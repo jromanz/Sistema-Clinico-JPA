@@ -53,12 +53,12 @@
                                 <f:selectItem itemLabel="Mujer" itemValue="0" />
                                 <f:selectItem itemLabel="Hombre" itemValue="1" />  
                             </p:selectOneRadio>
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_numerodocPaci}" for="numerodocPaci" />
-                            <p:inputText id="numerodocPaci" value="#{maepacienteController.selected.numerodocPaci}" title="#{bundle.CreateMaepacienteTitle_numerodocPaci}" />
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTdoc}" for="idTdoc" />
                             <p:selectOneMenu id="idTdoc" value="#{maepacienteController.selected.idTdoc}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTdoc}">
                                 <f:selectItems value="#{tabtipodocumentoController.itemsAvailableSelectOne}"/>
                             </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_numerodocPaci}" for="numerodocPaci" />
+                            <p:inputText id="numerodocPaci" value="#{maepacienteController.selected.numerodocPaci}" title="#{bundle.CreateMaepacienteTitle_numerodocPaci}" />
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idUbig}" for="idUbig" />
                             <p:selectOneMenu id="idUbig" value="#{maepacienteController.selected.idUbig}" required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idUbig}"
                                              panelStyle="width:70px" style="width:250px" filter="true"  >
@@ -94,23 +94,13 @@
 
                         <p:outputPanel id="gridContainer" layout="block">
                             <p:panelGrid id="panelTitular" columns="2" rendered="#{maepacienteController.isTitular != 'true'}">
-                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_apppatertitPaci}" for="apppatertitPaci" />
-                                <p:inputText id="apppatertitPaci" value="#{maepacienteController.selected.apppatertitPaci}" title="#{bundle.CreateMaepacienteTitle_apppatertitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
-                                    <p:watermark for="apppatertitPaci" value="#{bundle.CreateMaepacienteTitle_apppatertitPaci}" />  
-                                </p:inputText>
-                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_appmatertitPaci}" for="appmatertitPaci" />
-                                <p:inputText id="appmatertitPaci" value="#{maepacienteController.selected.appmatertitPaci}" title="#{bundle.CreateMaepacienteTitle_appmatertitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
-                                    <p:watermark for="appmatertitPaci" value="#{bundle.CreateMaepacienteTitle_appmatertitPaci}" />  
-                                </p:inputText>
-                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_nombretitPaci}" for="nombretitPaci" />
-                                <p:inputText id="nombretitPaci" value="#{maepacienteController.selected.nombretitPaci}" title="#{bundle.CreateMaepacienteTitle_nombretitPaci}"  style="text-transform: uppercase; width: 350px" maxlength="45">
-                                    <p:watermark for="nombretitPaci" value="#{bundle.CreateMaepacienteTitle_nombretitPaci}" />  
-                                </p:inputText>
+
                                 <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTitu}" for="idTitu" />
-                                <p:selectOneMenu id="idTitu" value="#{maepacienteController.selected.idTitu}" >
+                                <p:selectOneMenu id="idTitu" value="#{maepacienteController.selected.idTitu}" 
+                                                 panelStyle="width:70px" style="width:250px" filter="true"  >
                                     <f:selectItems value="#{maepacienteController.itemsAvailableSelectOne}"/>
                                 </p:selectOneMenu>
-
+                                
                             </p:panelGrid>
                         </p:outputPanel>
 

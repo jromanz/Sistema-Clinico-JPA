@@ -26,23 +26,21 @@ public class MaepacienteController implements Serializable {
 
     private Maepaciente current;
     private Tabparentesco tabParentesco;
-    
     private DataModel items = null;
     @EJB
     private pe.simsac.facade.MaepacienteFacade ejbFacade;
     @EJB
     private pe.simsac.facade.TabparentescoFacade tabParentescoFacade;
-    
     private PaginationHelper pagination;
     private int selectedItemIndex;
     private boolean isTitular;
-    
-    public void change(ValueChangeEvent event){
-        System.out.println(event.getNewValue().toString()+":"+this.isIsTitular());
+
+    public void change(ValueChangeEvent event) {
+        System.out.println(event.getNewValue().toString() + ":" + this.isIsTitular());
     }
-    
+
     public MaepacienteController() {
-        this.isTitular=true;
+        this.isTitular = true;
     }
 
     public Maepaciente getSelected() {
@@ -93,6 +91,10 @@ public class MaepacienteController implements Serializable {
 
     public String create() {
         try {
+            current.setApematernoPaci(current.getApematernoPaci().toUpperCase());
+            current.setApepaternoPaci(current.getApepaternoPaci().toUpperCase());
+            current.setNombrePaci(current.getNombrePaci().toUpperCase());
+            current.setDireccionPaci(current.getDireccionPaci().toUpperCase());
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MaepacienteCreated"));
             return prepareCreate();
@@ -111,6 +113,10 @@ public class MaepacienteController implements Serializable {
 
     public String update() {
         try {
+            current.setApematernoPaci(current.getApematernoPaci().toUpperCase());
+            current.setApepaternoPaci(current.getApepaternoPaci().toUpperCase());
+            current.setNombrePaci(current.getNombrePaci().toUpperCase());
+            current.setDireccionPaci(current.getDireccionPaci().toUpperCase());
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MaepacienteUpdated"));
             return "View";
@@ -251,6 +257,4 @@ public class MaepacienteController implements Serializable {
     public void setIsTitular(boolean isTitular) {
         this.isTitular = isTitular;
     }
-    
-    
 }
