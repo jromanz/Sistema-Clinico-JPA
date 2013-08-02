@@ -10,7 +10,7 @@
         <ui:define name="content">
             <f:view>
                 <h:form>
-                    <p:panel header="#{bundle.CreateMaepacienteTitle}" style="margin-bottom:100px;font-size:70%">
+                    <p:panel header="#{bundle.ViewMaepacienteTitle}" style="margin-bottom:100px;font-size:70%">
                         <p:growl id="messagePanel" />  
                         <h:panelGrid columns="2">
 
@@ -63,6 +63,16 @@
 
                             <h:outputText value="#{bundle.CreateMaepacienteLabel_idTitu}"/>
                             <h:outputText value="#{maepacienteController.selected.idTitu.apepaternoPaci} #{maepacienteController.selected.idTitu.apematernoPaci}, #{maepacienteController.selected.idTitu.nombrePaci}" title="#{bundle.CreateMaepacienteTitle_idTitu}"/>
+
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_apppatertitPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.apppatertitPaci}" title="#{bundle.ViewMaepacienteTitle_apppatertitPaci}"/>
+
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_appmatertitPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.appmatertitPaci}" title="#{bundle.ViewMaepacienteTitle_appmatertitPaci}"/>
+
+                            <h:outputText value="#{bundle.ViewMaepacienteLabel_nombretitPaci}"/>
+                            <h:outputText value="#{maepacienteController.selected.nombretitPaci}" title="#{bundle.ViewMaepacienteTitle_nombretitPaci}"/>
+
                         </h:panelGrid>
                         <p:commandButton action="Edit" value="#{bundle.ViewMaepacienteEditLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />
                         <p:spacer width="2" height="2" />

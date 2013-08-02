@@ -95,9 +95,15 @@ public class MaepacienteController implements Serializable {
             current.setApepaternoPaci(current.getApepaternoPaci().toUpperCase());
             current.setNombrePaci(current.getNombrePaci().toUpperCase());
             current.setDireccionPaci(current.getDireccionPaci().toUpperCase());
+
+            
+            //current.setAppmatertitPaci(current.getAppmatertitPaci().toUpperCase());
+            //current.setApppatertitPaci(current.getApppatertitPaci().toUpperCase());
+            //current.setNombretitPaci(current.getNombretitPaci().toUpperCase());
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MaepacienteCreated"));
-            return prepareCreate();
+            recreateModel();
+            return "List";
         } catch (Exception e) {
             System.out.println(e.getMessage());
             //JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -117,6 +123,10 @@ public class MaepacienteController implements Serializable {
             current.setApepaternoPaci(current.getApepaternoPaci().toUpperCase());
             current.setNombrePaci(current.getNombrePaci().toUpperCase());
             current.setDireccionPaci(current.getDireccionPaci().toUpperCase());
+            current.setAppmatertitPaci(current.getAppmatertitPaci().toUpperCase());
+            current.setApppatertitPaci(current.getApppatertitPaci().toUpperCase());
+            current.setNombretitPaci(current.getNombretitPaci().toUpperCase());
+            
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MaepacienteUpdated"));
             return "View";

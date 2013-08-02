@@ -83,25 +83,31 @@
                             <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTpar}" for="idTpar" />
                             <p:selectOneMenu id="idTpar" value="#{maepacienteController.selected.idTpar}"  required="true" requiredMessage="#{bundle.CreateMaepacienteRequiredMessage_idTpar}">
                                 <f:selectItems value="#{tabparentescoController.itemsAvailableSelectOne}"/>
-                            </p:selectOneMenu>
-                            <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTitu}" for="idTitular" />
-                            <p:selectOneRadio id="idTitular" valueChangeListener="#{maepacienteController.change}" value="#{maepacienteController.isTitular}">
-                                <f:selectItem itemLabel="Si"  itemValue="#{true}"/>
-                                <f:selectItem itemLabel="No" itemValue="#{false}"/>
                                 <p:ajax update="gridContainer :myForm:panelTitular"></p:ajax>
-                            </p:selectOneRadio>
+                            </p:selectOneMenu>
                         </h:panelGrid>
 
                         <p:outputPanel id="gridContainer" layout="block">
-                            <p:panelGrid id="panelTitular" columns="2" rendered="#{maepacienteController.isTitular != 'true'}">
+                            <p:fieldset legend="Datos del Titular" >  
+                                <p:panelGrid id="panelTitular" columns="2" rendered="#{!maepacienteController.selected.idTpar.nombreTpar.equals('TITULAR')}">
 
-                                <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTitu}" for="idTitu" />
-                                <p:selectOneMenu id="idTitu" value="#{maepacienteController.selected.idTitu}" 
-                                                 panelStyle="width:70px" style="width:250px" filter="true"  >
-                                    <f:selectItems value="#{maepacienteController.itemsAvailableSelectOne}"/>
-                                </p:selectOneMenu>
-                                
-                            </p:panelGrid>
+                                    <p:outputLabel value="#{bundle.CreateMaepacienteLabel_idTitu}" for="idTitu" />
+                                    <p:selectOneMenu id="idTitu" value="#{maepacienteController.selected.idTitu}" 
+                                                     panelStyle="width:70px" style="width:250px" filter="true"  >
+                                        <f:selectItems value="#{maepacienteController.itemsAvailableSelectOne}"/>
+                                    </p:selectOneMenu>
+
+                                    <p:outputLabel value="#{bundle.CreateMaepacienteLabel_nombretitPaci}" for="nombretitPaci" />
+                                    <p:inputText id="nombretitPaci" value="#{maepacienteController.selected.nombretitPaci}" title="#{bundle.CreateMaepacienteTitle_nombretitPaci}" />
+
+                                    <p:outputLabel value="#{bundle.CreateMaepacienteLabel_apppatertitPaci}" for="apppatertitPaci" />
+                                    <p:inputText id="apppatertitPaci" value="#{maepacienteController.selected.apppatertitPaci}" title="#{bundle.CreateMaepacienteTitle_apppatertitPaci}" />
+
+                                    <p:outputLabel value="#{bundle.CreateMaepacienteLabel_appmatertitPaci}" for="appmatertitPaci" />
+                                    <p:inputText id="appmatertitPaci" value="#{maepacienteController.selected.appmatertitPaci}" title="#{bundle.CreateMaepacienteTitle_appmatertitPaci}" />
+
+                                </p:panelGrid>
+                            </p:fieldset>
                         </p:outputPanel>
 
                         <p:commandButton action="#{maepacienteController.update}" value="#{bundle.EditMaepacienteSaveLink}" icon="ui-icon-disk" ajax="false" style="align:right;font-size:70%" />

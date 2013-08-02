@@ -21,21 +21,21 @@
                         #{bundle.ListMaepacienteTitle}
                     </f:facet>  
 
-                    <p:column>  
+                    <p:column sortBy="#{item.idPaci}" >  
                         <f:facet name="header">  
                             <h:outputText value="#{bundle.ListMaepacienteTitle_idPaci}"/>
                         </f:facet>  
                         <h:outputText value="#{item.idPaci}" />  
                     </p:column>  
 
-                    <p:column>  
+                    <p:column filterBy="#{item.numeroPaci}">  
                         <f:facet name="header">  
                             <h:outputText value="#{bundle.ListMaepacienteTitle_numeroPaci}"/>
                         </f:facet>  
                         <h:outputText value="#{item.numeroPaci}" />  
                     </p:column>  
 
-                    <p:column>  
+                    <p:column filterBy="#{item.apepaternoPaci}" >  
                         <f:facet name="header">  
                             <h:outputText value="#{bundle.ListMaepacienteTitle_nombrePaci}"/>
                         </f:facet>  
